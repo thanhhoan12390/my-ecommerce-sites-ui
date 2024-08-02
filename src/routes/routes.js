@@ -7,12 +7,14 @@ import DefaultLayout from '~/layouts/DefaultLayout';
 import Home from '~/pages/Home';
 import CartPage from '~/pages/CartPage';
 import TodayDeal from '~/pages/TodayDeal';
+import UserInfo from '~/pages/UserInfo';
 
 // Public Routes
 const publicRoutes = [
     { path: config.routes.home, component: Home, layout: DefaultLayout },
     { path: config.routes.cartPage, component: CartPage, layout: DefaultLayout },
     { path: config.routes.todayDeal, component: TodayDeal, layout: DefaultLayout },
+    { path: config.routes.userInfo, component: UserInfo, layout: DefaultLayout },
 ];
 
 // Private Routes
