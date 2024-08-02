@@ -59,3 +59,15 @@ body {
     src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
     font-weight: 700;
 }
+
+// Loại bỏ CSS mặc định của thẻ button, input, a
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}

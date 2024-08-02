@@ -1,7 +1,3 @@
-.wrapper {
-    padding: 0 10px;
-}
-
 .banner {
     width: 100%;
     max-width: 1500px;
@@ -10,8 +6,13 @@
     background-color: rgb(128, 210, 210);
 }
 
+.container {
+    padding: 0 12px !important; // Fix để không bị tăng width, chưa biết lí do
+}
+
 .content {
-    margin: -350px 9.6px 0 9.6px;
+    margin-top: -350px;
+    padding: 0 20px;
 }
 
 .item {

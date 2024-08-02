@@ -1,0 +1,105 @@
+.wrapper {
+    --search-text-color: #6f7373;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 10px 4px 10px 3px;
+    margin: 0 10px;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    height: 40px;
+
+    &:has(input:focus-within) {
+        outline: rgba(228, 121, 121, 0.5) auto 1px;
+    }
+}
+
+.search-select {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 6px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #cdcdcd;
+    background-color: #e6e6e6;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #d4d4d4;
+    }
+
+    &:focus-within {
+        outline: rgba(228, 121, 121, 0.5) auto 1px;
+    }
+
+    span {
+        width: auto;
+        display: block;
+        position: relative;
+        color: var(--search-text-color);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 3.3rem;
+        margin-right: 12px;
+        margin-left: 8px;
+        padding-right: 16px;
+        min-width: 19px;
+    }
+
+    .search-select-icon {
+        position: absolute;
+        top: 14px;
+        right: 0px;
+        border-style: solid;
+        border-width: 4px;
+        border-color: transparent;
+        border-top: 5px solid #666;
+        border-bottom-width: 0;
+        width: 0;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+    }
+}
+
+.search-fill {
+    flex: 1;
+    display: flex;
+    height: 100%;
+
+    input {
+        width: 100%;
+        height: 100%;
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+        padding: 7px 10px 10px 7px;
+        margin: 0;
+        color: #111;
+    }
+}
+
+.search-btn {
+    height: 100%;
+    width: 45px;
+    line-height: 100%;
+    padding: 0 12px;
+    border-radius: 0 4px 4px 0;
+    background-color: #febd69;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f3a847;
+    }
+
+    &:focus-within {
+        outline: rgba(228, 121, 121, 0.5) auto 1px;
+    }
+}
