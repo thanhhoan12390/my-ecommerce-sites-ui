@@ -1,0 +1,104 @@
+.account-menu {
+    width: 500px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        right: 100px;
+        top: -24px;
+        border-width: 16px 16px;
+        border-style: solid;
+        border-color: transparent transparent var(--white) transparent;
+        cursor: pointer;
+    }
+}
+// Account Header
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    background-color: rgb(231, 244, 245);
+}
+.avatar-group {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.name-group {
+    margin-left: 8px;
+
+    span {
+        display: block;
+        color: var(--black);
+
+        &:first-child {
+            font-size: 1.5rem;
+            font-weight: 600;
+            max-width: 230px;
+        }
+
+        &:last-child {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgb(111, 115, 115);
+        }
+    }
+}
+.manage-profiles {
+    font-size: 1.5rem;
+    color: rgb(0, 113, 133);
+    cursor: pointer;
+
+    &:hover {
+        color: #f90;
+        text-decoration: underline;
+    }
+}
+
+.manage-profiles-icon {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+// Account-Lists
+.account-lists {
+    display: flex;
+}
+.your-list {
+    width: 210px;
+    margin-right: 20px;
+}
+.your-list-header,
+.your-account-header {
+    color: #9fa8a9;
+}
+.your-list-lists,
+.your-account-lists {
+    list-style: none;
+}
+.your-list-item,
+.your-account-item {
+    color: #444444;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    &:hover {
+        color: #f90;
+        text-decoration: underline;
+    }
+}
+
+.your-account {
+    padding-left: 20px;
+    border-left: 0.8px solid #eee;
+}

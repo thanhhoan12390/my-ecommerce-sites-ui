@@ -31,7 +31,10 @@
     padding: 0 7px 0 5px;
 }
 
-.nav-deliver-to {
+.nav-deliver-to,
+.nav-language,
+.nav-lists-account,
+.nav-orders {
     display: flex;
     align-items: center;
     height: var(--nav-item-height);
@@ -46,7 +49,9 @@
     font-size: 1.8rem;
 }
 
-.nav-text {
+.nav-text,
+.nav-lists-account-text,
+.nav-orders-text {
     margin-left: 4px;
 
     span {
@@ -59,7 +64,7 @@
             height: 14px;
             font-weight: 400;
         }
-        &:last-child {
+        &:nth-child(2) {
             padding-bottom: 1px;
             font-size: 1.4rem;
             line-height: 1.5rem;
@@ -69,17 +74,108 @@
 }
 
 // Nav Right
-// .nav-right {
-// }
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
 
-.nav-main {
+.nav-language-icon {
+    color: var(--white);
+    font-size: 1.8rem;
+}
+
+.nav-language-text {
+    margin-left: 4px;
+    position: relative;
+
+    span {
+        display: block;
+        color: var(--white);
+        margin-right: 10px;
+        padding-bottom: 1px;
+        font-size: 1.4rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+    }
+}
+.nav-language-down-icon {
+    position: absolute;
+    top: 7px;
+    right: 0px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: transparent;
+    border-top: 5px solid #a7acb2;
+    border-bottom-width: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.nav-lists-account-icon {
+    display: inline-block;
+    padding: 0 0 1px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: transparent;
+    border-top: 5px solid #a7acb2;
+    border-bottom-width: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.nav-cart {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: var(--nav-item-height);
+    padding: 0 8px 0 6px;
+    margin: 5px 2px 5px 5px;
+    cursor: pointer;
+}
+
+.nav-cart-group {
+    color: var(--white);
+}
+
+.nav-cart-icon {
+    position: relative;
+    top: 0px;
     height: 40px;
-    background-color: rgb(216, 120, 216);
+    width: 40px;
+}
+
+.nav-cart-count {
+    position: absolute;
+    top: 7px;
+    left: 22px;
+    color: #f08804;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.nav-cart-text {
+    display: block;
+    margin: 0 0 10px 0px;
+    color: var(--white);
+    margin-right: 10px;
+    padding-bottom: 1px;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    font-weight: 700;
 }
 
 // NAV Hover
 .nav-logo-link,
-.nav-deliver-to {
+.nav-deliver-to,
+.nav-language,
+.nav-lists-account,
+.nav-orders,
+.nav-cart {
     &:hover {
         border-radius: 2px;
         border: 1.5px solid var(--white);

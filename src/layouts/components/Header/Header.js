@@ -1,12 +1,13 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faLanguage, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import { Logo } from '~/components/Icons';
 import config from '~/config';
 import NavFill from './NavFill';
+import AccountMenu from '~/components/AccountMenu';
 
 const cx = classNames.bind(styles);
 
@@ -32,7 +33,41 @@ function Header() {
                 <NavFill />
 
                 {/* Nav Right */}
-                <div className={cx('nav-right')}></div>
+                <div className={cx('nav-right')}>
+                    <div className={cx('nav-language')}>
+                        <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
+                        <div className={cx('nav-language-text')}>
+                            <span>EN</span>
+                            <i className={cx('nav-language-down-icon')} />
+                        </div>
+                    </div>
+
+                    <AccountMenu>
+                        <div className={cx('nav-lists-account')}>
+                            <div className={cx('nav-lists-account-text')}>
+                                <span>Hello, Hoan</span>
+                                <span>
+                                    Account & Lists <i className={cx('nav-lists-account-icon')} />
+                                </span>
+                            </div>
+                        </div>
+                    </AccountMenu>
+
+                    <div className={cx('nav-orders')}>
+                        <div className={cx('nav-orders-text')}>
+                            <span>Returns</span>
+                            <span>& Orders</span>
+                        </div>
+                    </div>
+
+                    <div className={cx('nav-cart')}>
+                        <div className={cx('nav-cart-group')}>
+                            <FontAwesomeIcon icon={faCartShopping} className={cx('nav-cart-icon')} />
+                            <span className={cx('nav-cart-count')}>0</span>
+                        </div>
+                        <span className={cx('nav-cart-text')}>Cart</span>
+                    </div>
+                </div>
             </div>
 
             {/* Nav Main */}

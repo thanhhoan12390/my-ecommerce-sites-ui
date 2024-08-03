@@ -14,14 +14,13 @@
     height: 40px;
 
     &:has(input:focus-within) {
-        outline: rgba(228, 121, 121, 0.5) auto 1px;
+        outline: rgb(245 147 0) solid 3px;
+        border-radius: 4px;
     }
 }
 
 // Select fill
 .search-select {
-    display: flex;
-    align-items: center;
     height: 100%;
     padding-left: 6px;
     border-radius: 4px 0 0 4px;
@@ -34,7 +33,7 @@
     }
 
     &:focus-within {
-        outline: rgba(228, 121, 121, 0.5) auto 1px;
+        outline: rgb(245 147 0) solid 3px;
     }
 
     span {
@@ -125,7 +124,7 @@
     }
 
     &:focus-within {
-        outline: rgba(228, 121, 121, 0.5) auto 1px;
+        outline: rgb(245 147 0) solid 3px;
     }
 }
 
