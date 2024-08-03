@@ -1,3 +1,8 @@
+.wrapper {
+    position: relative;
+    min-height: 670px;
+}
+
 .banner {
     width: 100%;
     max-width: 1500px;
@@ -7,11 +12,13 @@
 }
 
 .container {
-    padding: 0 12px !important; // Fix để không bị tăng width, chưa biết lí do
+    position: absolute;
+    top: 250px;
+    padding: 0 12px;
+    overflow: hidden;
 }
 
 .content {
-    margin-top: -350px;
     padding: 0 20px;
 }
 
