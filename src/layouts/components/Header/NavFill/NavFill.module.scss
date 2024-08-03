@@ -16,6 +16,10 @@
     &:has(input:focus-within) {
         outline: rgb(245 147 0) solid 3px;
         border-radius: 4px;
+
+        .nav-overlay {
+            display: block;
+        }
     }
 }
 

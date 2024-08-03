@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react/headless'; // headless Tippy
 import styles from './NavFill.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import MenuWrapper from '~/components/MenuWrapper';
+import OverLay from '~/components/OverLay';
 
 const cx = classNames.bind(styles);
 
@@ -75,6 +76,9 @@ function NavFill() {
                         </button>
                     </div>
                 </Tippy>
+
+                {/* Tạo lớp overlay */}
+                <OverLay className={cx('nav-overlay')} />
             </div>
         </div>
     );

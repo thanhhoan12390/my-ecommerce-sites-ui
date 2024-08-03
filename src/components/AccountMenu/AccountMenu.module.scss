@@ -2,6 +2,8 @@
     width: 500px;
     position: relative;
 
+    z-index: 999999; // z-index 6 số
+
     &::before {
         content: '';
         position: absolute;

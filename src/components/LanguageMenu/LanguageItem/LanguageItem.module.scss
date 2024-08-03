@@ -1,0 +1,51 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    padding-bottom: 7px;
+    line-height: 2.2rem;
+    cursor: pointer;
+
+    span {
+        display: block;
+        width: 100%;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-color);
+
+        &:hover {
+            color: #f90;
+            text-decoration: underline;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: rgb(245 147 0);
+
+        display: none;
+    }
+
+    &:hover {
+        &::after {
+            display: block;
+        }
+    }
+}
+
+.language-radio-icon {
+    font-size: 1.7rem;
+    color: #bbb;
+    margin-right: 6.5px;
+}
+
+.checked {
+    &::after {
+        display: block;
+    }
+}

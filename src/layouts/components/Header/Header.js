@@ -8,6 +8,7 @@ import { Logo } from '~/components/Icons';
 import config from '~/config';
 import NavFill from './NavFill';
 import AccountMenu from '~/components/AccountMenu';
+import LanguageMenu from '~/components/LanguageMenu';
 
 const cx = classNames.bind(styles);
 
@@ -34,13 +35,15 @@ function Header() {
 
                 {/* Nav Right */}
                 <div className={cx('nav-right')}>
-                    <div className={cx('nav-language')}>
-                        <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
-                        <div className={cx('nav-language-text')}>
-                            <span>EN</span>
-                            <i className={cx('nav-language-down-icon')} />
+                    <LanguageMenu>
+                        <div className={cx('nav-language')}>
+                            <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
+                            <div className={cx('nav-language-text')}>
+                                <span>EN</span>
+                                <i className={cx('nav-language-down-icon')} />
+                            </div>
                         </div>
-                    </div>
+                    </LanguageMenu>
 
                     <AccountMenu>
                         <div className={cx('nav-lists-account')}>

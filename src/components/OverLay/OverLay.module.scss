@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    animation: fadein linear 0.12s;
+    display: none;
+
+    z-index: 999; // z-index 3 số
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,4 +1,4 @@
-export const ListsAccountMenuData = {
+export const listsAccountMenuData = {
     ListsData: [
         {
             to: '',
@@ -72,3 +72,38 @@ export const ListsAccountMenuData = {
         },
     ],
 };
+
+export const languageData = [
+    {
+        checked: false,
+        content: 'español - ES',
+    },
+    {
+        checked: false,
+        content: 'العربية - AR',
+    },
+    {
+        checked: false,
+        content: 'Deutsch - DE',
+    },
+    {
+        checked: false,
+        content: 'עברית - HE',
+    },
+    {
+        checked: false,
+        content: '한국어 - KO',
+    },
+    {
+        checked: false,
+        content: 'português - PT',
+    },
+    {
+        checked: false,
+        content: '中文 (简体) - ZH',
+    },
+    {
+        checked: false,
+        content: '中文 (繁體) - ZH',
+    },
+];
