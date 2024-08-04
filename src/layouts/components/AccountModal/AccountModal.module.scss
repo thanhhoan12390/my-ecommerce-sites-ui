@@ -1,0 +1,131 @@
+.wrapper {
+    --modal-header-height: 50px;
+    background: #fff;
+    z-index: 999999; // z-index 6 số
+
+    position: fixed;
+    top: var(--modal-header-height);
+    bottom: 0;
+    width: 365px;
+    overflow-y: auto;
+}
+
+// Modal header
+.modal-header {
+    height: var(--modal-header-height);
+    display: flex;
+    align-items: center;
+    background: #232f3e;
+
+    position: fixed;
+    top: 0;
+    width: 365px;
+}
+
+.modal-header-avatar {
+    margin: 0 10px 0 36px;
+    height: 27px;
+}
+.modal-header-text {
+    color: var(--white);
+    white-space: nowrap;
+    font-size: 19px;
+    max-width: 90%;
+    line-height: 25px;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Modal content
+.modal-content {
+    padding: 7px 0 30px 0;
+}
+
+.content-item-title,
+.help-settings-heading {
+    padding: 13px 20px 5px 36px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    color: #111;
+}
+.content-item-group {
+    list-style: none;
+
+    li {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        line-height: 16px;
+        padding-bottom: 2px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #eaeded;
+
+            .content-subchild-icon {
+                color: #0f1111;
+            }
+        }
+    }
+}
+.content-subchild-text,
+.content-item-link,
+.help-settings-text {
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 16px;
+    font-weight: 600;
+    color: #111;
+    padding: 13px 20px 13px 36px;
+}
+
+.content-subchild-icon {
+    font-size: 1.4rem;
+    color: #8a9798;
+    position: absolute;
+    right: 20px;
+}
+.help-settings-group {
+    li {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #eaeded;
+        }
+    }
+}
+.help-settings-icon {
+    font-size: 1.4rem;
+    margin-left: 36px;
+    color: #d3d5d8;
+}
+
+.help-settings-globe-text {
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 16px;
+    font-weight: 600;
+    color: #111;
+    padding: 13px 20px 13px 12px;
+}
+.help-settings-flag {
+    margin-left: 36px;
+    height: 12px;
+}
+.help-settings-flag-text {
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 16px;
+    font-weight: 600;
+    color: #111;
+    padding: 13px 20px 13px 2px;
+}

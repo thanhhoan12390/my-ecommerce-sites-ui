@@ -5,6 +5,7 @@
     width: 100%;
 }
 
+//Nav with logo
 .nav-belt {
     height: 60px;
     display: flex;
@@ -16,7 +17,7 @@
 .nav-left {
     display: flex;
     align-items: center;
-    margin-left: 16px;
+    margin-left: 10px;
 }
 
 .nav-logo-link {
@@ -77,7 +78,7 @@
 .nav-right {
     display: flex;
     align-items: center;
-    margin-right: 16px;
+    margin-right: 10px;
 }
 
 .nav-language-icon {
@@ -174,9 +175,45 @@
 .nav-language,
 .nav-lists-account,
 .nav-orders,
-.nav-cart {
+.nav-cart,
+.nav-main-item {
     &:hover {
         border-radius: 2px;
         border: 1.5px solid var(--white);
     }
+}
+
+// Nav main
+
+.nav-main {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #232f3e;
+    div:first-child {
+        margin-left: 10px;
+    }
+}
+
+.nav-main-item {
+    display: flex;
+    align-items: center;
+    height: calc(var(--nav-item-height) - 10px);
+    padding: 0 8px 0 6px;
+    cursor: pointer;
+}
+
+.nav-main-all-icon {
+    color: var(--white);
+}
+.nav-main-all-text {
+    margin-left: 4px;
+    color: var(--white);
+    font-size: 1.4rem;
+}
+
+.nav-main-link {
+    margin-left: 4px;
+    color: var(--white);
+    font-size: 1.4rem;
 }

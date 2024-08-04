@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faLanguage, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faLanguage, faList, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -11,6 +11,7 @@ import NavFill from './NavFill';
 import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
+import AccountModal from '../AccountModal/AccountModal';
 
 const cx = classNames.bind(styles);
 
@@ -81,7 +82,50 @@ function Header() {
             </div>
 
             {/* Nav Main */}
-            <div className={cx('nav-main')}></div>
+            <div className={cx('nav-main')}>
+                <div className={cx('nav-main-item')}>
+                    <FontAwesomeIcon icon={faList} className={cx('nav-main-all-icon')} />
+                    <span className={cx('nav-main-all-text')}>All</span>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Today's Deals
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Buy Again
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Gift Cards
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Registry
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Hoan's Amazon.com
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Customer Service
+                    </Link>
+                </div>
+                <div className={cx('nav-main-item')}>
+                    <Link to="/" className={cx('nav-main-link')}>
+                        Browsing History
+                    </Link>
+                </div>
+            </div>
+
+            {/* Account Modal */}
+            <AccountModal></AccountModal>
         </header>
     );
 }

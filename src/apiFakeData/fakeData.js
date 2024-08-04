@@ -206,3 +206,453 @@ export const NationsZipCode = [
         content: 'Japan',
     },
 ];
+
+export const AccountModalData = [
+    {
+        title: 'Digital Content & Devices',
+        to: '',
+        children: [
+            {
+                title: 'Amazon Music',
+                to: '',
+                children: [
+                    {
+                        title: 'Amazon Music Unlimited',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Free Streaming Music',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Podcasts',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Open Web Player',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Download the app',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Kindle E-readers & Books',
+                to: '',
+                children: [
+                    {
+                        title: 'Kindle E-readers',
+                        to: '',
+                        children: [
+                            {
+                                title: 'Kindle Kids',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle Paperwhite Kids',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle Paperwhite',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle Scribe',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Accessories',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'See all Kindle E-Readers',
+                                to: '',
+                                children: [],
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Kindle Store',
+                        to: '',
+                        children: [
+                            {
+                                title: 'Kindle Books',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle Unlimited',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Prime Reading',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle Vella',
+                                to: '',
+                                children: [],
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Apps & Resources',
+                        to: '',
+                        children: [
+                            {
+                                title: 'Free Kindle Reading Apps',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Kindle for Web',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Manage Your Content and Devices',
+                                to: '',
+                                children: [],
+                            },
+                            {
+                                title: 'Trade-In',
+                                to: '',
+                                children: [],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'Amazon Appstore',
+                to: '',
+                children: [
+                    {
+                        title: 'All Apps and Games',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Games',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Amazon Coins',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Download Amazon Appstore',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Amazon Apps',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Your Apps and Subscriptions',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Shop by Department',
+        to: '',
+        children: [
+            {
+                title: 'Electronics',
+                to: '',
+                children: [
+                    {
+                        title: 'Accessories & Supplies',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Camera & Photo',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Car & Vehicle Electronics',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Computers',
+                to: '',
+                children: [
+                    {
+                        title: 'Computer Accessories & Peripherals',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Computer Components',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Computers & Tablets',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Smart Home',
+                to: '',
+                children: [
+                    {
+                        title: 'Amazon Smart Home',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Works with Alexa Devices',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Smart Home Lighting',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Smart Locks and Entry',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Security Cameras and Systems',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Plugs and Outlets',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'New Smart Devices',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Heating and Cooling',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Detectors and Sensors',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Home Entertainment',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Pet',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Voice Assistants and Hubs',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Kitchen',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Vacuums and Mops',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Lawn and Garden',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'WIFI and Networking',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Other Solutions',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Arts & Crafts',
+                to: '',
+                children: [
+                    {
+                        title: 'Painting, Drawing & Art Supplies',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Beading & Jewelry Making',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Crafting',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Automotive',
+                to: '',
+                children: [
+                    {
+                        title: 'Car Care',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Car Electronics & Accessories',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Exterior Accessories',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Interior Accessories',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'Baby',
+                to: '',
+                children: [
+                    {
+                        title: 'Activity & Entertainment',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Apparel & Accessories',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Baby & Toddler Toys',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Programs & Features',
+        to: '',
+        children: [
+            {
+                title: 'Gift Cards',
+                to: '',
+                children: [
+                    {
+                        title: 'Give a gift card',
+                        to: '',
+                        children: [
+                            { title: 'All gift cards', to: '', children: [] },
+
+                            { title: 'eGift cards', to: '', children: [] },
+                            { title: 'Gift cards by mail', to: '', children: [] },
+                        ],
+                    },
+                    {
+                        title: 'Manage your gift card',
+                        to: '',
+                        children: [
+                            { title: 'Redeem a gift card', to: '', children: [] },
+                            { title: 'View Your Balance', to: '', children: [] },
+                            { title: 'Reload Your Balance', to: '', children: [] },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'Shop By Interest',
+                to: '',
+                children: [],
+            },
+            {
+                title: 'Amazon Live',
+                to: '',
+                children: [
+                    {
+                        title: 'Live',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Recently Live',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+            {
+                title: 'International Shopping',
+                to: '',
+                children: [
+                    {
+                        title: 'Where we ship',
+                        to: '',
+                        children: [],
+                    },
+                    {
+                        title: 'Visit Amazon Global',
+                        to: '',
+                        children: [],
+                    },
+                ],
+            },
+        ],
+    },
+];

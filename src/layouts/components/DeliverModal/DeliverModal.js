@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -75,5 +76,10 @@ function DeliverModal({ isOpen, onClose }) {
         )
     );
 }
+
+DeliverModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func,
+};
 
 export default DeliverModal;
