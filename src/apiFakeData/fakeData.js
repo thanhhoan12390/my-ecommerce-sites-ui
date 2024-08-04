@@ -107,3 +107,102 @@ export const languageData = [
         content: '中文 (繁體) - ZH',
     },
 ];
+
+export const NationsZipCode = [
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Vietnam',
+    },
+    {
+        checked: false,
+        content: 'Korea',
+    },
+    {
+        checked: false,
+        content: 'Korea',
+    },
+    {
+        checked: true,
+        content: 'Thailan',
+    },
+    {
+        checked: false,
+        content: 'Japan',
+    },
+];

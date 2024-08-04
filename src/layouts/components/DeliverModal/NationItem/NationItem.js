@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
-import styles from './LanguageItem.module.scss';
+import styles from './NationItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function LanguageItem({ children, className, checked = false, onClick, ...passProps }) {
+function NationItem({ children, className, checked = false, onClick, ...passProps }) {
     const props = {
         onClick,
         ...passProps,
@@ -20,17 +18,16 @@ function LanguageItem({ children, className, checked = false, onClick, ...passPr
 
     return (
         <div className={classes} {...props}>
-            <FontAwesomeIcon icon={faCircle} className={cx('language-radio-icon')} />
             <span>{children}</span>
         </div>
     );
 }
 
-LanguageItem.propTypes = {
+NationItem.propTypes = {
     children: PropTypes.node,
     classNames: PropTypes.string,
     checked: PropTypes.bool,
     onClick: PropTypes.func,
 };
 
-export default LanguageItem;
+export default NationItem;

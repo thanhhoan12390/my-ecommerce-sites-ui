@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faLanguage, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import styles from './Header.module.scss';
 import { Logo } from '~/components/Icons';
@@ -9,10 +10,13 @@ import config from '~/config';
 import NavFill from './NavFill';
 import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/components/LanguageMenu';
+import DeliverModal from '~/layouts/components/DeliverModal';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
     return (
         <header className={cx('wrapper')}>
             {/* Nav with logo*/}
@@ -22,7 +26,7 @@ function Header() {
                     <Link to={config.routes.home} className={cx('nav-logo-link')}>
                         <Logo width="4.8rem" height="4.8rem" className={cx('nav-logo')} />
                     </Link>
-                    <div className={cx('nav-deliver-to')}>
+                    <div className={cx('nav-deliver-to')} onClick={() => setIsOpenModal(true)}>
                         <FontAwesomeIcon icon={faLocationDot} className={cx('nav-location')}></FontAwesomeIcon>
                         <div className={cx('nav-text')}>
                             <span>Diliver to</span>
@@ -71,6 +75,9 @@ function Header() {
                         <span className={cx('nav-cart-text')}>Cart</span>
                     </div>
                 </div>
+
+                {/* Deliver Modal */}
+                <DeliverModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} />
             </div>
 
             {/* Nav Main */}
