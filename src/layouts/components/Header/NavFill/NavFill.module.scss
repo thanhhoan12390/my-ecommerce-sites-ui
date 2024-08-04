@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     height: 60px;
+    min-width: 440px;
     padding: 10px 4px 10px 3px;
     margin: 0 10px;
     flex: 1;
@@ -98,6 +99,11 @@
 }
 
 // Search fill
+.search-tippy-wrapper {
+    display: flex;
+    width: 100%;
+}
+
 .search-fill {
     flex: 1;
     display: flex;
@@ -134,7 +140,8 @@
 
 // Search result
 .search-result {
-    width: 600px;
+    width: 850px;
+    min-width: 440px;
 
     .menu-wrapper {
         border-radius: 0;

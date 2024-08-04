@@ -50,32 +50,33 @@ function NavFill() {
                 </div>
 
                 {/* Search fill */}
-                <Tippy
-                    interactive
-                    visible={false}
-                    offset={[-330, 0]}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <MenuWrapper className={cx('menu-wrapper')}>
-                                <div className={cx('search-item')}>
-                                    <SearchIcon width="1.9rem" height="1.9rem" />
-                                    <span>Ket qua search 1</span>
-                                </div>
-                                <div className={cx('search-item')}>
-                                    <SearchIcon width="1.9rem" height="1.9rem" />
-                                    <span>Ket qua search 1</span>
-                                </div>
-                            </MenuWrapper>
+                <div className={cx('search-tippy-wrapper')}>
+                    <Tippy
+                        interactive
+                        offset={[-1, -2]}
+                        render={(attrs) => (
+                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                                <MenuWrapper className={cx('menu-wrapper')}>
+                                    <div className={cx('search-item')}>
+                                        <SearchIcon width="1.9rem" height="1.9rem" />
+                                        <span>Ket qua search 1</span>
+                                    </div>
+                                    <div className={cx('search-item')}>
+                                        <SearchIcon width="1.9rem" height="1.9rem" />
+                                        <span>Ket qua search 1</span>
+                                    </div>
+                                </MenuWrapper>
+                            </div>
+                        )}
+                    >
+                        <div className={cx('search-fill')}>
+                            <input type="text" placeholder="Search my sites" spellCheck={false} />
+                            <button className={cx('search-btn')}>
+                                <SearchIcon />
+                            </button>
                         </div>
-                    )}
-                >
-                    <div className={cx('search-fill')}>
-                        <input type="text" placeholder="Search my sites" spellCheck={false} />
-                        <button className={cx('search-btn')}>
-                            <SearchIcon />
-                        </button>
-                    </div>
-                </Tippy>
+                    </Tippy>
+                </div>
 
                 {/* Tạo lớp overlay */}
                 <OverLay className={cx('nav-overlay')} />

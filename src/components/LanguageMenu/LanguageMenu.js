@@ -6,6 +6,7 @@ import styles from './LanguageMenu.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
 import LanguageItem from './LanguageItem';
 import images from '~/assets/images';
+import Divider from '~/components/Divider';
 
 import { languageData } from '~/apiFakeData'; // Fake Data
 
@@ -25,7 +26,7 @@ function LanguageMenu({ children }) {
                             </span>
                             <LanguageItem checked>English - EN</LanguageItem>
 
-                            <div className={cx('divider-mleft')} />
+                            <Divider className={cx('divider-mleft')} />
 
                             {languageData.map((languageItem, index) => (
                                 <LanguageItem key={index} checked={languageItem.checked}>
@@ -33,7 +34,7 @@ function LanguageMenu({ children }) {
                                 </LanguageItem>
                             ))}
 
-                            <div className={cx('divider')} />
+                            <Divider className={cx('divider')} />
 
                             <span className={cx('language-menu-text')}>
                                 Change currency <a href="/">Learn more</a>
@@ -44,7 +45,7 @@ function LanguageMenu({ children }) {
                                 <a href="/">Change</a>
                             </div>
 
-                            <div className={cx('divider')} />
+                            <Divider className={cx('divider')} />
 
                             <span className={cx('language-menu-text')}>
                                 <img src={images.usFlag} alt="US flag" className={cx('language-menu-flag')} />
