@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 import { Logo } from '~/components/Icons';
 import config from '~/config';
 import NavFill from './NavFill';
-import AccountMenu from '~/components/AccountMenu';
+import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/components/LanguageMenu';
 
 const cx = classNames.bind(styles);

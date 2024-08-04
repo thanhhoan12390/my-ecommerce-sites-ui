@@ -102,6 +102,11 @@
 .search-tippy-wrapper {
     display: flex;
     width: 100%;
+    position: relative;
+
+    div:nth-child(2) {
+        width: 100%;
+    }
 }
 
 .search-fill {
@@ -140,9 +145,6 @@
 
 // Search result
 .search-result {
-    width: 850px;
-    min-width: 440px;
-
     .menu-wrapper {
         border-radius: 0;
         padding: 0;
