@@ -1,13 +1,28 @@
+.over-lay {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-close-btn {
+    position: fixed;
+    left: 378px;
+    top: 12px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+}
+
 .wrapper {
     --modal-header-height: 50px;
+    --modal-text-color: #111;
+    --modal-icon-color: #8a9798;
     background: #fff;
     z-index: 999999; // z-index 6 số
-
     position: fixed;
-    top: var(--modal-header-height);
+    top: 0;
     bottom: 0;
     width: 365px;
-    overflow-y: auto;
+    animation: slideIn linear 0.2s;
 }
 
 // Modal header
@@ -16,10 +31,6 @@
     display: flex;
     align-items: center;
     background: #232f3e;
-
-    position: fixed;
-    top: 0;
-    width: 365px;
 }
 
 .modal-header-avatar {
@@ -40,6 +51,33 @@
 // Modal content
 .modal-content {
     padding: 7px 0 30px 0;
+    height: calc(100% - var(--modal-header-height));
+    overflow-y: auto; // overflow sinh ra scroll đi kèm với height
+}
+
+.content-back-btn {
+    display: block;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 16px;
+    font-weight: 700;
+    color: var(--modal-text-color);
+    padding: 13px 20px 13px 36px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #eaeded;
+
+        .content-back-icon {
+            color: var(--modal-text-color);
+        }
+    }
+}
+
+.content-back-icon {
+    color: var(--modal-icon-color);
+    font-size: 1.8rem;
+    margin-right: 8px;
 }
 
 .content-item-title,
@@ -48,7 +86,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.4rem;
-    color: #111;
+    color: var(--modal-text-color);
 }
 .content-item-group {
     list-style: none;
@@ -66,27 +104,29 @@
         &:hover {
             background-color: #eaeded;
 
-            .content-subchild-icon {
+            .content-child-icon {
                 color: #0f1111;
             }
         }
     }
 }
-.content-subchild-text,
+.content-child-text,
 .content-item-link,
-.help-settings-text {
+.help-settings-text,
+.help-settings-globe-text,
+.help-settings-flag-text {
     display: block;
     width: 100%;
     font-size: 1.4rem;
     line-height: 16px;
     font-weight: 600;
-    color: #111;
+    color: var(--modal-text-color);
     padding: 13px 20px 13px 36px;
 }
 
-.content-subchild-icon {
+.content-child-icon {
     font-size: 1.4rem;
-    color: #8a9798;
+    color: var(--modal-icon-color);
     position: absolute;
     right: 20px;
 }
@@ -103,29 +143,21 @@
 }
 .help-settings-icon {
     font-size: 1.4rem;
-    margin-left: 36px;
     color: #d3d5d8;
+    margin-right: 10px;
 }
 
-.help-settings-globe-text {
-    display: block;
-    width: 100%;
-    font-size: 1.4rem;
-    line-height: 16px;
-    font-weight: 600;
-    color: #111;
-    padding: 13px 20px 13px 12px;
-}
 .help-settings-flag {
-    margin-left: 36px;
-    height: 12px;
+    height: 11px;
+    margin-right: 2px;
 }
-.help-settings-flag-text {
-    display: block;
-    width: 100%;
-    font-size: 1.4rem;
-    line-height: 16px;
-    font-weight: 600;
-    color: #111;
-    padding: 13px 20px 13px 2px;
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
 }

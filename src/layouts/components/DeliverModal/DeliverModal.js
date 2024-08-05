@@ -12,7 +12,7 @@ import { NationsZipCode } from '~/apiFakeData';
 
 const cx = classNames.bind(styles);
 
-function DeliverModal({ isOpen, onClose }) {
+function DeliverModal({ isOpen = false, onClose = () => {} }) {
     return (
         isOpen && (
             <div className={cx('modal')}>

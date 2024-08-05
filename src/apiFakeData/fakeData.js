@@ -211,10 +211,12 @@ export const AccountModalData = [
     {
         title: 'Digital Content & Devices',
         to: '',
+        // Mỗi phần tử trong mảng children này là 1 child
         children: [
             {
                 title: 'Amazon Music',
                 to: '',
+                // Mỗi phần tử trong mảng children này là 1 subchild
                 children: [
                     {
                         title: 'Amazon Music Unlimited',
@@ -251,11 +253,92 @@ export const AccountModalData = [
                         title: 'Kindle E-readers',
                         to: '',
                         children: [
+                            //testtttttttttttttttttttttttttttttttttttttttttttttttttt
                             {
-                                title: 'Kindle Kids',
+                                title: 'Kindle Kids 1',
                                 to: '',
-                                children: [],
+                                children: [
+                                    {
+                                        title: 'Kindle Kids',
+                                        to: '',
+                                        children: [
+                                            {
+                                                title: 'Kindle Kids 2',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite Kids',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite',
+                                                to: '',
+                                                children: [],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        title: 'Kindle',
+                                        to: '',
+                                        children: [
+                                            {
+                                                title: 'Kindle Kids 2',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite Kids',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite',
+                                                to: '',
+                                                children: [],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        title: 'Kindle Paperwhite Kids',
+                                        to: '',
+                                        children: [
+                                            {
+                                                title: 'Kindle Kids 2',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite Kids',
+                                                to: '',
+                                                children: [],
+                                            },
+                                            {
+                                                title: 'Kindle Paperwhite',
+                                                to: '',
+                                                children: [],
+                                            },
+                                        ],
+                                    },
+                                ],
                             },
+                            //testttttttttttttttttttttttttttttttttttttttttttttttt
                             {
                                 title: 'Kindle',
                                 to: '',

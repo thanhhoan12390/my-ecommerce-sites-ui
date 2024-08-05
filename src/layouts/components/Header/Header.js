@@ -16,7 +16,8 @@ import AccountModal from '../AccountModal/AccountModal';
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [isOpenModal, setIsOpenModal] = useState(false);
+    const [isOpenDeliverModal, setIsOpenDeliverModal] = useState(false);
+    const [isOpenAccountModal, setIsOpenAccountModal] = useState(false);
 
     return (
         <header className={cx('wrapper')}>
@@ -27,7 +28,7 @@ function Header() {
                     <Link to={config.routes.home} className={cx('nav-logo-link')}>
                         <Logo width="4.8rem" height="4.8rem" className={cx('nav-logo')} />
                     </Link>
-                    <div className={cx('nav-deliver-to')} onClick={() => setIsOpenModal(true)}>
+                    <div className={cx('nav-deliver-to')} onClick={() => setIsOpenDeliverModal(true)}>
                         <FontAwesomeIcon icon={faLocationDot} className={cx('nav-location')}></FontAwesomeIcon>
                         <div className={cx('nav-text')}>
                             <span>Diliver to</span>
@@ -78,12 +79,12 @@ function Header() {
                 </div>
 
                 {/* Deliver Modal */}
-                <DeliverModal isOpen={isOpenModal} onClose={() => setIsOpenModal(false)} />
+                <DeliverModal isOpen={isOpenDeliverModal} onClose={() => setIsOpenDeliverModal(false)} />
             </div>
 
             {/* Nav Main */}
             <div className={cx('nav-main')}>
-                <div className={cx('nav-main-item')}>
+                <div className={cx('nav-main-item')} onClick={() => setIsOpenAccountModal(true)}>
                     <FontAwesomeIcon icon={faList} className={cx('nav-main-all-icon')} />
                     <span className={cx('nav-main-all-text')}>All</span>
                 </div>
@@ -125,7 +126,7 @@ function Header() {
             </div>
 
             {/* Account Modal */}
-            <AccountModal></AccountModal>
+            <AccountModal isOpen={isOpenAccountModal} onClose={() => setIsOpenAccountModal(false)} />
         </header>
     );
 }
