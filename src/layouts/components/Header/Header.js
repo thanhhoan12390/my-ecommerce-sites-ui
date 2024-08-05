@@ -9,7 +9,7 @@ import { Logo } from '~/components/Icons';
 import config from '~/config';
 import NavFill from './NavFill';
 import AccountMenu from '~/layouts/components/AccountMenu';
-import LanguageMenu from '~/components/LanguageMenu';
+import LanguageMenu from '~/layouts/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
 import AccountModal from '../AccountModal/AccountModal';
 

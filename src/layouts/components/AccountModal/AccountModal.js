@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { Fragment } from 'react';
@@ -169,5 +170,10 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
         )
     );
 }
+
+AccountModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func,
+};
 
 export default AccountModal;

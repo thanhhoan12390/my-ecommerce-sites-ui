@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+import { useDispatch, useSelector } from 'react-redux'; // useDispatch để dispatch thunk action creator, useSelector để dùng selector lấy state
+import { useEffect } from 'react';
 
 import styles from './LanguageMenu.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
 import LanguageItem from './LanguageItem';
 import images from '~/assets/images';
 import Divider from '~/components/Divider';
-
-import { languageData } from '~/apiFakeData'; // Fake Data
+import { fetchLanguage } from '~/layouts/components/Header/headerSlice'; // Thunk action creator
+import { languageSelector } from '~/redux/selectors'; // selector
 
 const cx = classNames.bind(styles);
 
 function LanguageMenu({ children }) {
+    const dispatch = useDispatch();
+    const languageList = useSelector(languageSelector);
+
+    useEffect(() => {
+        dispatch(fetchLanguage());
+    }, [dispatch]);
+
     return (
         <div>
             <Tippy
@@ -28,7 +37,7 @@ function LanguageMenu({ children }) {
 
                             <Divider className={cx('divider-mleft')} />
 
-                            {languageData.map((languageItem, index) => (
+                            {languageList.map((languageItem, index) => (
                                 <LanguageItem key={index} checked={languageItem.checked}>
                                     {languageItem.content}
                                 </LanguageItem>
