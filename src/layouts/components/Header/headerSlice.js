@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getLanguage } from '~/services/headerService';
+import { fetchLanguage, fetchSearchType } from '~/services/headerService';
 
 const headerSlice = createSlice({
     name: 'header',
@@ -12,22 +12,41 @@ const headerSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchLanguage.pending, (state, action) => {
+            // get languages
+            .addCase(getLanguage.pending, (state, action) => {
                 state.status = 'loading'; //sử dụng status phía UI để phát hiện request đang đợi kết quả hay rảnh rỗi
             })
-            .addCase(fetchLanguage.fulfilled, (state, action) => {
+            .addCase(getLanguage.fulfilled, (state, action) => {
                 state.languageData = action.payload ? action.payload : [];
                 state.status = 'idle';
             })
-            .addCase(fetchLanguage.rejected, (state, action) => {
+            .addCase(getLanguage.rejected, (state, action) => {
+                console.log('Có lỗi xảy ra: : ', action.error);
+                state.status = 'idle';
+            })
+            // get search types
+            .addCase(getSearchType.pending, (state, action) => {
+                state.status = 'loading';
+            })
+            .addCase(getSearchType.fulfilled, (state, action) => {
+                state.searchType = action.payload ? action.payload : [];
+                state.status = 'idle';
+            })
+            .addCase(getSearchType.rejected, (state, action) => {
                 console.log('Có lỗi xảy ra: : ', action.error);
                 state.status = 'idle';
             });
     },
 });
 
-export const fetchLanguage = createAsyncThunk('header/fetchLanguage', async () => {
-    const res = await getLanguage();
+export const getLanguage = createAsyncThunk('header/fetchLanguage', async () => {
+    const res = await fetchLanguage();
+
+    return res;
+});
+
+export const getSearchType = createAsyncThunk('header/getSearchType', async () => {
+    const res = await fetchSearchType();
 
     return res;
 });

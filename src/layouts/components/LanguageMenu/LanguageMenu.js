@@ -2,24 +2,27 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { useDispatch, useSelector } from 'react-redux'; // useDispatch để dispatch thunk action creator, useSelector để dùng selector lấy state
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './LanguageMenu.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
 import LanguageItem from './LanguageItem';
 import images from '~/assets/images';
 import Divider from '~/components/Divider';
-import { fetchLanguage } from '~/layouts/components/Header/headerSlice'; // Thunk action creator
+import { getLanguage } from '~/layouts/components/Header/headerSlice'; // Thunk action creator
 import { languageSelector } from '~/redux/selectors'; // selector
 
 const cx = classNames.bind(styles);
 
 function LanguageMenu({ children }) {
-    const dispatch = useDispatch();
+    const [checkedLanguageId, setCheckedLanguageId] = useState(0);
+
     const languageList = useSelector(languageSelector);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        dispatch(fetchLanguage());
+        dispatch(getLanguage());
     }, [dispatch]);
 
     return (
@@ -33,12 +36,18 @@ function LanguageMenu({ children }) {
                             <span className={cx('language-menu-text')}>
                                 Change language <a href="/">Learn more</a>
                             </span>
-                            <LanguageItem checked>English - EN</LanguageItem>
+                            <LanguageItem checked={checkedLanguageId === 0} onClick={() => setCheckedLanguageId(0)}>
+                                English - EN
+                            </LanguageItem>
 
                             <Divider className={cx('divider-mleft')} />
 
                             {languageList.map((languageItem, index) => (
-                                <LanguageItem key={index} checked={languageItem.checked}>
+                                <LanguageItem
+                                    key={index}
+                                    checked={languageItem.id === checkedLanguageId}
+                                    onClick={() => setCheckedLanguageId(languageItem.id)}
+                                >
                                     {languageItem.content}
                                 </LanguageItem>
                             ))}

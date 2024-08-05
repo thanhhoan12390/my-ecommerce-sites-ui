@@ -33,6 +33,7 @@
 
     &:hover {
         &::after {
+            background-color: rgb(233, 191, 132);
             display: block;
         }
     }

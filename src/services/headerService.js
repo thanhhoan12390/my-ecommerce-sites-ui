@@ -1,7 +1,13 @@
-import * as httpRequest from '~/utils/httpRequest';
+import * as request from '~/utils/httpRequest';
 
-export const getLanguage = async () => {
-    const res = await httpRequest.get('language');
+export const fetchLanguage = async () => {
+    const res = await request.get('language');
+
+    return res;
+};
+
+export const fetchSearchType = async () => {
+    const res = await request.get('searchtype');
 
     return res;
 };
