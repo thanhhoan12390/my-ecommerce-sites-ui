@@ -7,8 +7,11 @@ import {
     getSearchType,
     getSearchTypeSuccess,
     getSearchTypeFailed,
+    getNations,
+    getNationsSuccess,
+    getNationsFailed,
 } from './headerSlice';
-import { fetchLanguage, fetchSearchType } from '~/services/headerService';
+import { fetchLanguage, fetchSearchType, fetchNations } from '~/services/headerServices';
 
 function* handleGetLanguage() {
     try {
@@ -28,9 +31,19 @@ function* handleGetSearchType() {
     }
 }
 
+function* handleGetNations() {
+    try {
+        const res = yield call(fetchNations);
+        yield put(getNationsSuccess(res));
+    } catch (error) {
+        yield put(getNationsFailed(error));
+    }
+}
+
 function* watchHeaderFlow() {
     yield takeEvery(getLanguage.toString(), handleGetLanguage);
     yield takeEvery(getSearchType.toString(), handleGetSearchType);
+    yield takeEvery(getNations.toString(), handleGetNations);
 }
 
 export default function* headerSaga() {

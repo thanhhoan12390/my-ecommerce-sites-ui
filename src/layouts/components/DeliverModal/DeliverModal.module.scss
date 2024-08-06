@@ -125,6 +125,7 @@
 .select-wrapper {
     padding: 8px 0;
     max-height: 420px;
+    min-height: 30px;
     overflow-y: auto;
     border-radius: 8px;
 }

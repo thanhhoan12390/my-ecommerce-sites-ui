@@ -3,16 +3,37 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState, useMemo } from 'react';
 
 import styles from './DeliverModal.module.scss';
 import Divider from '~/components/Divider/Divider';
 import MenuWrapper from '~/components/MenuWrapper';
 import NationItem from './NationItem';
-import { NationsZipCode } from '~/apiFakeData';
+import { getNations } from '~/layouts/components/Header/headerSlice';
+import { nationsSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
 function DeliverModal({ isOpen = false, onClose = () => {} }) {
+    const [isNationCheckedId, setIsNationCheckedId] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const nationsList = useSelector(nationsSelector);
+
+    const diliveredNation = useMemo(() => {
+        if (nationsList.length > 0) {
+            const checkedNation = nationsList.find((nation) => nation.id === isNationCheckedId);
+
+            return checkedNation.content;
+        }
+    }, [nationsList, isNationCheckedId]);
+
+    useEffect(() => {
+        dispatch(getNations());
+    }, [dispatch]);
+
     return (
         isOpen && (
             <div className={cx('modal')}>
@@ -47,12 +68,17 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                             <Tippy
                                 interactive
                                 trigger="click"
+                                hideOnClick
                                 offset={[14, -30]}
                                 render={(attrs) => (
-                                    <div className={cx('select-result')} tabIndex="-1" {...attrs}>
+                                    <div tabIndex="-1" {...attrs}>
                                         <MenuWrapper className={cx('select-wrapper')}>
-                                            {NationsZipCode.map((nation, index) => (
-                                                <NationItem key={index} checked={nation.checked}>
+                                            {nationsList.map((nation, index) => (
+                                                <NationItem
+                                                    key={index}
+                                                    checked={nation.id === isNationCheckedId}
+                                                    onClick={() => setIsNationCheckedId(nation.id)}
+                                                >
                                                     {nation.content}
                                                 </NationItem>
                                             ))}
@@ -61,14 +87,14 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                                 )}
                             >
                                 <div className={cx('content-select')}>
-                                    <span>Vietnam</span>
+                                    <span>{diliveredNation}</span>
                                     <FontAwesomeIcon icon={faChevronDown} className={cx('content-select-icon')} />
                                 </div>
                             </Tippy>
                         </div>
 
                         <div className={cx('modal-done-btn')}>
-                            <button>Done</button>
+                            <button onClick={onClose}>Done</button>
                         </div>
                     </div>
                 </MenuWrapper>

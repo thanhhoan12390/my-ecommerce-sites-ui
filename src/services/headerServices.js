@@ -11,3 +11,9 @@ export const fetchSearchType = async () => {
 
     return res;
 };
+
+export const fetchNations = async () => {
+    const res = await request.get('nations');
+
+    return res;
+};

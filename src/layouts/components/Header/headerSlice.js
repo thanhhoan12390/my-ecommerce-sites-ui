@@ -24,10 +24,21 @@ const headerSlice = createSlice({
             state.status = 'loading';
         },
         getSearchTypeSuccess: (state, action) => {
-            state.searchType = action.payload ? action.payload : [];
+            state.searchType = action.payload;
             state.status = 'idle';
         },
         getSearchTypeFailed: (state, action) => {
+            console.log('Có lỗi xảy ra: : ', action.payload);
+            state.status = 'idle';
+        },
+        getNations: (state) => {
+            state.status = 'loading';
+        },
+        getNationsSuccess: (state, action) => {
+            state.nationList = action.payload;
+            state.status = 'idle';
+        },
+        getNationsFailed: (state, action) => {
             console.log('Có lỗi xảy ra: : ', action.payload);
             state.status = 'idle';
         },
@@ -41,5 +52,8 @@ export const {
     getSearchType,
     getSearchTypeSuccess,
     getSearchTypeFailed,
+    getNations,
+    getNationsSuccess,
+    getNationsFailed,
 } = headerSlice.actions;
 export default headerSlice;
