@@ -13,6 +13,7 @@
     display: flex;
     flex: 1;
     height: 40px;
+    position: relative;
 
     &:has(input:focus-within) {
         outline: rgb(245 147 0) solid 3px;
@@ -76,13 +77,18 @@
 }
 
 // Select result
-.select-result {
+.select-dropdown {
     .select-wrapper {
         padding: 0;
         max-height: 270px;
+        width: 212px;
         border-radius: 0;
         border: 1px solid rgb(118, 118, 118);
         overflow-y: auto;
+
+        position: absolute;
+        top: 40px;
+        z-index: 999; // z-index 3 số
     }
 }
 

@@ -5,8 +5,12 @@ import styles from './MenuWrapper.module.scss';
 
 const cx = classNames.bind(styles);
 
-function MenuWrapper({ children, className }) {
-    return <div className={cx('wrapper', className)}>{children}</div>;
+function MenuWrapper({ children, className, ...passProps }) {
+    return (
+        <div className={cx('wrapper', className)} {...passProps}>
+            {children}
+        </div>
+    );
 }
 
 MenuWrapper.propTypes = {
