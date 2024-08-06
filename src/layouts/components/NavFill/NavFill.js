@@ -9,8 +9,8 @@ import MenuWrapper from '~/components/MenuWrapper';
 import OverLay from '~/components/OverLay';
 import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
-import { getSearchType } from '~/layouts/components/Header/headerSlice';
 import { searchTypeSelector } from '~/redux/selectors';
+import { getSearchType } from '~/layouts/components/Header/headerSlice'; // action creator
 
 const cx = classNames.bind(styles);
 

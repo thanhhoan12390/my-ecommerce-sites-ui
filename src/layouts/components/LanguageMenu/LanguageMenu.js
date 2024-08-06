@@ -9,8 +9,8 @@ import MenuWrapper from '~/components/MenuWrapper';
 import LanguageItem from './LanguageItem';
 import images from '~/assets/images';
 import Divider from '~/components/Divider';
-import { getLanguage } from '~/layouts/components/Header/headerSlice'; // Thunk action creator
 import { languageSelector } from '~/redux/selectors'; // selector
+import { getLanguage } from '~/layouts/components/Header/headerSlice'; // action creator
 
 const cx = classNames.bind(styles);
 
