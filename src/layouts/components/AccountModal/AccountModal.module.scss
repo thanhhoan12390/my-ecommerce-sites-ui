@@ -22,7 +22,7 @@
     top: 0;
     bottom: 0;
     width: 365px;
-    animation: slideIn linear 0.2s;
+    animation: slideIn linear 0.3s;
 }
 
 // Modal header
@@ -50,7 +50,7 @@
 
 // Modal content
 .modal-content {
-    padding: 7px 0 30px 0;
+    padding: 0px 0 30px 0;
     height: calc(100% - var(--modal-header-height));
     overflow-y: auto; // overflow sinh ra scroll đi kèm với height
 }
@@ -80,9 +80,47 @@
     margin-right: 8px;
 }
 
+.content-item-first-cover {
+    margin-bottom: 5px;
+    overflow: hidden;
+    // max-height: 218px;
+}
+
+.content-more-btn,
+.content-less-btn {
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 16px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    text-align: left;
+    color: var(--modal-text-color);
+    padding: 13px 20px 13px 36px;
+    margin: -5px 0px 5px 0px;
+    background-color: var(--white);
+    cursor: pointer;
+
+    &:hover {
+        background-color: #eaeded;
+
+        .content-more-icon,
+        .content-less-icon {
+            color: #0f1111;
+        }
+    }
+}
+
+.content-more-icon,
+.content-less-icon {
+    font-size: 1.4rem;
+    color: var(--modal-icon-color);
+    margin-left: 10px;
+}
+
 .content-item-title,
 .help-settings-heading {
     padding: 13px 20px 5px 36px;
+    margin-top: 7px;
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.4rem;
@@ -91,7 +129,7 @@
 .content-item-group {
     list-style: none;
 
-    li {
+    .content-list-item {
         position: relative;
         width: 100%;
         display: flex;
@@ -110,6 +148,7 @@
         }
     }
 }
+
 .content-child-text,
 .content-item-link,
 .help-settings-text,
@@ -151,10 +190,29 @@
     height: 11px;
     margin-right: 2px;
 }
+// animation
+.content-item,
+.content-back-btn {
+    animation: slideOut linear 0.3s;
+}
 
+.first-cover-divider,
+.content-item-first-cover {
+    animation: slideIn linear 0.3s;
+}
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(100%);
     }
 
     to {

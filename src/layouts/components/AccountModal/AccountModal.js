@@ -3,7 +3,14 @@ import classNames from 'classnames/bind';
 import { useState } from 'react';
 import { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faChevronRight, faGlobe, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+    faArrowLeft,
+    faChevronDown,
+    faChevronRight,
+    faChevronUp,
+    faGlobe,
+    faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
 import styles from './AccountModal.module.scss';
 import Divider from '~/components/Divider/Divider';
@@ -15,6 +22,7 @@ import { AccountModalData } from '~/apiFakeData'; // Fake Data
 const cx = classNames.bind(styles);
 
 function AccountModal({ isOpen = false, onClose = () => {} }) {
+    const [contentHeight, setContentHeight] = useState('218px');
     const [history, setHistory] = useState([{ data: AccountModalData }]);
     const current = history[history.length - 1];
 
@@ -52,7 +60,7 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
 
             if (isHasNoChild) {
                 return (
-                    <li key={index}>
+                    <li key={index} className={cx('content-list-item')}>
                         <a className={cx('content-item-link')} href={child.to}>
                             {child.title}
                         </a>
@@ -61,7 +69,7 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
             }
 
             return (
-                <li key={index}>
+                <li className={cx('content-list-item')} key={index}>
                     <span
                         className={cx('content-child-text')}
                         onClick={() => {
@@ -81,17 +89,49 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
             const hasChildren = item.children.length > 0;
 
             return (
-                <div key={index} className={cx('content-item')}>
-                    <h4 className={cx('content-item-title')}>{item.title}</h4>
-                    {hasChildren ? (
-                        <ul className={cx('content-item-group')}>
-                            {renderChildren(item.children)}
-                            <Divider />
-                        </ul>
-                    ) : (
-                        <Fragment />
+                <Fragment key={index}>
+                    {/* First menu cover: add 'See all', "see less" button */}
+                    {history.length < 2 && (
+                        <Fragment>
+                            <div className={cx('content-item-first-cover')} style={{ maxHeight: contentHeight }}>
+                                <Divider className={cx('first-cover-divider')} />
+                                <h4 className={cx('content-item-title')}>{item.title}</h4>
+                                {hasChildren ? (
+                                    <ul className={cx('content-item-group')}>{renderChildren(item.children)}</ul>
+                                ) : (
+                                    <Fragment />
+                                )}
+                            </div>
+                            {item.children.length > 4 && contentHeight === '218px' && (
+                                <button className={cx('content-more-btn')} onClick={() => setContentHeight('unset')}>
+                                    See all
+                                    <FontAwesomeIcon icon={faChevronDown} className={cx('content-more-icon')} />
+                                </button>
+                            )}
+                            {item.children.length > 4 && contentHeight === 'unset' && (
+                                <button className={cx('content-less-btn')} onClick={() => setContentHeight('218px')}>
+                                    See less
+                                    <FontAwesomeIcon icon={faChevronUp} className={cx('content-less-icon')} />
+                                </button>
+                            )}
+                        </Fragment>
                     )}
-                </div>
+
+                    {/* nth menu covers */}
+                    {history.length >= 2 && (
+                        <Fragment>
+                            <div key={index} className={cx('content-item')}>
+                                <Divider />
+                                <h4 className={cx('content-item-title')}>{item.title}</h4>
+                                {hasChildren ? (
+                                    <ul className={cx('content-item-group')}>{renderChildren(item.children)}</ul>
+                                ) : (
+                                    <Fragment />
+                                )}
+                            </div>
+                        </Fragment>
+                    )}
+                </Fragment>
             );
         });
 
@@ -119,7 +159,6 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
                                     <FontAwesomeIcon icon={faArrowLeft} className={cx('content-back-icon')} />
                                     MAIN MENU
                                 </span>
-                                <Divider />
                             </Fragment>
                         )}
 
@@ -128,6 +167,8 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
 
                         {history.length < 2 && (
                             <div className={cx('modal-help-settings')}>
+                                <Divider className={cx('first-cover-divider')} />
+
                                 <h4 className={cx('help-settings-heading')}>Help & Settings</h4>
                                 <ul className={cx('help-settings-group')}>
                                     <li>
