@@ -179,12 +179,18 @@
 .nav-main-item {
     &:hover {
         border-radius: 2px;
-        border: 1.5px solid var(--white);
+        outline: var(--white) solid 1px;
+    }
+}
+
+.nav-main-item {
+    &:hover {
+        border-radius: 2px;
+        border: 1px solid var(--white);
     }
 }
 
 // Nav main
-
 .nav-main {
     display: flex;
     align-items: center;
@@ -218,4 +224,11 @@
     margin-left: 4px;
     color: var(--white);
     font-size: 1.4rem;
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+    .hide-on-mobile-tablet {
+        display: none;
+    }
 }

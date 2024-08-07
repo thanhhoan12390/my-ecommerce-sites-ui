@@ -1,29 +1,37 @@
 .wrapper {
-    position: relative;
-    min-height: 670px;
+    --home-bg-color: #e3e6e6;
+    background: var(--home-bg-color);
 }
 
 .banner {
-    width: 100%;
+    min-height: 230px;
     max-width: 1500px;
     margin: 0 auto;
-    height: 600px;
     background-color: rgb(128, 210, 210);
 }
 
-.container {
-    position: absolute;
-    top: 250px;
-    padding: 0 12px;
-    overflow: hidden;
-}
-
 .content {
-    padding: 0 20px;
+    padding: 0 10px;
+    max-width: 1480px;
+    margin: 0 auto;
 }
 
-.item {
+.cart-layout {
+    padding: 20px 0;
+}
+
+.cart-item {
     height: 420px;
     min-height: 420px;
+    max-width: 400px;
+    min-width: 290px;
+    padding: 0 10px;
     background-color: rgb(222, 205, 205);
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1024px) {
+    .hide-on-mobile-tablet {
+        display: none;
+    }
 }

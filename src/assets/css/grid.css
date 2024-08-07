@@ -19,6 +19,7 @@
     margin: 0 auto;
 }
 
+/* Ở thẻ row không nên để độ rộng sẽ làm lệnh margin */
 .row {
     display: flex;
     flex-wrap: wrap;

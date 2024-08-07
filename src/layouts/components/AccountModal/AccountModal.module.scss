@@ -193,12 +193,14 @@
 // animation
 .content-item,
 .content-back-btn {
-    animation: slideOut linear 0.3s;
+    animation: slideOut linear 0.2s;
 }
 
 .first-cover-divider,
-.content-item-first-cover {
-    animation: slideIn linear 0.3s;
+.content-item-first-cover,
+.content-more-icon,
+.content-less-icon {
+    animation: slideIn linear 0.2s;
 }
 @keyframes slideIn {
     from {
