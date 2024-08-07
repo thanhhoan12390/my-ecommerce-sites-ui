@@ -10,13 +10,14 @@ import styles from './DeliverModal.module.scss';
 import Divider from '~/components/Divider/Divider';
 import MenuWrapper from '~/components/MenuWrapper';
 import NationItem from './NationItem';
-import { getNations } from '~/layouts/components/Header/headerSlice';
+import { getNations, updateNation } from '~/layouts/components/Header/headerSlice';
 import { nationsSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
 function DeliverModal({ isOpen = false, onClose = () => {} }) {
     const [isNationCheckedId, setIsNationCheckedId] = useState(1);
+    const [isSelectOpen, setIsSelectOpen] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -32,7 +33,9 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
 
     useEffect(() => {
         dispatch(getNations());
-    }, [dispatch]);
+
+        // eslint-disable-next-line
+    }, []);
 
     return (
         isOpen && (
@@ -67,8 +70,8 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                         <div className={cx('tippy-select-wrapper')}>
                             <Tippy
                                 interactive
-                                trigger="click"
-                                hideOnClick
+                                visible={isSelectOpen}
+                                onClickOutside={() => setIsSelectOpen(false)}
                                 offset={[14, -30]}
                                 render={(attrs) => (
                                     <div tabIndex="-1" {...attrs}>
@@ -77,7 +80,10 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                                                 <NationItem
                                                     key={index}
                                                     checked={nation.id === isNationCheckedId}
-                                                    onClick={() => setIsNationCheckedId(nation.id)}
+                                                    onClick={() => {
+                                                        setIsNationCheckedId(nation.id);
+                                                        setIsSelectOpen(false);
+                                                    }}
                                                 >
                                                     {nation.content}
                                                 </NationItem>
@@ -86,7 +92,7 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                                     </div>
                                 )}
                             >
-                                <div className={cx('content-select')}>
+                                <div className={cx('content-select')} onClick={() => setIsSelectOpen(true)}>
                                     <span>{diliveredNation}</span>
                                     <FontAwesomeIcon icon={faChevronDown} className={cx('content-select-icon')} />
                                 </div>
@@ -94,7 +100,14 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                         </div>
 
                         <div className={cx('modal-done-btn')}>
-                            <button onClick={onClose}>Done</button>
+                            <button
+                                onClick={() => {
+                                    onClose();
+                                    dispatch(updateNation(diliveredNation));
+                                }}
+                            >
+                                Done
+                            </button>
                         </div>
                     </div>
                 </MenuWrapper>

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faLanguage, faList, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from './Header.module.scss';
 import { Logo } from '~/components/Icons';
@@ -12,12 +13,15 @@ import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/layouts/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
 import AccountModal from '../AccountModal/AccountModal';
+import { diliverNationSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [isOpenDeliverModal, setIsOpenDeliverModal] = useState(false);
     const [isOpenAccountModal, setIsOpenAccountModal] = useState(false);
+
+    const diliverNation = useSelector(diliverNationSelector);
 
     return (
         <header className={cx('wrapper')}>
@@ -32,7 +36,7 @@ function Header() {
                         <FontAwesomeIcon icon={faLocationDot} className={cx('nav-location')}></FontAwesomeIcon>
                         <div className={cx('nav-text')}>
                             <span>Diliver to</span>
-                            <span>Vietnam</span>
+                            <span>{diliverNation}</span>
                         </div>
                     </div>
                 </div>

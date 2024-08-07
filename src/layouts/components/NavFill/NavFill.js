@@ -56,26 +56,37 @@ function NavFill() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
-                {isDropDownOpen && (
-                    <div className={cx('select-dropdown')} onMouseLeave={() => setIsDropDownOpen(false)}>
-                        <MenuWrapper className={cx('select-wrapper')}>
-                            {searchTypes.map((item, index) => (
-                                <span
-                                    className={cx('select-item')}
-                                    key={index}
-                                    onClick={() => {
-                                        setSearchTypeValue(item.content);
-                                        setIsDropDownOpen(false);
-                                    }}
-                                >
-                                    {item.content}
-                                </span>
-                            ))}
-                        </MenuWrapper>
-                    </div>
-                )}
+                <div className={cx('tippy-select-wrapper')}>
+                    <Tippy
+                        interactive
+                        visible={isDropDownOpen}
+                        onClickOutside={() => setIsDropDownOpen(false)}
+                        offset={[0, 0]}
+                        render={(attrs) => (
+                            <div className={cx('select-result')} tabIndex="-1" {...attrs}>
+                                <MenuWrapper className={cx('select-wrapper')}>
+                                    {searchTypes.map((item, index) => (
+                                        <span
+                                            className={cx('select-item')}
+                                            key={index}
+                                            onClick={() => {
+                                                setSearchTypeValue(item.content);
+                                                setIsDropDownOpen(false);
+                                            }}
+                                        >
+                                            {item.content}
+                                        </span>
+                                    ))}
+                                </MenuWrapper>
+                            </div>
+                        )}
+                    >
+                        <div></div>
+                    </Tippy>
+                </div>
 
-                <button className={cx('search-select')} onClick={() => setIsDropDownOpen(!isDropDownOpen)}>
+                {/* Tippy control */}
+                <button className={cx('search-select')} onClick={() => setIsDropDownOpen(true)}>
                     <span>
                         {searchTypeValue}
                         <i className={cx('search-select-icon')} />
