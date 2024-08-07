@@ -4,10 +4,14 @@
 }
 
 .banner {
-    min-height: 230px;
     max-width: 1500px;
     margin: 0 auto;
-    background-color: rgb(128, 210, 210);
+}
+
+.container {
+    margin-top: -370px;
+    position: relative;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0), #e3e6e6);
 }
 
 .content {
@@ -25,8 +29,15 @@
     min-height: 420px;
     max-width: 400px;
     min-width: 290px;
-    padding: 0 10px;
-    background-color: rgb(222, 205, 205);
+    background: var(--white);
+}
+
+.cart-row-break {
+    display: block;
+    width: 100%;
+    height: 20px;
+    border: 0;
+    margin: 0;
 }
 
 /* Mobile & Tablet */

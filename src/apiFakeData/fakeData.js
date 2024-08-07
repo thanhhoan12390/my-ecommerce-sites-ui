@@ -1,3 +1,5 @@
+import images from '~/assets/images';
+
 export const listsAccountMenuData = {
     ListsData: [
         {
@@ -656,5 +658,29 @@ export const AccountModalData = [
                 ],
             },
         ],
+    },
+];
+
+// carousel data
+export const carouselData = [
+    {
+        src: images.bannerImage1,
+        alt: 'Image 1 for carousel',
+    },
+    {
+        src: images.bannerImage2,
+        alt: 'Image 2 for carousel',
+    },
+    {
+        src: images.bannerImage3,
+        alt: 'Image 3 for carousel',
+    },
+    {
+        src: images.bannerImage4,
+        alt: 'Image 4 for carousel',
+    },
+    {
+        src: images.bannerImage5,
+        alt: 'Image 5 for carousel',
     },
 ];
