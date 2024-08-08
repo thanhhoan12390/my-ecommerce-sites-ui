@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-
-import styles from './Card.module.scss';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+
+import styles from './Card.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -40,11 +40,13 @@ function Card({ data, className }) {
                         <div className={cx('card-grid-group', 'row')}>
                             {data.map((item, index) => (
                                 <div key={index} className={cx('col', 'l-6', 'card-grid-item')}>
-                                    <img
-                                        src={item.src}
-                                        alt={`${item.title + ' ' + index}`}
-                                        className={cx('card-grid-img')}
-                                    />
+                                    <Link to="/">
+                                        <img
+                                            src={item.src}
+                                            alt={`${item.title + ' ' + index}`}
+                                            className={cx('card-grid-img')}
+                                        />
+                                    </Link>
                                     <Link to="/" className={cx('card-item-footer')}>
                                         {item.footer}
                                     </Link>

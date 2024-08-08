@@ -25,11 +25,16 @@ function Carousel({ data }) {
 
     return (
         <div className={cx('wrapper')}>
-            <button className={cx('arrow-btn', 'arrow-left-btn')} onClick={handlePrevSlide}>
-                <FontAwesomeIcon icon={faChevronLeft} className={cx('arrow-left-icon')} />
-            </button>
+            <div className={cx('arrow-btn-group')}>
+                <button className={cx('arrow-btn', 'arrow-left-btn')} onClick={handlePrevSlide}>
+                    <FontAwesomeIcon icon={faChevronLeft} className={cx('arrow-left-icon')} />
+                </button>
+                <button className={cx('arrow-btn', 'arrow-right-btn')} onClick={handleNextSlide}>
+                    <FontAwesomeIcon icon={faChevronRight} className={cx('arrow-right-icon')} />
+                </button>
+            </div>
             {data.map((item, index) => (
-                <Link key={index}>
+                <Link key={index} className={cx('slide-link')}>
                     <img
                         src={item.src}
                         alt={item.alt}
@@ -37,9 +42,6 @@ function Carousel({ data }) {
                     />
                 </Link>
             ))}
-            <button className={cx('arrow-btn', 'arrow-right-btn')} onClick={handleNextSlide}>
-                <FontAwesomeIcon icon={faChevronRight} className={cx('arrow-right-icon')} />
-            </button>
         </div>
     );
 }

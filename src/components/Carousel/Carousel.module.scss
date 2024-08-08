@@ -1,26 +1,19 @@
 .wrapper {
-    display: flex;
     position: relative;
-}
-
-.slide {
     max-height: 600px;
-    height: 100%;
 }
 
-.slide-hidden {
-    display: none;
-}
-
-.slide-right {
-    animation: slideRight ease-in-out 0.2s;
-}
-.slide-left {
-    animation: slideLeft ease-in-out 0.2s;
+.arrow-btn-group {
+    position: absolute;
+    top: 250px;
+    height: 350px;
+    width: 100%;
+    background-image: linear-gradient(180deg, rgba(227, 230, 230, 0), rgba(227, 230, 230, 1));
 }
 
 .arrow-btn {
     position: absolute;
+    top: -250px;
     height: 250px;
     width: 84px;
     background-color: transparent;
@@ -44,6 +37,27 @@
 .arrow-right-icon {
     height: 36px;
     color: #6f7373;
+}
+
+.slide-link {
+    display: block;
+    max-height: 600px;
+}
+
+.slide {
+    max-height: 600px;
+    height: 100%;
+}
+
+.slide-hidden {
+    display: none;
+}
+
+.slide-right {
+    animation: slideRight ease-in-out 0.2s;
+}
+.slide-left {
+    animation: slideLeft ease-in-out 0.2s;
 }
 
 @keyframes slideLeft {
