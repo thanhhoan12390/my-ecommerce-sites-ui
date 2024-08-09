@@ -1,8 +1,11 @@
+.overlay:has(+ div .account-menu) {
+    display: block;
+    z-index: 999; // z-index 3 số
+}
+
 .account-menu {
     width: 500px;
     position: relative;
-
-    z-index: 999999; // z-index 6 số
 
     &::before {
         content: '';

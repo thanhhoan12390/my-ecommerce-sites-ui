@@ -24,6 +24,8 @@
     display: inline-flex;
     height: var(--nav-item-height);
     padding: 0 8px;
+    position: relative;
+    z-index: 9999; // z-index 4 số
 }
 
 .nav-logo {
@@ -42,6 +44,8 @@
     padding: 0 8px 0 6px;
     margin: 5px 2px 5px 5px;
     cursor: pointer;
+    position: relative;
+    z-index: 9999; // z-index 4 số
 }
 
 .nav-location {
@@ -137,6 +141,7 @@
     padding: 0 8px 0 6px;
     margin: 5px 2px 5px 5px;
     cursor: pointer;
+    z-index: 9999; // z-index 4 số
 }
 
 .nav-cart-group {
@@ -196,6 +201,7 @@
     align-items: center;
     height: 40px;
     background-color: #232f3e;
+
     div:first-child {
         margin-left: 10px;
     }
@@ -207,16 +213,18 @@
     height: calc(var(--nav-item-height) - 10px);
     padding: 0 8px 0 6px;
     cursor: pointer;
+    position: relative;
+    z-index: 9999; // z-index 4 số
 }
 
 .nav-main-all-icon {
     color: var(--white);
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 .nav-main-all-text {
     margin-left: 5px;
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 

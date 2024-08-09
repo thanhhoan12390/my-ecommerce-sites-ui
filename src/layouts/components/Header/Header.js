@@ -90,7 +90,7 @@ function Header() {
             <div className={cx('nav-main')}>
                 <div className={cx('nav-main-item')} onClick={() => setIsOpenAccountModal(true)}>
                     <FontAwesomeIcon icon={faList} className={cx('nav-main-all-icon')} />
-                    <span className={cx('nav-main-all-text')}>All</span>
+                    <h4 className={cx('nav-main-all-text')}>All Options</h4>
                 </div>
                 <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>

@@ -1,8 +1,12 @@
+.overlay:has(+ div .language-menu) {
+    display: block;
+}
+
 .language-menu {
     width: 240px;
     position: relative;
 
-    z-index: 999999; // z-index 6 số
+    z-index: 99; // z-index 2 số
 
     &::before {
         content: '';

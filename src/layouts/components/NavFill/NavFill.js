@@ -128,10 +128,10 @@ function NavFill() {
                         </div>
                     </Tippy>
                 </div>
-
-                {/* Tạo lớp overlay */}
-                <OverLay className={cx('nav-overlay')} />
             </div>
+
+            {/* Tạo lớp overlay */}
+            <OverLay className={cx('nav-overlay')} />
         </div>
     );
 }

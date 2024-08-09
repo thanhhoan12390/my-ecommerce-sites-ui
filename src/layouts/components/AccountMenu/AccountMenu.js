@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import styles from './AccountMenu.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
 import images from '~/assets/images';
+import OverLay from '~/components/OverLay/OverLay';
 
 import { listsAccountMenuData } from '~/apiFakeData'; // fake Data
 
@@ -70,6 +71,8 @@ function AccountMenu({ children }) {
             >
                 {children}
             </Tippy>
+
+            <OverLay className={cx('overlay')} />
         </div>
     );
 }

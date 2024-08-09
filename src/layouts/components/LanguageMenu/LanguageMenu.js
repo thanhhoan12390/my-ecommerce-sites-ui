@@ -11,6 +11,7 @@ import images from '~/assets/images';
 import Divider from '~/components/Divider';
 import { languageSelector } from '~/redux/selectors'; // selector
 import { getLanguage } from '~/layouts/components/Header/headerSlice'; // action creator
+import OverLay from '~/components/OverLay/OverLay';
 
 const cx = classNames.bind(styles);
 
@@ -79,6 +80,8 @@ function LanguageMenu({ children }) {
             >
                 {children}
             </Tippy>
+
+            <OverLay className={cx('overlay')} />
         </div>
     );
 }

@@ -13,15 +13,16 @@
     display: flex;
     flex: 1;
     height: 40px;
+    position: relative;
+    z-index: 9999; // z-index 4 số
 
     &:has(input:focus-within) {
         outline: rgb(245 147 0) solid 3px;
         border-radius: 4px;
+    }
 
-        .nav-overlay {
-            top: 100px;
-            display: block;
-        }
+    &:has(input:focus-within) ~ .nav-overlay {
+        display: block;
     }
 }
 
