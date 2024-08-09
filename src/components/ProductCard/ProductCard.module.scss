@@ -1,0 +1,124 @@
+.wrapper {
+    margin-left: 28px;
+    padding: 5px 0;
+    width: 165px;
+    min-height: 100%;
+    text-align: left;
+}
+
+.container {
+    display: block;
+}
+
+.card-img {
+    margin-bottom: 4px;
+
+    img {
+        max-width: 165px;
+        max-height: 165px;
+        vertical-align: top;
+    }
+}
+
+.card-description {
+    max-height: 100px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    letter-spacing: normal;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #007185;
+
+    &:hover {
+        color: #c7511f;
+    }
+}
+
+.card-rating {
+    position: relative;
+    white-space: nowrap;
+    margin-right: 80px;
+}
+
+.card-star-icon {
+    color: #de7921;
+    height: 17px;
+    width: 17px;
+}
+
+.rating-overlay {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.card-sale-off {
+    align-items: center;
+    display: flex;
+    font-size: 12px;
+    gap: 6px;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    margin-top: 3px;
+    cursor: text;
+
+    span {
+        display: block;
+    }
+
+    span:first-child {
+        background: #cc0c39;
+        color: var(--white);
+        border-radius: 2px;
+        line-height: 16px;
+        padding: 4px 6px;
+        font-weight: 600;
+    }
+
+    span:last-child {
+        background: var(--white);
+        color: #cc0c39;
+        font-weight: 700;
+        line-height: 12px;
+        flex: 1;
+    }
+}
+
+.card-price {
+    font-size: 1.7rem;
+    color: var(--black);
+
+    span:first-child {
+        position: relative;
+        top: -0.3em;
+        font-size: 1.1rem;
+    }
+}
+
+.card-original-price,
+.card-ship {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.card-original-price {
+    span:last-child {
+        text-decoration: line-through;
+    }
+}
+
+.card-ship {
+    cursor: text;
+}

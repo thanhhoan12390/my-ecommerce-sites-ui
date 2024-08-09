@@ -948,3 +948,87 @@ export const feedCarouselData2 = {
         images.feedCarouselImg58,
     ],
 };
+
+export const relatedViewData = [
+    {
+        image: images.relatedViewImg1,
+        description:
+            'Samsung Galaxy Tab S9 FE 10.9” 128GB WiFi Android Tablet, Large Display, Long Battery Life, Powerful Processor, S Pen, 8MP Camera, Lightweight Durable Design, Expandable Storage, US Version,2023, Gray',
+        rating: 4.6,
+        saleOff: 0,
+        price: 339.99,
+        originalPrice: 339.99,
+        ship: 31.69,
+    },
+    {
+        image: images.relatedViewImg2,
+        description:
+            'SAMSUNG Galaxy Tab A9+ Book Cover, Tablet Protector Case, Foldable Stand with Landscape and Portrait Modes, Protective Against Bumps and Scratches, Auto Screen On/Off, US Version, Black - Khaki',
+        rating: 4.5,
+        saleOff: 0,
+        price: 35.95,
+        originalPrice: 35.95,
+        ship: 35.72,
+    },
+    {
+        image: images.relatedViewImg3,
+        description:
+            'SAMSUNG Galaxy Tab S9 11” 256GB WiFi 7 Android AI Tablet, Snapdragon 8 Gen 2 Processor, AMOLED Screen, Durable Design, S Pen Included, Long Battery Life, Auto Focus Camera, US Version, 2023, Graphite',
+        rating: 4.7,
+        saleOff: 17,
+        price: 761.71,
+        originalPrice: 919.99,
+        ship: 31.69,
+    },
+    {
+        image: images.relatedViewImg4,
+        description:
+            'SAMSUNG Galaxy Tab S6 Lite 10.4" 64GB WiFi Android Tablet w/ S Pen Included, Slim Metal Design, Crystal Clear Display, Dual Speakers, Long Lasting Battery, SM-P610NZAAXAR, Oxford Gray',
+        rating: 4.5,
+        saleOff: 0,
+        price: 323.86,
+        originalPrice: 323.86,
+        ship: 31.69,
+    },
+    {
+        image: images.relatedViewImg5,
+        description:
+            'Lenovo Tab M11, 11” Display, MediaTek Helio G88 Octa-Core, 4GB RAM, 128GB SSD, 1920x1200 px, Ambient Light-Sensor, 10 Hour Battery, Comes w/Folio Case, Luna Grey',
+        rating: 4.9,
+        saleOff: 0,
+        price: 211.0,
+        originalPrice: 211.0,
+        ship: 35.88,
+    },
+    {
+        image: images.relatedViewImg6,
+        description:
+            'Lenovo Tab M9-2023 - Tablet - Long Battery Life - 9" HD - Front 2MP & Rear 8MP Camera - 3GB Memory - 32GB Storage - Android 12 or Later - Folio Case Included,Gray',
+        rating: 4.4,
+        saleOff: 19,
+        price: 112.59,
+        originalPrice: 139.0,
+        ship: 34.69,
+    },
+    {
+        image: images.relatedViewImg7,
+        description:
+            'OnePlus Pad 11.61" LCD Display, 8GB RAM,128GB Storage, MediaTek Dimensity 9000, Android 13.1, 144HZ Refresh Rate, Dolby Vision Atmos, Wi-Fi with Cellular Data Sharing Tablet',
+        rating: 4.4,
+        saleOff: 18,
+        price: 393.59,
+        originalPrice: 479.99,
+        ship: 35.12,
+    },
+
+    {
+        image: images.relatedViewImg8,
+        description:
+            'Lenovo Tab P12-2024 - Expansive Touchscreen Tablet - 12.7" 3K Display - 13MP Camera - 8GB Memory - 128GB UFS Storage - Android 13 - Dolby Atmos - Quad JBL Speakers - Pen and Folio Case Included',
+        rating: 4.6,
+        saleOff: 0,
+        price: 321.89,
+        originalPrice: 321.89,
+        ship: 40.39,
+    },
+];

@@ -1,0 +1,88 @@
+.wrapper {
+    padding: 0 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.container {
+    padding: 10px;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.header-text {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+.header-pagination {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+
+.carousel-wrapper {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-group {
+    max-width: 1372px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel-content {
+    display: flex;
+    margin: 0;
+    overflow-x: visible;
+    list-style-type: none;
+    height: 100%;
+    white-space: nowrap;
+}
+
+.arrow-btn {
+    position: relative;
+    top: -18px;
+    height: 42px;
+    width: 42px;
+    overflow: visible;
+    min-height: 1px;
+    border-radius: 8px;
+    border: 1px solid #888c8c;
+    background: var(--white);
+    cursor: pointer;
+
+    &:focus {
+        border-color: #888c8c;
+        outline: 3px solid #007185;
+        outline-offset: 2px;
+        box-shadow: none;
+    }
+}
+
+.arrow-left-btn {
+    margin-left: 5px;
+}
+
+.arrow-right-btn {
+    margin-right: 5px;
+}
+.arrow-left-icon,
+.arrow-right-icon {
+    color: #888c8c;
+    font-size: 1.6rem;
+}

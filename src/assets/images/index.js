@@ -104,6 +104,16 @@ const images = {
     feedCarouselImg56: require('~/assets/images/feedCarousel/feed-carousel-img-56.jpg'),
     feedCarouselImg57: require('~/assets/images/feedCarousel/feed-carousel-img-57.jpg'),
     feedCarouselImg58: require('~/assets/images/feedCarousel/feed-carousel-img-58.jpg'),
+
+    // related view
+    relatedViewImg1: require('~/assets/images/relatedView/related-view-img-1.jpg'),
+    relatedViewImg2: require('~/assets/images/relatedView/related-view-img-2.jpg'),
+    relatedViewImg3: require('~/assets/images/relatedView/related-view-img-3.jpg'),
+    relatedViewImg4: require('~/assets/images/relatedView/related-view-img-4.jpg'),
+    relatedViewImg5: require('~/assets/images/relatedView/related-view-img-5.jpg'),
+    relatedViewImg6: require('~/assets/images/relatedView/related-view-img-6.jpg'),
+    relatedViewImg7: require('~/assets/images/relatedView/related-view-img-7.jpg'),
+    relatedViewImg8: require('~/assets/images/relatedView/related-view-img-8.jpg'),
 };
 
 export default images;
