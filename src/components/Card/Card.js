@@ -10,16 +10,16 @@ const cx = classNames.bind(styles);
 function Card({ data, className }) {
     return (
         <Fragment>
-            {data.length < 2 && (
+            {data.products.length < 2 && (
                 <div className={cx('wrapper', className)}>
-                    {data.map((item, index) => (
+                    {data.products.map((item, index) => (
                         <Fragment key={index}>
                             <header className={cx('card-header')}>
-                                <h2 className={cx('card-header-text')}>{item.title}</h2>
+                                <h2 className={cx('card-header-text')}>{data.title}</h2>
                             </header>
                             <div className={cx('card-item')}>
                                 <Link to="/" className={cx('card-group')}>
-                                    <img src={item.src} alt={item.title} className={cx('card-img')} />
+                                    <img src={item.src} alt={data.title} className={cx('card-img')} />
                                 </Link>
                                 <Link to="/" className={cx('card-link')}>
                                     Shop now
@@ -30,22 +30,18 @@ function Card({ data, className }) {
                 </div>
             )}
 
-            {data.length >= 2 && (
+            {data.products.length >= 2 && (
                 <div className={cx('wrapper', className)}>
                     <header className={cx('card-header')}>
-                        <h2 className={cx('card-header-text')}>{data[0].title}</h2>
+                        <h2 className={cx('card-header-text')}>{data.title}</h2>
                     </header>
 
                     <div className={cx('card-grid-content')}>
                         <div className={cx('card-grid-group', 'row')}>
-                            {data.map((item, index) => (
+                            {data.products.map((item, index) => (
                                 <div key={index} className={cx('col', 'l-6', 'card-grid-item')}>
                                     <Link to="/">
-                                        <img
-                                            src={item.src}
-                                            alt={`${item.title + ' ' + index}`}
-                                            className={cx('card-grid-img')}
-                                        />
+                                        <img src={item.src} alt={item.footer} className={cx('card-grid-img')} />
                                     </Link>
                                     <Link to="/" className={cx('card-item-footer')}>
                                         {item.footer}
@@ -64,7 +60,7 @@ function Card({ data, className }) {
 }
 
 Card.propTypes = {
-    data: PropTypes.array,
+    data: PropTypes.object,
     className: PropTypes.string,
 };
 

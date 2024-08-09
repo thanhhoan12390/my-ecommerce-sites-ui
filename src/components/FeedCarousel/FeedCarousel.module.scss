@@ -1,0 +1,160 @@
+.wrapper {
+    position: relative;
+}
+
+.feed-carousel-header {
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.feed-carousel-header-text {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.feed-carousel-container {
+    &:hover {
+        .feed-carousel-content::-webkit-scrollbar {
+            display: block;
+        }
+
+        .feed-carousel-arrow {
+            display: block;
+        }
+    }
+}
+
+.feed-carousel-content {
+    min-height: 220px;
+    white-space: nowrap;
+    margin: 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    animation: fadeIn ease-in-out 0.8s;
+}
+
+.feed-carousel-content::-webkit-scrollbar {
+    border-radius: 0;
+    height: 7px;
+    display: none;
+}
+
+.feed-carousel-content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #aaa;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #888;
+    }
+}
+
+.feed-carousel-content::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.feed-carousel-list {
+    list-style: none;
+    margin: 0 0 14px;
+    min-height: 100%;
+}
+
+.feed-carousel-item {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    min-width: 145px;
+    max-width: 270px;
+    max-height: 200px;
+    min-height: 200px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.feed-carousel-img {
+    width: auto;
+    height: auto;
+    max-width: 270px;
+    max-height: 200px;
+}
+
+.feed-carousel-arrow {
+    position: absolute;
+    top: 78px;
+    height: 100px;
+    line-height: 100px;
+    width: 45px;
+    text-align: center;
+    background-color: #fff;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn ease-in-out 0.8s;
+    cursor: pointer;
+
+    display: none;
+}
+
+.feed-carousel-arrow-left {
+    left: 0;
+    padding-right: 2px;
+    border-radius: 0 3px 3px 0;
+    clip: rect(-10px, 55px, 110px, 0);
+    box-shadow: 0 1px 3px #888;
+
+    &:focus {
+        outline: 2px solid #007185;
+        outline-offset: -3px;
+        border-radius: 0 5px 5px 0;
+    }
+}
+
+.feed-carousel-arrow-right {
+    right: 0;
+    padding-left: 2px;
+    border-radius: 3px 0 0 3px;
+    clip: rect(-10px, 45px, 110px, -10px);
+    box-shadow: 0px 1px 3px #888;
+
+    &:focus {
+        outline: 2px solid #007185;
+        outline-offset: -3px;
+        border-radius: 5px 0 0 5px;
+    }
+}
+
+.feed-carousel-right-icon,
+.feed-carousel-left-icon {
+    font-size: 2.4rem;
+}
+
+.disabled-arrow {
+    opacity: 0.5;
+
+    animation: disableFadeOut linear 0.8s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes disableFadeOut {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}

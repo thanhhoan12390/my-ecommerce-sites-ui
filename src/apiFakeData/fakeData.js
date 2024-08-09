@@ -686,32 +686,167 @@ export const carouselData = [
 ];
 
 export const productsData = [
-    [{ title: 'Deal in PCs', src: images.productImgNoGrid1, footer: '' }],
-    [
-        { title: 'Refresh your space', src: images.productImgGrid1, footer: 'Dining' },
-        { title: 'Refresh your space', src: images.productImgGrid2, footer: 'Home' },
-        { title: 'Refresh your space', src: images.productImgGrid3, footer: 'Kitchen' },
-        { title: 'Refresh your space', src: images.productImgGrid4, footer: 'Health and Beauty' },
-    ],
-    [{ title: 'Home décor under $50', src: images.productImgNoGrid2, footer: '' }],
-    [
-        { title: 'Shop deals in Fashion', src: images.productImgGrid5, footer: 'Jeans under $50' },
-        { title: 'Shop deals in Fashion', src: images.productImgGrid6, footer: 'Tops under $25' },
-        { title: 'Shop deals in Fashion', src: images.productImgGrid7, footer: 'Dresses under $30' },
-        { title: 'Shop deals in Fashion', src: images.productImgGrid8, footer: 'Shoes under $40' },
-    ],
-    [{ title: 'Beauty steals under $25', src: images.productImgNoGrid3, footer: '' }],
-    [{ title: 'Toys under $25', src: images.productImgNoGrid4, footer: '' }],
-    [
-        { title: 'Fashion trends you like', src: images.productImgGrid9, footer: 'Dresses' },
-        { title: 'Fashion trends you like', src: images.productImgGrid10, footer: 'Knits' },
-        { title: 'Fashion trends you like', src: images.productImgGrid11, footer: 'Jackets' },
-        { title: 'Fashion trends you like', src: images.productImgGrid12, footer: 'Jewelry' },
-    ],
-    [
-        { title: 'Easy updates for elevated spaces', src: images.productImgGrid13, footer: 'Baskets & hampers' },
-        { title: 'Easy updates for elevated spaces', src: images.productImgGrid14, footer: 'Hardware' },
-        { title: 'Easy updates for elevated spaces', src: images.productImgGrid15, footer: 'Accent furniture' },
-        { title: 'Easy updates for elevated spaces', src: images.productImgGrid16, footer: 'Wallpaper & paint' },
-    ],
+    {
+        title: 'Deal in PCs',
+        products: [
+            {
+                src: images.productImgNoGrid1,
+                footer: '',
+            },
+        ],
+    },
+    {
+        title: 'Refresh your space',
+        products: [
+            {
+                src: images.productImgGrid1,
+                footer: 'Dining',
+            },
+            {
+                src: images.productImgGrid2,
+                footer: 'Home',
+            },
+            {
+                src: images.productImgGrid3,
+                footer: 'Kitchen',
+            },
+            {
+                src: images.productImgGrid4,
+                footer: 'Health and Beauty',
+            },
+        ],
+    },
+
+    {
+        title: 'Home décor under $50',
+        products: [
+            {
+                src: images.productImgNoGrid2,
+                footer: '',
+            },
+        ],
+    },
+
+    {
+        title: 'Shop deals in Fashion',
+        products: [
+            {
+                src: images.productImgGrid5,
+                footer: 'Tops under $25',
+            },
+            {
+                src: images.productImgGrid6,
+                footer: 'Dresses under $30',
+            },
+            {
+                src: images.productImgGrid7,
+                footer: 'Kitchen',
+            },
+            {
+                src: images.productImgGrid8,
+                footer: 'Shoes under $40',
+            },
+        ],
+    },
+
+    {
+        title: 'Beauty steals under $25',
+        products: [
+            {
+                src: images.productImgNoGrid3,
+                footer: '',
+            },
+        ],
+    },
+
+    {
+        title: 'Toys under $25',
+        products: [
+            {
+                src: images.productImgNoGrid4,
+                footer: '',
+            },
+        ],
+    },
+
+    {
+        title: 'Shop deals in Fashion',
+        products: [
+            {
+                src: images.productImgGrid9,
+                footer: 'Dresses',
+            },
+            {
+                src: images.productImgGrid10,
+                footer: 'Knits',
+            },
+            {
+                src: images.productImgGrid11,
+                footer: 'Jackets',
+            },
+            {
+                src: images.productImgGrid12,
+                footer: 'Jewelry',
+            },
+        ],
+    },
+
+    {
+        title: 'Easy updates for elevated spaces',
+        products: [
+            {
+                src: images.productImgGrid13,
+                footer: 'Baskets & hampers',
+            },
+            {
+                src: images.productImgGrid14,
+                footer: 'Hardware',
+            },
+            {
+                src: images.productImgGrid15,
+                footer: 'Accent furniture',
+            },
+            {
+                src: images.productImgGrid16,
+                footer: 'Wallpaper & paint',
+            },
+        ],
+    },
 ];
+
+export const feedCarouselData = {
+    title: 'Most wished for in Movies & TV',
+    data: [
+        images.feedCarouselImg1,
+        images.feedCarouselImg2,
+        images.feedCarouselImg3,
+        images.feedCarouselImg4,
+        images.feedCarouselImg5,
+        images.feedCarouselImg6,
+        images.feedCarouselImg7,
+        images.feedCarouselImg8,
+        images.feedCarouselImg9,
+        images.feedCarouselImg10,
+        images.feedCarouselImg11,
+        images.feedCarouselImg12,
+        images.feedCarouselImg13,
+        images.feedCarouselImg14,
+        images.feedCarouselImg15,
+        images.feedCarouselImg16,
+        images.feedCarouselImg17,
+        images.feedCarouselImg18,
+        images.feedCarouselImg19,
+        images.feedCarouselImg20,
+        images.feedCarouselImg21,
+        images.feedCarouselImg22,
+        images.feedCarouselImg23,
+        images.feedCarouselImg24,
+        images.feedCarouselImg25,
+        images.feedCarouselImg26,
+        images.feedCarouselImg27,
+        images.feedCarouselImg28,
+        images.feedCarouselImg29,
+        images.feedCarouselImg30,
+        images.feedCarouselImg31,
+    ],
+};

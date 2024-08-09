@@ -4,7 +4,9 @@ import { Fragment, useMemo } from 'react';
 import styles from './Home.module.scss';
 import Carousel from '~/components/Carousel/Carousel';
 import Card from '~/components/Card/Card';
-import { carouselData, productsData } from '~/apiFakeData';
+import FeedCarousel from '~/components/FeedCarousel/FeedCarousel';
+import RowBreak from '~/components/RowBreak/RowBreak';
+import { carouselData, productsData, feedCarouselData } from '~/apiFakeData';
 
 const cx = classNames.bind(styles);
 
@@ -30,12 +32,24 @@ function Home() {
                                             <Card data={product} />
                                         </div>
                                     </div>
-                                    {index % 4 === 3 && !(index + 1 === productLength) && (
-                                        <hr className={cx('cart-row-break')} />
-                                    )}
+                                    {index % 4 === 3 && !(index + 1 === productLength) && <RowBreak />}
                                 </Fragment>
                             );
                         })}
+
+                        <RowBreak />
+
+                        <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
+                            <div className={cx('feed-carousel')}>
+                                <FeedCarousel feedCarouselData={feedCarouselData} />
+                            </div>
+                        </div>
+
+                        <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
+                            <div className={cx('feed-carousel')}>
+                                <FeedCarousel feedCarouselData={feedCarouselData} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
