@@ -6,12 +6,13 @@ import Carousel from '~/components/Carousel/Carousel';
 import Card from '~/components/Card/Card';
 import FeedCarousel from '~/components/FeedCarousel/FeedCarousel';
 import RowBreak from '~/components/RowBreak/RowBreak';
-import { carouselData, productsData, feedCarouselData } from '~/apiFakeData';
+import { carouselData, productsData1, productsData2, feedCarouselData1, feedCarouselData2 } from '~/apiFakeData';
 
 const cx = classNames.bind(styles);
 
 function Home() {
-    const productLength = useMemo(() => productsData.length, []);
+    const productLength1 = useMemo(() => productsData1.length, []);
+    const productLength2 = useMemo(() => productsData2.length, []);
 
     return (
         <div className={cx('col', 'l-12', 'm-12', 'c-6', 'wrapper')}>
@@ -24,7 +25,7 @@ function Home() {
             <div className={cx('container')}>
                 <div className={cx('content')}>
                     <div className={cx('row', 'cart-layout')}>
-                        {productsData.map((product, index) => {
+                        {productsData1.map((product, index) => {
                             return (
                                 <Fragment key={index}>
                                     <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
@@ -32,7 +33,7 @@ function Home() {
                                             <Card data={product} />
                                         </div>
                                     </div>
-                                    {index % 4 === 3 && !(index + 1 === productLength) && <RowBreak />}
+                                    {index % 4 === 3 && !(index + 1 === productLength1) && <RowBreak />}
                                 </Fragment>
                             );
                         })}
@@ -41,13 +42,68 @@ function Home() {
 
                         <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
                             <div className={cx('feed-carousel')}>
-                                <FeedCarousel feedCarouselData={feedCarouselData} />
+                                <FeedCarousel feedCarouselData={feedCarouselData1} />
                             </div>
                         </div>
 
+                        <RowBreak />
+
                         <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
                             <div className={cx('feed-carousel')}>
-                                <FeedCarousel feedCarouselData={feedCarouselData} />
+                                <FeedCarousel feedCarouselData={feedCarouselData2} />
+                            </div>
+                        </div>
+
+                        <RowBreak />
+
+                        {productsData2.map((product, index) => {
+                            return (
+                                <Fragment key={index}>
+                                    <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
+                                        <div className={cx('cart-item')}>
+                                            <Card data={product} />
+                                        </div>
+                                    </div>
+                                    {index % 4 === 3 && !(index + 1 === productLength2) && <RowBreak />}
+                                </Fragment>
+                            );
+                        })}
+
+                        <RowBreak />
+
+                        <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
+                            <div className={cx('feed-carousel')}>
+                                <FeedCarousel feedCarouselData={feedCarouselData1} />
+                            </div>
+                        </div>
+
+                        <RowBreak />
+
+                        <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
+                            <div className={cx('feed-carousel')}>
+                                <FeedCarousel feedCarouselData={feedCarouselData2} />
+                            </div>
+                        </div>
+
+                        <RowBreak />
+
+                        {productsData2.map((product, index) => {
+                            return (
+                                <Fragment key={index}>
+                                    <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
+                                        <div className={cx('cart-item')}>
+                                            <Card data={product} />
+                                        </div>
+                                    </div>
+                                    {index % 4 === 3 && !(index + 1 === productLength2) && <RowBreak />}
+                                </Fragment>
+                            );
+                        })}
+                        <RowBreak />
+
+                        <div className={cx('col', 'l-12', 'm-12', 'c-12')}>
+                            <div className={cx('feed-carousel')}>
+                                <FeedCarousel feedCarouselData={feedCarouselData1} />
                             </div>
                         </div>
                     </div>

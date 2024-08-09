@@ -685,7 +685,7 @@ export const carouselData = [
     },
 ];
 
-export const productsData = [
+export const productsData1 = [
     {
         title: 'Deal in PCs',
         products: [
@@ -814,7 +814,72 @@ export const productsData = [
     },
 ];
 
-export const feedCarouselData = {
+export const productsData2 = [
+    {
+        title: 'Shop activity trackers and smartwatches',
+        products: [
+            {
+                src: images.productImgNoGrid5,
+                footer: '',
+            },
+        ],
+    },
+    {
+        title: 'Fantastic Finds for Home',
+        products: [
+            {
+                src: images.productImgGrid17,
+                footer: 'Kitchen',
+            },
+            {
+                src: images.productImgGrid18,
+                footer: 'Home Decor',
+            },
+            {
+                src: images.productImgGrid19,
+                footer: 'Dining',
+            },
+            {
+                src: images.productImgGrid20,
+                footer: 'Smart Home',
+            },
+        ],
+    },
+
+    {
+        title: 'Level up your gaming',
+        products: [
+            {
+                src: images.productImgGrid21,
+                footer: 'PC gaming',
+            },
+            {
+                src: images.productImgGrid22,
+                footer: 'Xbox',
+            },
+            {
+                src: images.productImgGrid23,
+                footer: 'PlayStation',
+            },
+            {
+                src: images.productImgGrid24,
+                footer: 'Nintendo Switch',
+            },
+        ],
+    },
+
+    {
+        title: 'Beauty steals under $25',
+        products: [
+            {
+                src: images.productImgNoGrid6,
+                footer: '',
+            },
+        ],
+    },
+];
+
+export const feedCarouselData1 = {
     title: 'Most wished for in Movies & TV',
     data: [
         images.feedCarouselImg1,
@@ -848,5 +913,38 @@ export const feedCarouselData = {
         images.feedCarouselImg29,
         images.feedCarouselImg30,
         images.feedCarouselImg31,
+    ],
+};
+
+export const feedCarouselData2 = {
+    title: 'International Top Sellers for you',
+    data: [
+        images.feedCarouselImg32,
+        images.feedCarouselImg33,
+        images.feedCarouselImg34,
+        images.feedCarouselImg35,
+        images.feedCarouselImg36,
+        images.feedCarouselImg37,
+        images.feedCarouselImg38,
+        images.feedCarouselImg39,
+        images.feedCarouselImg40,
+        images.feedCarouselImg41,
+        images.feedCarouselImg42,
+        images.feedCarouselImg43,
+        images.feedCarouselImg44,
+        images.feedCarouselImg45,
+        images.feedCarouselImg46,
+        images.feedCarouselImg47,
+        images.feedCarouselImg48,
+        images.feedCarouselImg49,
+        images.feedCarouselImg50,
+        images.feedCarouselImg51,
+        images.feedCarouselImg52,
+        images.feedCarouselImg53,
+        images.feedCarouselImg54,
+        images.feedCarouselImg55,
+        images.feedCarouselImg56,
+        images.feedCarouselImg57,
+        images.feedCarouselImg58,
     ],
 };

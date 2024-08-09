@@ -15,8 +15,10 @@
 }
 
 .feed-carousel-container {
+    padding-bottom: 10px;
+
     &:hover {
-        .feed-carousel-content::-webkit-scrollbar {
+        .feed-scrollbar-thumb {
             display: block;
         }
 
@@ -30,31 +32,10 @@
     min-height: 220px;
     white-space: nowrap;
     margin: 0;
-    overflow-x: scroll;
+    overflow: hidden;
     scroll-behavior: smooth;
 
     animation: fadeIn ease-in-out 0.8s;
-}
-
-.feed-carousel-content::-webkit-scrollbar {
-    border-radius: 0;
-    height: 7px;
-    display: none;
-}
-
-.feed-carousel-content::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: #aaa;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #888;
-    }
-}
-
-.feed-carousel-content::-webkit-scrollbar-track {
-    border-radius: 0;
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .feed-carousel-list {
@@ -139,6 +120,51 @@
     opacity: 0.5;
 
     animation: disableFadeOut linear 0.8s;
+}
+
+.feed-scrollbar {
+    display: block;
+    height: 6px;
+    width: 100%;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    font-size: 0;
+}
+
+.feed-scrollbar-track {
+    position: relative;
+    display: block;
+    height: 0px;
+    width: 100%;
+    margin: 0;
+    border-radius: 4px;
+    top: 2px;
+    background-color: #eee;
+}
+
+.feed-scrollbar-thumb {
+    position: absolute;
+    left: 0;
+    width: 0;
+    display: block;
+    background-color: #aaa;
+    height: 6px;
+    border-radius: 6px;
+    top: -2px;
+    margin: 0;
+    transition: left ease 0.8s;
+    cursor: pointer;
+    display: none;
+
+    animation: fadeIn linear 0.8s;
+    &:hover {
+        background-color: #888;
+    }
+}
+
+.disable-scrollbar-transition {
+    transition: none;
 }
 
 @keyframes fadeIn {

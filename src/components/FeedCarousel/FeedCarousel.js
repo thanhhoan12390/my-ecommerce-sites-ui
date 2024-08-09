@@ -10,13 +10,39 @@ import { useCallback, useState, useRef } from 'react';
 const cx = classNames.bind(styles);
 
 function FeedCarousel({ feedCarouselData }) {
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [disableBarTransition, setDisableBarTransition] = useState('');
     const [disabledLeftArrow, setDisabledLeftArrow] = useState('disabled-arrow');
     const [disabledRightArrow, setDisabledRightArrow] = useState('');
 
     const carouselRef = useRef();
+    const scrollbarRef = useRef();
+
+    const updateScrollBarWidth = useCallback(() => {
+        const scrollbarWidth = (1420 / carouselRef.current.scrollWidth) * 100;
+        scrollbarRef.current.style.width = `${scrollbarWidth}%`;
+    }, []);
+
+    const updateScroll = (scrollWidth) => {
+        // contentWidth = 1420
+        // max scrollLeft = carouselRef.current.scrollWidth - 1420
+        const maxScrollLeft = carouselRef.current.scrollWidth - 1420;
+
+        let currScrollLeft =
+            scrollWidth + carouselRef.current.scrollLeft <= maxScrollLeft
+                ? scrollWidth + carouselRef.current.scrollLeft
+                : maxScrollLeft;
+
+        currScrollLeft = currScrollLeft < 0 ? 0 : currScrollLeft;
+
+        const scrollbarPos = (currScrollLeft / carouselRef.current.scrollWidth) * 100;
+
+        carouselRef.current.scrollLeft += scrollWidth;
+        scrollbarRef.current.style.left = `${scrollbarPos}%`;
+    };
 
     const getScrollLeftWidth = useCallback(() => {
-        //ul width = 1420px, min-width = 145px, max-width = 270px
         let scrollWidth = 0;
 
         const currScrollLeft = carouselRef.current.scrollLeft;
@@ -72,9 +98,9 @@ function FeedCarousel({ feedCarouselData }) {
 
     const handleScrollLeft = () => {
         const scrollWidth = getScrollLeftWidth();
-        setDisabledRightArrow('');
 
-        carouselRef.current.scrollLeft -= scrollWidth;
+        setDisabledRightArrow('');
+        updateScroll(-scrollWidth);
 
         if (carouselRef.current.scrollLeft - scrollWidth === 0) {
             setDisabledLeftArrow('disabled-arrow');
@@ -83,13 +109,31 @@ function FeedCarousel({ feedCarouselData }) {
 
     const handleScrollRight = () => {
         const scrollWidth = getScrollRightWidth();
-        setDisabledLeftArrow('');
 
-        carouselRef.current.scrollLeft += scrollWidth;
+        setDisabledLeftArrow('');
+        updateScroll(scrollWidth);
 
         if (Math.ceil(carouselRef.current.scrollLeft) + scrollWidth >= 4073) {
             setDisabledRightArrow('disabled-arrow');
         }
+    };
+
+    const dragStart = (e) => {
+        setIsDragging(true);
+        setDisableBarTransition('disable-scrollbar-transition');
+        setStartX(e.pageX);
+    };
+
+    const dragStop = () => {
+        setIsDragging(false);
+        setDisableBarTransition('');
+    };
+
+    const handleDragBar = (e) => {
+        if (!isDragging) return;
+
+        const scrollWidth = ((e.pageX - startX) / 1420) * carouselRef.current.scrollWidth;
+        updateScroll(scrollWidth);
     };
 
     return (
@@ -98,7 +142,7 @@ function FeedCarousel({ feedCarouselData }) {
                 <h2 className={cx('feed-carousel-header-text')}>{feedCarouselData.title}</h2>
             </header>
 
-            <div className={cx('feed-carousel-container')}>
+            <div className={cx('feed-carousel-container')} onMouseEnter={updateScrollBarWidth}>
                 <div ref={carouselRef} className={cx('feed-carousel-content')}>
                     <ul className={cx('feed-carousel-list')}>
                         {feedCarouselData.data.map((image, index) => (
@@ -127,6 +171,19 @@ function FeedCarousel({ feedCarouselData }) {
                 >
                     <FontAwesomeIcon icon={faChevronRight} className={cx('feed-carousel-right-icon')} />
                 </button>
+
+                <span className={cx('feed-scrollbar')}>
+                    <span className={cx('feed-scrollbar-track')}>
+                        <span
+                            ref={scrollbarRef}
+                            className={cx('feed-scrollbar-thumb', disableBarTransition)}
+                            onMouseMove={(e) => handleDragBar(e)}
+                            onMouseDown={(e) => dragStart(e)}
+                            onMouseLeave={dragStop}
+                            onMouseUp={dragStop}
+                        ></span>
+                    </span>
+                </span>
             </div>
         </div>
     );

@@ -1,15 +1,23 @@
 const images = {
     noImage: require('~/assets/images/default-avatar.png'),
     usFlag: require('~/assets/images/Flag_of_the_United_States.svg.png'),
+
+    // banner
     bannerImage1: require('~/assets/images/banner/banner-image-1.jpg'),
     bannerImage2: require('~/assets/images/banner/banner-image-2.jpg'),
     bannerImage3: require('~/assets/images/banner/banner-image-3.jpg'),
     bannerImage4: require('~/assets/images/banner/banner-image-4.jpg'),
     bannerImage5: require('~/assets/images/banner/banner-image-5.jpg'),
+
+    // img no grid
     productImgNoGrid1: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-1.jpg'),
     productImgNoGrid2: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-2.jpg'),
     productImgNoGrid3: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-3.jpg'),
     productImgNoGrid4: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-4.jpg'),
+    productImgNoGrid5: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-5.jpg'),
+    productImgNoGrid6: require('~/assets/images/cartImgsNoGrid/product-img-no-grid-6.jpg'),
+
+    //img grid
     productImgGrid1: require('~/assets/images/cartImgsGrid/product-img-grid-1.jpg'),
     productImgGrid2: require('~/assets/images/cartImgsGrid/product-img-grid-2.jpg'),
     productImgGrid3: require('~/assets/images/cartImgsGrid/product-img-grid-3.jpg'),
@@ -26,6 +34,16 @@ const images = {
     productImgGrid14: require('~/assets/images/cartImgsGrid/product-img-grid-14.jpg'),
     productImgGrid15: require('~/assets/images/cartImgsGrid/product-img-grid-15.jpg'),
     productImgGrid16: require('~/assets/images/cartImgsGrid/product-img-grid-16.jpg'),
+    productImgGrid17: require('~/assets/images/cartImgsGrid/product-img-grid-17.jpg'),
+    productImgGrid18: require('~/assets/images/cartImgsGrid/product-img-grid-18.jpg'),
+    productImgGrid19: require('~/assets/images/cartImgsGrid/product-img-grid-19.jpg'),
+    productImgGrid20: require('~/assets/images/cartImgsGrid/product-img-grid-20.jpg'),
+    productImgGrid21: require('~/assets/images/cartImgsGrid/product-img-grid-21.jpg'),
+    productImgGrid22: require('~/assets/images/cartImgsGrid/product-img-grid-22.jpg'),
+    productImgGrid23: require('~/assets/images/cartImgsGrid/product-img-grid-23.jpg'),
+    productImgGrid24: require('~/assets/images/cartImgsGrid/product-img-grid-24.jpg'),
+
+    // feed carousel 1
     feedCarouselImg1: require('~/assets/images/feedCarousel/feed-carousel-img-1.jpg'),
     feedCarouselImg2: require('~/assets/images/feedCarousel/feed-carousel-img-2.jpg'),
     feedCarouselImg3: require('~/assets/images/feedCarousel/feed-carousel-img-3.jpg'),
@@ -57,6 +75,35 @@ const images = {
     feedCarouselImg29: require('~/assets/images/feedCarousel/feed-carousel-img-29.jpg'),
     feedCarouselImg30: require('~/assets/images/feedCarousel/feed-carousel-img-30.jpg'),
     feedCarouselImg31: require('~/assets/images/feedCarousel/feed-carousel-img-31.jpg'),
+
+    // feed carousel 2
+    feedCarouselImg32: require('~/assets/images/feedCarousel/feed-carousel-img-32.jpg'),
+    feedCarouselImg33: require('~/assets/images/feedCarousel/feed-carousel-img-33.jpg'),
+    feedCarouselImg34: require('~/assets/images/feedCarousel/feed-carousel-img-34.jpg'),
+    feedCarouselImg35: require('~/assets/images/feedCarousel/feed-carousel-img-35.jpg'),
+    feedCarouselImg36: require('~/assets/images/feedCarousel/feed-carousel-img-36.jpg'),
+    feedCarouselImg37: require('~/assets/images/feedCarousel/feed-carousel-img-37.jpg'),
+    feedCarouselImg38: require('~/assets/images/feedCarousel/feed-carousel-img-38.jpg'),
+    feedCarouselImg39: require('~/assets/images/feedCarousel/feed-carousel-img-39.jpg'),
+    feedCarouselImg40: require('~/assets/images/feedCarousel/feed-carousel-img-40.jpg'),
+    feedCarouselImg41: require('~/assets/images/feedCarousel/feed-carousel-img-41.jpg'),
+    feedCarouselImg42: require('~/assets/images/feedCarousel/feed-carousel-img-42.jpg'),
+    feedCarouselImg43: require('~/assets/images/feedCarousel/feed-carousel-img-43.jpg'),
+    feedCarouselImg44: require('~/assets/images/feedCarousel/feed-carousel-img-44.jpg'),
+    feedCarouselImg45: require('~/assets/images/feedCarousel/feed-carousel-img-45.jpg'),
+    feedCarouselImg46: require('~/assets/images/feedCarousel/feed-carousel-img-46.jpg'),
+    feedCarouselImg47: require('~/assets/images/feedCarousel/feed-carousel-img-47.jpg'),
+    feedCarouselImg48: require('~/assets/images/feedCarousel/feed-carousel-img-48.jpg'),
+    feedCarouselImg49: require('~/assets/images/feedCarousel/feed-carousel-img-49.jpg'),
+    feedCarouselImg50: require('~/assets/images/feedCarousel/feed-carousel-img-50.jpg'),
+    feedCarouselImg51: require('~/assets/images/feedCarousel/feed-carousel-img-51.jpg'),
+    feedCarouselImg52: require('~/assets/images/feedCarousel/feed-carousel-img-52.jpg'),
+    feedCarouselImg53: require('~/assets/images/feedCarousel/feed-carousel-img-53.jpg'),
+    feedCarouselImg54: require('~/assets/images/feedCarousel/feed-carousel-img-54.jpg'),
+    feedCarouselImg55: require('~/assets/images/feedCarousel/feed-carousel-img-55.jpg'),
+    feedCarouselImg56: require('~/assets/images/feedCarousel/feed-carousel-img-56.jpg'),
+    feedCarouselImg57: require('~/assets/images/feedCarousel/feed-carousel-img-57.jpg'),
+    feedCarouselImg58: require('~/assets/images/feedCarousel/feed-carousel-img-58.jpg'),
 };
 
 export default images;
