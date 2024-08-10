@@ -1,4 +1,4 @@
-.overlay:has(+ div .language-menu) {
+.overlay:has(+ .tippy-wrapper div .language-menu) {
     display: block;
 }
 

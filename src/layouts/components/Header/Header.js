@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faLanguage, faList, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './Header.module.scss';
@@ -13,13 +13,17 @@ import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/layouts/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
 import AccountModal from '../AccountModal/AccountModal';
-import { diliverNationSelector } from '~/redux/selectors';
+import { browserLanguageSelector, diliverNationSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const [isOpenDeliverModal, setIsOpenDeliverModal] = useState(false);
     const [isOpenAccountModal, setIsOpenAccountModal] = useState(false);
+
+    const browserLanguage = useSelector(browserLanguageSelector);
+
+    const languageKey = useMemo(() => browserLanguage.slice(-2), [browserLanguage]);
 
     const diliverNation = useSelector(diliverNationSelector);
 
@@ -49,7 +53,7 @@ function Header() {
                         <div className={cx('nav-language')}>
                             <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
                             <div className={cx('nav-language-text')}>
-                                <span>EN</span>
+                                <span>{languageKey}</span>
                                 <i className={cx('nav-language-down-icon')} />
                             </div>
                         </div>

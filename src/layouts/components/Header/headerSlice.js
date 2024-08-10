@@ -8,6 +8,7 @@ const headerSlice = createSlice({
         searchType: [],
         nationList: [],
         diliverNation: '',
+        language: '',
     },
     reducers: {
         getLanguage: (state) => {
@@ -46,6 +47,9 @@ const headerSlice = createSlice({
         updateNation: (state, action) => {
             state.diliverNation = action.payload;
         },
+        updateLanguage: (state, action) => {
+            state.language = action.payload;
+        },
     },
 });
 
@@ -60,5 +64,6 @@ export const {
     getNationsSuccess,
     getNationsFailed,
     updateNation,
+    updateLanguage,
 } = headerSlice.actions;
 export default headerSlice;

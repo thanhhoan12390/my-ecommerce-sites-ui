@@ -1,15 +1,21 @@
 .wrapper {
     margin: 30px 0 8px 0;
     margin-bottom: 0;
-    padding: 0 0 7px 0;
+    padding: 0;
     background-color: #232f3e;
     min-width: 1000px;
 }
 
+// related item to view
 .relate-item-view {
     background-color: var(--white);
+
+    .relate-view-line {
+        border-top: 0px solid #dddddd;
+    }
 }
 
+// back to top btn
 .nav-back-to-top {
     background-color: #37475a;
     cursor: pointer;
@@ -28,53 +34,208 @@
         background-color: #485769;
     }
 }
+
+// nav accessibility
 .wrapper {
     .nav-accessibility {
         max-width: 1000px;
         margin: 40px auto;
-
-        background-color: red; //
-        height: 400px; //
     }
 }
-.nav-footer-line {
-    border-top: 0px solid #dddddd;
+
+.accessibility-item {
+    padding: 0 10px;
 }
 
+.accessibility-header {
+    font-size: 1.6rem;
+    margin: 6px 0 14px 0;
+    white-space: nowrap;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.accessibility-list {
+    list-style: none;
+
+    li {
+        margin: 0 0 10px;
+        line-height: 1.6rem;
+    }
+}
+
+.accessibility-link {
+    font-size: 1.4rem;
+    color: #ddd;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// footer line
+.nav-footer-line {
+    border-top: 1px solid #3a4553;
+}
+
+// nav pad item line
 .nav-pad-item-line {
     text-align: center;
     max-width: 1000px;
     margin: 10px auto;
-
-    height: 40px; //
-    background-color: green; //
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    color: #ccc;
 }
 
+.pad-line-logo {
+    position: relative;
+    top: 12px;
+}
+
+.pad-line-logo-link {
+    &:first-child {
+        color: var(--white);
+    }
+}
+
+.pad-line-group {
+    display: flex;
+    margin: 18px 0 0;
+    margin-left: 70px;
+}
+
+.pad-line-language,
+.pad-line-currency,
+.pad-line-us {
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 18px 6px 8px;
+    font-size: 13px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.pad-line-language {
+    position: relative;
+    z-index: 9999; // z-index 4 số
+    span {
+        padding: 0 8px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+}
+
+.pad-line-icon {
+    font-size: 1.5rem;
+}
+
+.pad-line-arrow {
+    color: #848688;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    padding-right: 6px;
+    font-size: 1.1rem;
+}
+
+.pad-line-currency {
+    span {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+}
+
+.pad-line-us {
+    span {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+}
+
+.pad-line-flag {
+    width: 22px;
+    margin-right: 6px;
+}
+
+// nav footer description
 .wrapper {
     .nav-desc-line {
         padding: 30px 0;
         margin: 30px 0 0;
         background-color: #131a22;
-
-        height: 400px; //
     }
 
     .nav-desc-line-content {
         max-width: 1000px;
         margin: 0 auto;
-
-        background-color: aqua; //
-        height: 100%; //
     }
 }
 
+.desc-line-item {
+    margin-bottom: 24px;
+}
+
+.desc-line-link {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    h5 {
+        color: #ddd;
+        font-size: 1.2rem;
+    }
+    span {
+        color: #999;
+    }
+    &:hover {
+        text-decoration: underline;
+        color: #ddd;
+    }
+}
+
+// nav copyright
 .nav-copyright {
     background-color: #131a22;
     max-width: 100%;
     margin: 0;
     padding: 10px 0 30px;
+    text-align: center;
+}
 
-    background-color: antiquewhite; //;
-    background-clip: content-box; //
-    height: 80px; //
+.copyright-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.copyright-link {
+    padding: 0 8px;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ddd;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.copyright-icon {
+    position: relative;
+    top: 3px;
+    font-size: 1.8rem;
+    color: #5297ff;
+}
+
+.copyright-second-line {
+    span {
+        line-height: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #ddd;
+    }
 }
