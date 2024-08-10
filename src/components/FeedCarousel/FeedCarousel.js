@@ -36,6 +36,15 @@ function FeedCarousel({ feedCarouselData }) {
 
         currScrollLeft = currScrollLeft < 0 ? 0 : currScrollLeft;
 
+        if (currScrollLeft === 0) {
+            setDisabledLeftArrow('disabled-arrow');
+        } else if (Math.ceil(currScrollLeft) >= 4073) {
+            setDisabledRightArrow('disabled-arrow');
+        } else {
+            setDisabledLeftArrow('');
+            setDisabledRightArrow('');
+        }
+
         const scrollbarPos = (currScrollLeft / carouselRef.current.scrollWidth) * 100;
 
         carouselRef.current.scrollLeft += scrollWidth;
@@ -88,7 +97,7 @@ function FeedCarousel({ feedCarouselData }) {
 
         for (const element of ulChildList) {
             if (element.offsetLeft + element.offsetWidth - currScrollLeft > 1420) {
-                scrollWidth = element.offsetLeft - currScrollLeft; // Vì offsetLeft tính cả lề
+                scrollWidth = element.offsetLeft - currScrollLeft;
                 break;
             }
         }
@@ -99,23 +108,13 @@ function FeedCarousel({ feedCarouselData }) {
     const handleScrollLeft = () => {
         const scrollWidth = getScrollLeftWidth();
 
-        setDisabledRightArrow('');
         updateScroll(-scrollWidth);
-
-        if (carouselRef.current.scrollLeft - scrollWidth === 0) {
-            setDisabledLeftArrow('disabled-arrow');
-        }
     };
 
     const handleScrollRight = () => {
         const scrollWidth = getScrollRightWidth();
 
-        setDisabledLeftArrow('');
         updateScroll(scrollWidth);
-
-        if (Math.ceil(carouselRef.current.scrollLeft) + scrollWidth >= 4073) {
-            setDisabledRightArrow('disabled-arrow');
-        }
     };
 
     const dragStart = (e) => {
@@ -190,7 +189,7 @@ function FeedCarousel({ feedCarouselData }) {
 }
 
 FeedCarousel.propTypes = {
-    data: PropTypes.object,
+    feedCarouselData: PropTypes.object,
 };
 
 export default FeedCarousel;
