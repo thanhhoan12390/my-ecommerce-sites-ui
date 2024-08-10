@@ -42,16 +42,24 @@
 .carousel-group {
     max-width: 1372px;
     overflow: hidden;
-    scroll-behavior: smooth;
 }
 
 .carousel-content {
     display: flex;
-    margin: 0;
-    overflow-x: visible;
     list-style-type: none;
     height: 100%;
-    white-space: nowrap;
+}
+
+.carousel-content-hidden {
+    display: none;
+}
+
+.carousel-slide-left {
+    animation: slideLeft ease-in-out 0.4s;
+}
+
+.carousel-slide-right {
+    animation: slideRight ease-in-out 0.4s;
 }
 
 .arrow-btn {
@@ -85,4 +93,22 @@
 .arrow-right-icon {
     color: #888c8c;
     font-size: 1.6rem;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }

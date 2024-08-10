@@ -1,48 +1,27 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import styles from './RelatedView.module.scss';
 import ProductCard from '~/components/ProductCard/ProductCard';
 
-import { relatedViewData } from '~/apiFakeData'; // fake data
-
 const cx = classNames.bind(styles);
 
-function RelateView() {
+function RelateView({ data }) {
     const [currentPage, setCurrentPage] = useState(1);
+    const [slideDirection, setSlideDirection] = useState('');
 
-    const carouselRef = useRef();
-
-    const maxPage = useMemo(() => Math.ceil(relatedViewData.length / 7), []);
-
-    const maxWidth = useMemo(() => 1372, []);
+    const maxPage = useMemo(() => data.length, [data.length]);
 
     const handleLeftBtn = () => {
-        setCurrentPage((curr) => {
-            if (curr === 1) return maxPage;
-            else return curr - 1;
-        });
-
-        if (carouselRef.current.scrollLeft - maxWidth < 0) {
-            carouselRef.current.scrollLeft = maxWidth;
-        } else {
-            carouselRef.current.scrollLeft -= maxWidth;
-        }
+        setCurrentPage((curr) => (curr === 1 ? maxPage : curr - 1));
+        setSlideDirection('carousel-slide-left');
     };
 
     const handleRightBtn = () => {
-        setCurrentPage((curr) => {
-            if (curr === maxPage) return 1;
-            else return curr + 1;
-        });
-
-        if (carouselRef.current.scrollLeft + maxWidth >= maxWidth * maxPage) {
-            carouselRef.current.scrollLeft = 0;
-        } else {
-            carouselRef.current.scrollLeft += maxWidth;
-        }
+        setCurrentPage((curr) => (curr === maxPage ? 1 : curr + 1));
+        setSlideDirection('carousel-slide-right');
     };
 
     return (
@@ -63,22 +42,31 @@ function RelateView() {
                             <FontAwesomeIcon icon={faChevronLeft} className={cx('arrow-left-icon')} />
                         </button>
 
-                        <div ref={carouselRef} className={cx('carousel-group')}>
-                            <ul className={cx('carousel-content')} style={{ width: `${maxPage * maxWidth}px` }}>
-                                {relatedViewData.map((item, index) => (
-                                    <li key={index}>
-                                        <ProductCard
-                                            img={item.image}
-                                            description={item.description}
-                                            rating={item.rating}
-                                            saleOff={item.saleOff}
-                                            originalPrice={item.originalPrice}
-                                            price={item.price}
-                                            ship={item.ship}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
+                        <div className={cx('carousel-group')}>
+                            {data.map((page, index) => (
+                                <ul
+                                    key={index}
+                                    className={
+                                        currentPage === page.pageNum
+                                            ? cx('carousel-content', slideDirection)
+                                            : cx('carousel-content', 'carousel-content-hidden')
+                                    }
+                                >
+                                    {page.items.map((item, index) => (
+                                        <li key={index}>
+                                            <ProductCard
+                                                img={item.image}
+                                                description={item.description}
+                                                rating={item.rating}
+                                                saleOff={item.saleOff}
+                                                originalPrice={item.originalPrice}
+                                                price={item.price}
+                                                ship={item.ship}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            ))}
                         </div>
 
                         <button className={cx('arrow-right-btn', 'arrow-btn')} onClick={handleRightBtn}>

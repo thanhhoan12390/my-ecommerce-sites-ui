@@ -114,6 +114,7 @@ const images = {
     relatedViewImg6: require('~/assets/images/relatedView/related-view-img-6.jpg'),
     relatedViewImg7: require('~/assets/images/relatedView/related-view-img-7.jpg'),
     relatedViewImg8: require('~/assets/images/relatedView/related-view-img-8.jpg'),
+    relatedViewImg9: require('~/assets/images/relatedView/related-view-img-9.jpg'),
 };
 
 export default images;
