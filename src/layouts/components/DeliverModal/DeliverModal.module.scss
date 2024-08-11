@@ -63,7 +63,7 @@
     font-size: 1.4rem;
     line-height: 2rem;
     text-align: left;
-    color: #007185;
+    color: var(--dark-green);
 
     &:hover {
         color: #f90;
@@ -102,8 +102,8 @@
     outline: 0;
 
     &:focus {
-        border-color: #007185;
-        outline: 3px solid #007185;
+        border-color: var(--dark-green);
+        outline: 3px solid var(--dark-green);
         outline-offset: 2px;
         z-index: 1;
     }

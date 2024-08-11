@@ -35,7 +35,7 @@
     overflow: hidden;
     scroll-behavior: smooth;
 
-    animation: fadeIn ease-in-out 0.8s;
+    animation: fadeIn ease-in-out 0.5s;
 }
 
 .feed-carousel-list {
@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeIn ease-in-out 0.8s;
+    animation: fadeIn ease-in-out 0.5s;
     cursor: pointer;
 
     display: none;
@@ -91,7 +91,7 @@
     box-shadow: 0 1px 3px #888;
 
     &:focus {
-        outline: 2px solid #007185;
+        outline: 2px solid var(--dark-green);
         outline-offset: -3px;
         border-radius: 0 5px 5px 0;
     }
@@ -105,7 +105,7 @@
     box-shadow: 0px 1px 3px #888;
 
     &:focus {
-        outline: 2px solid #007185;
+        outline: 2px solid var(--dark-green);
         outline-offset: -3px;
         border-radius: 5px 0 0 5px;
     }
@@ -119,7 +119,7 @@
 .disabled-arrow {
     opacity: 0.5;
 
-    animation: disableFadeOut linear 0.8s;
+    animation: disableFadeOut linear 0.5s;
 }
 
 .feed-scrollbar {
@@ -157,7 +157,7 @@
     cursor: pointer;
     display: none;
 
-    animation: fadeIn linear 0.8s;
+    animation: fadeIn linear 0.5s;
     &:hover {
         background-color: #888;
     }

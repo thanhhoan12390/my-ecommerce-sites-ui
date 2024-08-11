@@ -216,12 +216,12 @@ export const AccountModalData = [
         // Mỗi phần tử trong mảng children này là 1 child
         children: [
             {
-                title: 'Amazon Music',
+                title: 'ECommerce site Music',
                 to: '',
                 // Mỗi phần tử trong mảng children này là 1 subchild
                 children: [
                     {
-                        title: 'Amazon Music Unlimited',
+                        title: 'ECommerce site Music Unlimited',
                         to: '',
                         children: [],
                     },
@@ -347,7 +347,7 @@ export const AccountModalData = [
                 ],
             },
             {
-                title: 'Amazon Appstore',
+                title: 'ECommerce site Appstore',
                 to: '',
                 children: [
                     {
@@ -361,17 +361,17 @@ export const AccountModalData = [
                         children: [],
                     },
                     {
-                        title: 'Amazon Coins',
+                        title: 'ECommerce site Coins',
                         to: '',
                         children: [],
                     },
                     {
-                        title: 'Download Amazon Appstore',
+                        title: 'Download eCommerce site Appstore',
                         to: '',
                         children: [],
                     },
                     {
-                        title: 'Amazon Apps',
+                        title: 'ECommerce site Apps',
                         to: '',
                         children: [],
                     },
@@ -435,7 +435,7 @@ export const AccountModalData = [
                 to: '',
                 children: [
                     {
-                        title: 'Amazon Smart Home',
+                        title: 'ECommerce site Smart Home',
                         to: '',
                         children: [],
                     },
@@ -626,7 +626,7 @@ export const AccountModalData = [
                 children: [],
             },
             {
-                title: 'Amazon Live',
+                title: 'ECommerce site Live',
                 to: '',
                 children: [
                     {
@@ -651,7 +651,7 @@ export const AccountModalData = [
                         children: [],
                     },
                     {
-                        title: 'Visit Amazon Global',
+                        title: 'Visit eCommerce site Global',
                         to: '',
                         children: [],
                     },

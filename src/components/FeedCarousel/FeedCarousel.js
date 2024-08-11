@@ -146,7 +146,7 @@ function FeedCarousel({ feedCarouselData }) {
                     <ul className={cx('feed-carousel-list')}>
                         {feedCarouselData.data.map((image, index) => (
                             <li key={index} className={cx('feed-carousel-item')}>
-                                <Link to="/" draggable={false}>
+                                <Link to="/">
                                     <img
                                         src={image}
                                         alt={`Carousel img ${index}`}

@@ -118,7 +118,7 @@ function Header() {
                 </div>
                 <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
-                        Hoan's Amazon.com
+                        Hoan's eCommerce site
                     </Link>
                 </div>
                 <div className={cx('nav-main-item')}>

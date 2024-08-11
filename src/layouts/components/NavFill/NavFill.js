@@ -104,7 +104,11 @@ function NavFill() {
                             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                                 <MenuWrapper className={cx('menu-wrapper')}>
                                     {searchResult.map((item, index) => (
-                                        <div key={index} className={cx('search-item')}>
+                                        <div
+                                            key={index}
+                                            className={cx('search-item')}
+                                            onClick={() => setSearchValue(item.full_name)}
+                                        >
                                             <SearchIcon width="1.9rem" height="1.9rem" />
                                             <span>{item.full_name}</span>
                                         </div>

@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 0 20px;
+    padding: 0 20px 20px 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -76,7 +76,7 @@
 
     &:focus {
         border-color: #888c8c;
-        outline: 3px solid #007185;
+        outline: 3px solid var(--dark-green);
         outline-offset: 2px;
         box-shadow: none;
     }

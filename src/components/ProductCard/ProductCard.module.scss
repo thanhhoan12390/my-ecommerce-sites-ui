@@ -4,6 +4,8 @@
     width: 165px;
     height: 400px;
     text-align: left;
+
+    animation: fadeIn linear 0.5s;
 }
 
 .container {
@@ -23,7 +25,7 @@
 
     &:focus {
         border-color: #888c8c;
-        outline: 3px solid #007185;
+        outline: 3px solid var(--dark-green);
         outline-offset: 2px;
         box-shadow: none;
         border-radius: 8px;
@@ -42,10 +44,10 @@
     word-wrap: break-word;
     font-size: 1.4rem;
     line-height: 2rem;
-    color: #007185;
+    color: var(--dark-green);
 
     &:hover {
-        color: #c7511f;
+        color: var(--orange);
     }
 }
 
@@ -145,4 +147,13 @@
 
 .card-ship {
     cursor: text;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
 }

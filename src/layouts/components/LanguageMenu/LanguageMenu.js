@@ -82,7 +82,7 @@ function LanguageMenu({ children }) {
 
                                 <span className={cx('language-menu-text')}>
                                     <img src={images.usFlag} alt="US flag" className={cx('language-menu-flag')} />
-                                    You are shopping on Amazon.com
+                                    You are shopping on eCommerce site
                                 </span>
 
                                 <a href="/" className={cx('change-country-region')}>

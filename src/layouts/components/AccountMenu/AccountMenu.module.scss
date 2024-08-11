@@ -1,6 +1,10 @@
 .overlay:has(+ .tippy-wrapper div .account-menu) {
     display: block;
 }
+.tippy-wrapper {
+    position: relative;
+    z-index: 99999; // z-index 5 số
+}
 
 .account-menu {
     width: 500px;

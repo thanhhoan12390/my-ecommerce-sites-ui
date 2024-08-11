@@ -53,7 +53,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        About Amazon
+                                        About eCommerce site
                                     </a>
                                 </li>
                                 <li>
@@ -63,12 +63,12 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Amazon Devices
+                                        ECommerce site Devices
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Amazon Science
+                                        ECommerce site Science
                                     </a>
                                 </li>
                             </ul>
@@ -80,17 +80,17 @@ function Footer() {
                             <ul className={cx('accessibility-list')}>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Sell products on Amazon
+                                        Sell products on eCommerce site
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Sell on Amazon Business
+                                        Sell on eCommerce site Business
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Sell apps on Amazon
+                                        Sell apps on eCommerce site
                                     </a>
                                 </li>
                                 <li>
@@ -110,7 +110,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Host an Amazon Hub
+                                        Host an eCommerce site Hub
                                     </a>
                                 </li>
                                 <li>
@@ -123,11 +123,11 @@ function Footer() {
                     </div>
                     <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
                         <div className={cx('accessibility-item')}>
-                            <h4 className={cx('accessibility-header')}>Amazon Payment Products</h4>
+                            <h4 className={cx('accessibility-header')}>ECommerce site Payment Products</h4>
                             <ul className={cx('accessibility-list')}>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Amazon Business Card
+                                        ECommerce site Business Card
                                     </a>
                                 </li>
                                 <li>
@@ -142,7 +142,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Amazon Currency Converter
+                                        ECommerce site Currency Converter
                                     </a>
                                 </li>
                             </ul>
@@ -154,7 +154,7 @@ function Footer() {
                             <ul className={cx('accessibility-list')}>
                                 <li>
                                     <a href="/" className={cx('accessibility-link')}>
-                                        Amazon and COVID-19
+                                        ECommerce site and COVID-19
                                     </a>
                                 </li>
                                 <li>
@@ -227,7 +227,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Amazon Ads</h5>
+                                <h5>ECommerce site Ads</h5>
                                 <span>Stream millions of songs</span>
                             </a>
                         </div>
@@ -236,7 +236,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Amazon Ads</h5>
+                                <h5>ECommerce site Ads</h5>
                                 <span>Reach customers wherever they spend their time</span>
                             </a>
                         </div>
@@ -272,7 +272,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Sell on Amazon</h5>
+                                <h5>Sell on eCommerce site</h5>
                                 <span>Start a Selling Account</span>
                             </a>
                         </div>
@@ -281,7 +281,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Amazon Business</h5>
+                                <h5>ECommerce site Business</h5>
                                 <span>Everything For Your Business</span>
                             </a>
                         </div>
@@ -290,7 +290,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>AmazonGlobal</h5>
+                                <h5>ECommerce siteGlobal</h5>
                                 <span>Ship Orders Internationally </span>
                             </a>
                         </div>
@@ -308,7 +308,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Amazon Web Services</h5>
+                                <h5>ECommerce site Web Services</h5>
                                 <span>Scalable Cloud Computing Services</span>
                             </a>
                         </div>
@@ -443,7 +443,7 @@ function Footer() {
                     <div className={cx('col', 'l-2', 'l-o-4', 'm-4', 'c-4')}>
                         <div className={cx('desc-line-item')}>
                             <a href="/" className={cx('desc-line-link')}>
-                                <h5>Amazon Subscription Boxes</h5>
+                                <h5>ECommerce site Subscription Boxes</h5>
                                 <span>Top subscription boxes-right to your door</span>
                             </a>
                         </div>
@@ -489,7 +489,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className={cx('copyright-second-line')}>
-                    <span>© 1996-2024 Amazon.com, Inc. o sus afiliados</span>
+                    <span>© 1996-2024 eCommerce site.com, Inc. o sus afiliados</span>
                 </div>
             </div>
         </div>
