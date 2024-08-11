@@ -81,7 +81,7 @@ function LanguageMenu({ children }) {
                                 <Divider className={cx('divider')} />
 
                                 <span className={cx('language-menu-text')}>
-                                    <img src={images.usFlag} alt="US flag" className={cx('language-menu-flag')} />
+                                    <img src={images.vnFlag} alt="US flag" className={cx('language-menu-flag')} />
                                     You are shopping on eCommerce site
                                 </span>
 

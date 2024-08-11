@@ -7,7 +7,7 @@ const headerSlice = createSlice({
         languageData: [],
         searchType: [],
         nationList: [],
-        diliverNation: '',
+        deliverNation: '',
         language: '',
     },
     reducers: {
@@ -45,7 +45,7 @@ const headerSlice = createSlice({
             state.status = 'idle';
         },
         updateNation: (state, action) => {
-            state.diliverNation = action.payload;
+            state.deliverNation = action.payload;
         },
         updateLanguage: (state, action) => {
             state.language = action.payload;

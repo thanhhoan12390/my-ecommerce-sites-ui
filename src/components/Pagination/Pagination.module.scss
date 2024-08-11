@@ -1,0 +1,105 @@
+.wrapper {
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 25px 0;
+}
+
+.container {
+    display: inline-flex;
+    margin: 0 auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pagination-prev-btn {
+    height: 46px;
+    line-height: 46px;
+    min-width: 69px;
+    border-left: 1px solid #d5d9d9;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 0 12px;
+    border-top: 1px solid #d5d9d9;
+    border-bottom: 1px solid #d5d9d9;
+    font-size: 1.4rem;
+    color: var(--black);
+    background-color: var(--white);
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        right: 0;
+        height: 30px;
+        border-right: 1px solid #d5d9d9;
+    }
+}
+
+.pagination-prev-icon {
+    font-size: 1.3rem;
+    margin-right: 8px;
+}
+
+.pagination-next-btn {
+    height: 46px;
+    line-height: 46px;
+    min-width: 69px;
+    border-right: 1px solid #d5d9d9;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0 12px;
+    border-top: 1px solid #d5d9d9;
+    border-bottom: 1px solid #d5d9d9;
+    font-size: 1.4rem;
+    color: var(--black);
+    background-color: var(--white);
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 0;
+        height: 30px;
+        border-right: 1px solid #d5d9d9;
+    }
+}
+
+.pagination-next-icon {
+    font-size: 1.3rem;
+    margin-left: 8px;
+}
+
+.pagination-group {
+    cursor: pointer;
+}
+
+.pagination-num {
+    display: inline-block;
+    line-height: 46px;
+    min-width: 48px;
+    text-align: center;
+    height: 46px;
+    padding: 0 12px;
+    border-top: 1px solid #d5d9d9;
+    border-bottom: 1px solid #d5d9d9;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.current-page {
+    font-weight: 700;
+    border: 1px solid #0f1111;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
+.disable-prev-btn,
+.disable-next-btn {
+    color: #6f7373;
+    cursor: text;
+}

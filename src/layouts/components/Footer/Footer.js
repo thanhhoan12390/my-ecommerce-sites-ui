@@ -215,9 +215,9 @@ function Footer() {
                         <span>$ USD - U.S.Dollar</span>
                     </div>
 
-                    <div className={cx('pad-line-us')}>
-                        <img src={images.usFlag} alt="us flag" className={cx('pad-line-flag')} />
-                        <span>United State</span>
+                    <div className={cx('pad-line-vn')}>
+                        <img src={images.vnFlag} alt="vn flag" className={cx('pad-line-flag')} />
+                        <span>Viet Nam</span>
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
     line-height: 1.6rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #565959;
+    color: var(--gray);
     margin-bottom: 24px;
 }
 .content-address {
@@ -81,7 +81,7 @@
         font-size: 1.2rem;
         font-weight: 600;
         line-height: 1rem;
-        color: #565959;
+        color: var(--gray);
     }
 }
 .content-input-group {

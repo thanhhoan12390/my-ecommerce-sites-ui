@@ -1,25 +1,97 @@
 import classNames from 'classnames/bind';
-
-import styles from './Search.module.scss';
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import styles from './Search.module.scss';
+import StandardCard from '~/components/StandardCard';
+import Pagination from '~/components/Pagination';
+import { getSearchPageBrands } from '~/utils/commonFuncs';
+import { addBrandFilter, deleteBrandFilter, clearBrandFilter } from './searchSlice'; // actions
+import { brandFilterSelector } from '~/redux/selectors';
+
+import { searchPageData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
-const brandArr = ['Amazon Basics', 'Logitech', 'JanSport', 'SAMSUNG', 'SanDisk', 'HP', 'MATEIN'];
-
 function Search() {
-    const [checkedValueList, setCheckedValueList] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [pagesData, setPagesData] = useState(searchPageData);
 
-    const handleInputChange = (e) => {
-        setCheckedValueList((pre) => {
-            if (e.target.checked === true) {
-                return [...pre, e.target.value];
-            } else {
-                return checkedValueList.filter((value) => value !== e.target.value);
+    const dispatch = useDispatch();
+
+    const checkedValueList = useSelector(brandFilterSelector);
+
+    const maxPage = useMemo(() => pagesData.length, [pagesData]);
+    const brandArray = useMemo(() => getSearchPageBrands(searchPageData), []);
+
+    useEffect(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }, [currentPage]);
+
+    useEffect(() => {
+        if (checkedValueList.length !== 0) {
+            let newPagesData = [];
+            let filteredList = [];
+            let pageIndex = 1;
+            let maxPageItem = 0;
+
+            searchPageData.forEach((page) => {
+                maxPageItem = page.maxItem;
+
+                page.items.forEach((item) => {
+                    if (checkedValueList.includes(item.brand)) {
+                        filteredList.push(item);
+                    }
+
+                    // Nếu số item filter được vượt quá max page item
+                    if (filteredList.length === page.maxItem) {
+                        newPagesData = [
+                            ...newPagesData,
+                            {
+                                pageNum: pageIndex,
+                                maxItem: page.maxItem,
+                                items: filteredList,
+                            },
+                        ];
+
+                        pageIndex++;
+                        filteredList = [];
+                    }
+                });
+            });
+
+            // Số item filter còn sót lại vì số lượng không bằng max page item nên không được thêm ở trước đó
+            if (filteredList.length > 0) {
+                newPagesData = [
+                    ...newPagesData,
+                    {
+                        pageNum: pageIndex,
+                        maxItem: maxPageItem,
+                        items: filteredList,
+                    },
+                ];
             }
-        });
+
+            setPagesData(newPagesData);
+            if (currentPage > newPagesData.length) {
+                setCurrentPage(newPagesData.length);
+            }
+            // Vì nếu không đưa current page về đúng với số lượng page được filter,
+            // thì khi ở đang số page lớn hơn số lượng page do filter thay đổi sẽ xảy ra lỗi
+        } else {
+            setPagesData(searchPageData);
+        }
+    }, [checkedValueList, currentPage]);
+
+    const handleCheckboxChange = (e) => {
+        if (e.target.checked === true) {
+            dispatch(addBrandFilter(e.target.value));
+        } else {
+            dispatch(deleteBrandFilter(e.target.value));
+        }
     };
 
     return (
@@ -32,7 +104,12 @@ function Search() {
                             <div className={cx('brand-filter')}>
                                 <h4 className={cx('brand-header')}>Brand filter</h4>
                                 {checkedValueList.length > 0 && (
-                                    <div className={cx('brand-filter-clear')} onClick={() => setCheckedValueList([])}>
+                                    <div
+                                        className={cx('brand-filter-clear')}
+                                        onClick={() => {
+                                            dispatch(clearBrandFilter());
+                                        }}
+                                    >
                                         <FontAwesomeIcon
                                             icon={faChevronLeft}
                                             className={cx('brand-filter-clear-icon')}
@@ -41,14 +118,14 @@ function Search() {
                                     </div>
                                 )}
                                 <ul className={cx('brand-filter-group')}>
-                                    {brandArr.map((brand, index) => (
+                                    {brandArray.map((brand, index) => (
                                         <li key={index} className={cx('filter-item')}>
                                             <input
                                                 type="checkbox"
                                                 checked={checkedValueList.includes(brand)}
                                                 value={brand}
                                                 id={`brand-filter-${brand}`}
-                                                onChange={(e) => handleInputChange(e)}
+                                                onChange={(e) => handleCheckboxChange(e)}
                                             />
                                             <label htmlFor={`brand-filter-${brand}`}>{brand}</label>
                                         </li>
@@ -59,9 +136,6 @@ function Search() {
                             <div className={cx('sidebar-filter')}>
                                 <h4 className={cx('sidebar-filter-header')}>Sustainability Features</h4>
                                 <ul className={cx('sidebar-filter-group')}>
-                                    <li className={cx('sidebar-filter-item')}>
-                                        <span>View All</span>
-                                    </li>
                                     <li className={cx('sidebar-filter-item')}>
                                         <span>Carbon Impact</span>
                                     </li>
@@ -102,31 +176,28 @@ function Search() {
 
                     {/* Content */}
                     <div className={cx('col', 'l-10', 'm-12', 'c-12')}>
-                        <div className={cx('row', 'sm-gutter', 'content')}>
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
-
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
-
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
-
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
-
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
-
-                            <div className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
-                                <div className={cx('card-item')}> </div>
-                            </div>
+                        <div className={cx('row')}>
+                            {pagesData.length > 0 &&
+                                pagesData[currentPage - 1].items.map((item, index) => (
+                                    <div key={index} className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
+                                        <div className={cx('card-item')}>
+                                            <StandardCard
+                                                bestSell={item.bestSell}
+                                                img={item.image}
+                                                description={item.description}
+                                                rating={item.rating}
+                                                bought={item.bought}
+                                                price={item.price}
+                                                originalPrice={item.originalPrice}
+                                                deliveryDay={item.deliveryDay}
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
                         </div>
+
+                        {/* Pagination */}
+                        <Pagination currPage={currentPage} maxPage={maxPage} onPageChange={setCurrentPage} />
                     </div>
                 </div>
             </div>

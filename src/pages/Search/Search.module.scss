@@ -1,6 +1,6 @@
 .wrapper {
     max-width: 1800px;
-    margin: 0 5px;
+    margin: 0 7px;
     padding-top: 14px;
 }
 
@@ -47,7 +47,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 4px;
+
     input[type='checkbox'] {
+        margin-left: 2px;
         transform: scale(1.3);
         cursor: pointer;
         accent-color: var(--dark-green);
@@ -98,12 +100,7 @@
 }
 
 // Content
-.content {
-    background-color: yellow; //
-}
 
-.card-item {
-    background-color: antiquewhite; //
-    height: 200px; //
-    margin-bottom: 10px; //
-}
+// .card-item {
+//     // background-color: antiquewhite; //
+// }

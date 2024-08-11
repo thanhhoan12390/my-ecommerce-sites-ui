@@ -19,4 +19,18 @@ const virtualProductItem = (data) => {
     return data;
 };
 
-export { virtualProductItem };
+const getSearchPageBrands = (data) => {
+    let brandList = [];
+
+    data.forEach((page) => {
+        page.items.forEach((item) => {
+            if (!brandList.includes(item.brand)) {
+                brandList.push(item.brand);
+            }
+        });
+    });
+
+    return brandList;
+};
+
+export { virtualProductItem, getSearchPageBrands };

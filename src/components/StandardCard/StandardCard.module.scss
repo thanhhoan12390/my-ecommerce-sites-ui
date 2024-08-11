@@ -1,0 +1,203 @@
+.wrapper {
+    margin-bottom: 24px;
+    text-align: left;
+    animation: fadeIn linear 0.5s;
+}
+
+.container {
+    display: block;
+}
+
+// best seller tag
+.card-tag {
+    margin: 2px 0 2px 2px;
+
+    span {
+        padding: 6px 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 5px;
+        color: var(--white);
+        background-color: var(--black);
+    }
+}
+
+.card-img {
+    margin-bottom: 8px;
+    padding: 0 8px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 100%;
+    cursor: pointer;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        min-height: 80%;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.card-content {
+    padding: 0 8px;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    max-height: 100px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    letter-spacing: normal;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
+
+    &:hover {
+        color: var(--orange);
+    }
+}
+
+.card-rating {
+    padding-top: 8px;
+    position: relative;
+    white-space: nowrap;
+    margin-right: 142px;
+}
+
+.rating-tooltip {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+
+    span {
+        display: block;
+        white-space: nowrap;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        color: var(--black);
+        margin: 4px;
+    }
+}
+
+.card-star-icon {
+    color: #de7921;
+    height: 17px;
+    width: 17px;
+}
+
+.card-down-icon {
+    font-size: 1.5rem;
+    margin-left: 2px;
+    color: var(--black);
+}
+
+.rating-overlay {
+    background: #fff;
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+// bought
+.card-bought {
+    cursor: text;
+
+    span {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: var(--gray);
+    }
+}
+
+.card-price-group {
+    margin-top: 6px;
+}
+
+.card-price {
+    display: inline-block;
+    font-size: 2.4rem;
+    color: var(--black);
+
+    span:first-child {
+        position: relative;
+        top: -7px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+}
+
+.card-original-price {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 600;
+    margin-left: 4px;
+    color: var(--gray);
+    span:last-child {
+        text-decoration: line-through;
+    }
+}
+
+// Delivery day
+.card-delivery {
+    padding-top: 4px;
+    font-size: 1.4rem;
+    color: var(--black);
+    cursor: text;
+
+    span:first-child {
+        margin-right: 6px;
+    }
+
+    span:last-child {
+        font-weight: 600;
+    }
+}
+
+.card-ship {
+    display: block;
+    white-space: nowrap;
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 4px 0;
+    color: var(--black);
+    cursor: text;
+}
+
+.card-btn {
+    padding: 8px 11px;
+    margin-top: 7px;
+    border-radius: 99px;
+    font-size: 1.3rem;
+    background-color: #ffd814;
+    cursor: pointer;
+
+    &:hover {
+        background: #f7ca00;
+        border-color: #f7ca00;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}

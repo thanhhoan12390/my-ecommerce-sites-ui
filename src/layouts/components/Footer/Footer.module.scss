@@ -80,7 +80,6 @@
 
 // nav pad item line
 .nav-pad-item-line {
-    text-align: center;
     max-width: 1000px;
     margin: 10px auto;
     display: flex;
@@ -109,7 +108,7 @@
 
 .pad-line-language,
 .pad-line-currency,
-.pad-line-us {
+.pad-line-vn {
     border: 1px solid #848688;
     border-radius: 3px;
     padding: 6px 18px 6px 8px;
@@ -148,7 +147,7 @@
     }
 }
 
-.pad-line-us {
+.pad-line-vn {
     span {
         font-size: 1.3rem;
         font-weight: 600;
@@ -158,6 +157,8 @@
 .pad-line-flag {
     width: 22px;
     margin-right: 6px;
+    position: relative;
+    top: 2px;
 }
 
 // nav footer description

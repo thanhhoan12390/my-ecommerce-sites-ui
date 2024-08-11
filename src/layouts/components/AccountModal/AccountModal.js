@@ -179,17 +179,17 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
                                     <li>
                                         <a href="/" className={cx('help-settings-globe-text')}>
                                             <FontAwesomeIcon icon={faGlobe} className={cx('help-settings-icon')} />
-                                            English
+                                            Vietnam
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/" className={cx('help-settings-flag-text')}>
                                             <img
-                                                src={images.usFlag}
+                                                src={images.vnFlag}
                                                 className={cx('help-settings-flag')}
                                                 alt="flag"
                                             ></img>
-                                            United States
+                                            Viet Nam
                                         </a>
                                     </li>
                                     <li>

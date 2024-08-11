@@ -24,7 +24,7 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
 
     const nationsList = useSelector(nationsSelector);
 
-    const diliveredNation = useMemo(() => {
+    const deliveredNation = useMemo(() => {
         if (nationsList.length > 0) {
             const checkedNation = nationsList.find((nation) => nation.id === isNationCheckedId);
 
@@ -101,7 +101,7 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                                     )}
                                 >
                                     <div className={cx('content-select')} onClick={() => setIsSelectOpen(true)}>
-                                        <span>{diliveredNation}</span>
+                                        <span>{deliveredNation}</span>
                                         <FontAwesomeIcon icon={faChevronDown} className={cx('content-select-icon')} />
                                     </div>
                                 </Tippy>
@@ -111,7 +111,7 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                                 <button
                                     onClick={() => {
                                         onClose();
-                                        dispatch(updateNation(diliveredNation));
+                                        dispatch(updateNation(deliveredNation));
                                     }}
                                 >
                                     Done

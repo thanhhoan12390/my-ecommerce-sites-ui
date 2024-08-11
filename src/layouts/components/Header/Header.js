@@ -13,7 +13,7 @@ import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/layouts/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
 import AccountModal from '../AccountModal/AccountModal';
-import { browserLanguageSelector, diliverNationSelector } from '~/redux/selectors';
+import { browserLanguageSelector, deliverNationSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +25,7 @@ function Header() {
 
     const languageKey = useMemo(() => browserLanguage.slice(-2), [browserLanguage]);
 
-    const diliverNation = useSelector(diliverNationSelector);
+    const deliverNation = useSelector(deliverNationSelector);
 
     return (
         <header className={cx('wrapper')}>
@@ -39,8 +39,8 @@ function Header() {
                     <div className={cx('nav-deliver-to')} onClick={() => setIsOpenDeliverModal(true)}>
                         <FontAwesomeIcon icon={faLocationDot} className={cx('nav-location')}></FontAwesomeIcon>
                         <div className={cx('nav-text')}>
-                            <span>Diliver to</span>
-                            <span>{diliverNation}</span>
+                            <span>Deliver to</span>
+                            <span>{deliverNation}</span>
                         </div>
                     </div>
                 </div>
