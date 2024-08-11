@@ -4,13 +4,23 @@ import { Link } from 'react-router-dom';
 import { faChevronDown, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
-import Tippy from '@tippyjs/react';
 
 import styles from './StandardCard.module.scss';
+import RatingPopover from './RatingPopover';
 
 const cx = classNames.bind(styles);
 
-function StandardCard({ bestSell = true, img, description, rating, bought = 0, price, originalPrice, deliveryDay }) {
+function StandardCard({
+    bestSell = true,
+    img,
+    description,
+    brand,
+    rating,
+    bought = 0,
+    price,
+    originalPrice,
+    deliveryDay,
+}) {
     const ratingRef = useRef();
 
     useEffect(() => {
@@ -38,30 +48,26 @@ function StandardCard({ bestSell = true, img, description, rating, bought = 0, p
                 <div className={cx('card-content')}>
                     <span className={cx('card-description')}>{description}</span>
 
-                    <Tippy
-                        delay={[400, 0]}
-                        offset={[40, 8]}
-                        content={
-                            <div className={cx('rating-tooltip')}>
-                                <span>{rating} out of 5 stars</span>{' '}
-                            </div>
-                        }
-                        placement="bottom"
-                    >
-                        <div className={cx('card-rating')}>
-                            <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                            <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                            <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                            <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                            <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                            <FontAwesomeIcon icon={faChevronDown} className={cx('card-down-icon')} />
-                            <div ref={ratingRef} className={cx('rating-overlay')}></div>
-                        </div>
-                    </Tippy>
+                    <div className={cx('card-brand')} onClick={(e) => e.preventDefault()}>
+                        <span>{brand}</span>
+                    </div>
 
-                    {/* bought */}
+                    <RatingPopover rating={rating}>
+                        <div className={cx('card-rating-wrapper')}>
+                            <span className={cx('card-rating')} onClick={(e) => e.preventDefault()}>
+                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
+                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
+                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
+                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
+                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
+                                <div ref={ratingRef} className={cx('rating-overlay')}></div>
+                                <FontAwesomeIcon icon={faChevronDown} className={cx('card-down-icon')} />
+                            </span>
+                        </div>
+                    </RatingPopover>
+
                     {!!bought && (
-                        <div className={cx('card-bought')}>
+                        <div className={cx('card-bought')} onClick={(e) => e.preventDefault()}>
                             <span>{bought}K+ bought in past month</span>
                         </div>
                     )}
@@ -80,12 +86,14 @@ function StandardCard({ bestSell = true, img, description, rating, bought = 0, p
                         )}
                     </div>
 
-                    <div className={cx('card-delivery')}>
+                    <div className={cx('card-delivery')} onClick={(e) => e.preventDefault()}>
                         <span>Delivery</span>
                         <span>{deliveryDay}</span>
                     </div>
 
-                    <span className={cx('card-ship')}>ship to Vietnam</span>
+                    <span className={cx('card-ship')} onClick={(e) => e.preventDefault()}>
+                        ship to Vietnam
+                    </span>
 
                     <button
                         className={cx('card-btn')}
@@ -106,10 +114,11 @@ StandardCard.propTypes = {
     bestSell: PropTypes.bool,
     img: PropTypes.any,
     description: PropTypes.string,
-    rating: PropTypes.any,
-    bought: PropTypes.any,
-    price: PropTypes.any,
-    originalPrice: PropTypes.any,
+    brand: PropTypes.string,
+    rating: PropTypes.number,
+    bought: PropTypes.number,
+    price: PropTypes.number,
+    originalPrice: PropTypes.number,
     deliveryDay: PropTypes.string,
 };
 

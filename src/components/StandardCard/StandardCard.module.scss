@@ -8,7 +8,6 @@
     display: block;
 }
 
-// best seller tag
 .card-tag {
     margin: 2px 0 2px 2px;
 
@@ -68,24 +67,34 @@
     }
 }
 
-.card-rating {
-    padding-top: 8px;
-    position: relative;
-    white-space: nowrap;
-    margin-right: 142px;
-}
-
-.rating-tooltip {
-    background-color: var(--white);
-    border: 1px solid var(--black);
+.card-brand {
+    margin-top: 10px;
 
     span {
-        display: block;
-        white-space: nowrap;
-        font-size: 1.1rem;
-        line-height: 1.5rem;
-        color: var(--black);
-        margin: 4px;
+        padding: 4px 9px;
+        background-color: var(--dark-green);
+        color: var(--white);
+        font-size: 1.4rem;
+        font-weight: 600;
+        border-radius: 2px;
+        cursor: text;
+    }
+}
+
+.card-rating-wrapper {
+    margin-top: 14px;
+}
+
+.card-rating {
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        border-radius: 5px;
+        outline: 3px solid #007185;
+        outline-offset: 2px;
     }
 }
 
@@ -98,6 +107,7 @@
 .card-down-icon {
     font-size: 1.5rem;
     margin-left: 2px;
+    padding-top: 2px;
     color: var(--black);
 }
 
@@ -108,10 +118,9 @@
     mix-blend-mode: color;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 16px;
 }
 
-// bought
 .card-bought {
     cursor: text;
 
@@ -152,7 +161,6 @@
     }
 }
 
-// Delivery day
 .card-delivery {
     padding-top: 4px;
     font-size: 1.4rem;

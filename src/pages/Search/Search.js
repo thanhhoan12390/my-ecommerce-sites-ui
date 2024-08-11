@@ -175,7 +175,16 @@ function Search() {
                     </div>
 
                     {/* Content */}
+
                     <div className={cx('col', 'l-10', 'm-12', 'c-12')}>
+                        <div className={cx('result-title')}>
+                            <h2 className={cx('result-title-heading')}>Results</h2>
+                            <span className={cx('result-title-text')}>
+                                Check each product page for other buying options.
+                            </span>
+                        </div>
+
+                        {/* Main Search Page Content */}
                         <div className={cx('row')}>
                             {pagesData.length > 0 &&
                                 pagesData[currentPage - 1].items.map((item, index) => (
@@ -185,6 +194,7 @@ function Search() {
                                                 bestSell={item.bestSell}
                                                 img={item.image}
                                                 description={item.description}
+                                                brand={item.brand}
                                                 rating={item.rating}
                                                 bought={item.bought}
                                                 price={item.price}

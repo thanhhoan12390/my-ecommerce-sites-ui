@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless'; // headless Tippy
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './NavFill.module.scss';
 import { SearchIcon } from '~/components/Icons';
@@ -22,6 +23,8 @@ function NavFill() {
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const searchTypes = useSelector(searchTypeSelector);
     const debounceValue = useDebounce(searchValue, 500);
@@ -107,7 +110,10 @@ function NavFill() {
                                         <div
                                             key={index}
                                             className={cx('search-item')}
-                                            onClick={() => setSearchValue(item.full_name)}
+                                            onClick={() => {
+                                                setSearchValue('');
+                                                navigate('/search');
+                                            }}
                                         >
                                             <SearchIcon width="1.9rem" height="1.9rem" />
                                             <span>{item.full_name}</span>
@@ -126,7 +132,7 @@ function NavFill() {
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
                             />
-                            <button className={cx('search-btn')}>
+                            <button className={cx('search-btn')} onClick={() => navigate('/search')}>
                                 <SearchIcon />
                             </button>
                         </div>

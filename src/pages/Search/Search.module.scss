@@ -100,7 +100,19 @@
 }
 
 // Content
+.result-title {
+    padding: 0 4px;
+    margin-bottom: 8px;
+}
 
-// .card-item {
-//     // background-color: antiquewhite; //
-// }
+.result-title-heading {
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--black);
+}
+
+.result-title-text {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: var(--gray);
+}
