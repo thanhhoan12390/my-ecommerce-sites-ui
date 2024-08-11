@@ -41,10 +41,13 @@ function StandardCard({
                     </div>
                 )}
 
-                <div className={cx('card-img')}>
-                    <img src={img} alt="img" />
-                </div>
+                {!bestSell && <div className={cx('card-space')}></div>}
 
+                <div className={cx('card-img-wrapper')}>
+                    <div className={cx('card-img')}>
+                        <img src={img} alt="img" />
+                    </div>
+                </div>
                 <div className={cx('card-content')}>
                     <span className={cx('card-description')}>{description}</span>
 

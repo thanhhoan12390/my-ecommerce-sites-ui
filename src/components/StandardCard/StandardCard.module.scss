@@ -1,6 +1,9 @@
 .wrapper {
-    margin-bottom: 24px;
+    height: 100%;
+    margin-bottom: 12px;
     text-align: left;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
     animation: fadeIn linear 0.5s;
 }
 
@@ -21,9 +24,16 @@
     }
 }
 
-.card-img {
-    margin-bottom: 8px;
+.card-space {
+    height: 28px;
+}
+
+.card-img-wrapper {
     padding: 0 8px;
+    margin-bottom: 8px;
+}
+
+.card-img {
     overflow: hidden;
     position: relative;
     padding-top: 100%;
@@ -44,7 +54,7 @@
 
 .card-content {
     padding: 0 8px;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
 }
 
 .card-description {

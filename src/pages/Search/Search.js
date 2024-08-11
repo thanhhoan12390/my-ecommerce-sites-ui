@@ -97,7 +97,7 @@ function Search() {
     return (
         <div className={cx('col', 'l-12', 'm-12', 'c-6')}>
             <div className={cx('wrapper')}>
-                <div className={cx('row')}>
+                <div className={cx('row', 'sm-gutter')}>
                     {/* Sidebar */}
                     <div className={cx('col', 'l-2', 'm-0', 'c-0')}>
                         <div className={cx('sidebar')}>
