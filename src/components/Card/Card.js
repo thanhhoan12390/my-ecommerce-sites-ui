@@ -7,31 +7,32 @@ import styles from './Card.module.scss';
 
 const cx = classNames.bind(styles);
 
+// Topic: refreshSpace, decor, fashion, beauty, toy, kitchen
 function Card({ data, className }) {
     return (
         <Fragment>
             {data.products.length < 2 && (
                 <div className={cx('wrapper', className)}>
                     {data.products.map((item, index) => (
-                        <Fragment key={index}>
+                        <div key={index} className={cx('card-no-grid')}>
                             <header className={cx('card-header')}>
                                 <h2 className={cx('card-header-text')}>{data.title}</h2>
                             </header>
                             <div className={cx('card-item')}>
-                                <Link to="/" className={cx('card-group')}>
+                                <Link to={`/search/${data.topic}`} className={cx('card-group')}>
                                     <img src={item.src} alt={data.title} className={cx('card-img')} />
                                 </Link>
-                                <Link to="/" className={cx('card-link')}>
+                                <Link to={`/search/${data.topic}`} className={cx('card-link')}>
                                     Shop now
                                 </Link>
                             </div>
-                        </Fragment>
+                        </div>
                     ))}
                 </div>
             )}
 
             {data.products.length >= 2 && (
-                <div className={cx('wrapper', className)}>
+                <div className={cx('card-grid-wrapper', className)}>
                     <header className={cx('card-header')}>
                         <h2 className={cx('card-header-text')}>{data.title}</h2>
                     </header>
@@ -40,16 +41,16 @@ function Card({ data, className }) {
                         <div className={cx('card-grid-group', 'row')}>
                             {data.products.map((item, index) => (
                                 <div key={index} className={cx('col', 'l-6', 'card-grid-item')}>
-                                    <Link to="/">
+                                    <Link to={`/search/${data.topic}`}>
                                         <img src={item.src} alt={item.footer} className={cx('card-grid-img')} />
                                     </Link>
-                                    <Link to="/" className={cx('card-item-footer')}>
+                                    <Link to={`/search/${data.topic}`} className={cx('card-item-footer')}>
                                         {item.footer}
                                     </Link>
                                 </div>
                             ))}
                         </div>
-                        <Link to="/" className={cx('card-link')}>
+                        <Link to={`/search/${data.topic}`} className={cx('card-link')}>
                             See more
                         </Link>
                     </div>

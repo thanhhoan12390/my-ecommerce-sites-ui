@@ -1,11 +1,14 @@
 .wrapper {
     padding: 20px 0 15px 0;
-    display: flex;
-    flex-direction: column;
     height: 100%;
 }
 
 // card no grid
+.card-no-grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 .card-header {
     margin-bottom: 10px;
     padding: 0 20px;
@@ -51,6 +54,12 @@
 }
 
 // card grid
+.card-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 0 15px 0;
+}
 .card-grid-content {
     position: relative;
     height: 100%;

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { faChevronDown, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from './StandardCard.module.scss';
 import RatingPopover from './RatingPopover';
+import { deliverNationSelector } from '~/redux/selectors';
 
 const cx = classNames.bind(styles);
 
@@ -18,10 +20,12 @@ function StandardCard({
     rating,
     bought = 0,
     price,
-    originalPrice,
+    typicalPrice,
     deliveryDay,
 }) {
     const ratingRef = useRef();
+
+    const deliverNation = useSelector(deliverNationSelector);
 
     useEffect(() => {
         if (!!rating) {
@@ -81,10 +85,10 @@ function StandardCard({
                             <span>{price}</span>
                         </div>
 
-                        {!!originalPrice && (
+                        {!!typicalPrice && (
                             <div className={cx('card-original-price')}>
                                 <span>List:</span>
-                                <span>${originalPrice}</span>
+                                <span>${typicalPrice}</span>
                             </div>
                         )}
                     </div>
@@ -95,7 +99,7 @@ function StandardCard({
                     </div>
 
                     <span className={cx('card-ship')} onClick={(e) => e.preventDefault()}>
-                        ship to Vietnam
+                        ship to {deliverNation}
                     </span>
 
                     <button
@@ -121,7 +125,7 @@ StandardCard.propTypes = {
     rating: PropTypes.number,
     bought: PropTypes.number,
     price: PropTypes.number,
-    originalPrice: PropTypes.number,
+    typicalPrice: PropTypes.number,
     deliveryDay: PropTypes.string,
 };
 

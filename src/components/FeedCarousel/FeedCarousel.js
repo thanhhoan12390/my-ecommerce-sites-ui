@@ -144,11 +144,11 @@ function FeedCarousel({ feedCarouselData }) {
             <div className={cx('feed-carousel-container')} onMouseEnter={updateScrollBarWidth}>
                 <div ref={carouselRef} className={cx('feed-carousel-content')}>
                     <ul className={cx('feed-carousel-list')}>
-                        {feedCarouselData.data.map((image, index) => (
+                        {feedCarouselData.data.map((item, index) => (
                             <li key={index} className={cx('feed-carousel-item')}>
                                 <Link to="/">
                                     <img
-                                        src={image}
+                                        src={item.src}
                                         alt={`Carousel img ${index}`}
                                         className={cx('feed-carousel-img')}
                                     />

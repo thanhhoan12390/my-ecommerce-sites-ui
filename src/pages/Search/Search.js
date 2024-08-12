@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import styles from './Search.module.scss';
 import StandardCard from '~/components/StandardCard';
@@ -10,21 +11,102 @@ import Pagination from '~/components/Pagination';
 import { getSearchPageBrands } from '~/utils/commonFuncs';
 import { addBrandFilter, deleteBrandFilter, clearBrandFilter } from './searchSlice'; // actions
 import { brandFilterSelector } from '~/redux/selectors';
+import config from '~/config';
 
-import { searchPageData } from '~/apiFakeData'; // fake data
+import {
+    computerTopicData,
+    refreshSpaceTopicData,
+    decorTopicData,
+    fashionTopicData,
+    beautyTopicData,
+    toyTopicData,
+    kitchenTopicData,
+} from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [pagesData, setPagesData] = useState(searchPageData);
+    const [pagesData, setPagesData] = useState([]);
 
     const dispatch = useDispatch();
 
+    const { searchTopic } = useParams();
+
     const checkedValueList = useSelector(brandFilterSelector);
 
+    const searchTopicData = useMemo(() => {
+        switch (searchTopic) {
+            case config.constant.BEAUTY_TOPIC:
+                return beautyTopicData;
+            case config.constant.COMPUTER_TOPIC:
+                return computerTopicData;
+            case config.constant.DECOR_TOPIC:
+                return decorTopicData;
+            case config.constant.FASHION_TOPIC:
+                return fashionTopicData;
+            case config.constant.KITCHEN_TOPIC:
+                return kitchenTopicData;
+            case config.constant.REFRESH_SPACE_TOPIC:
+                return refreshSpaceTopicData;
+            case config.constant.TOY_TOPIC:
+                return toyTopicData;
+            default:
+                let newPagesData = [];
+                let filteredList = [];
+                let pageIndex = 1;
+                let maxPageItem = 0;
+
+                const combineAllData = [
+                    ...computerTopicData,
+                    ...beautyTopicData,
+                    ...decorTopicData,
+                    ...fashionTopicData,
+                    ...kitchenTopicData,
+                    ...toyTopicData,
+                    ...refreshSpaceTopicData,
+                ];
+
+                combineAllData.forEach((page) => {
+                    maxPageItem = page.maxItem;
+
+                    page.items.forEach((item) => {
+                        filteredList.push(item);
+
+                        // Nếu số item filter được vượt quá max page item
+                        if (filteredList.length === page.maxItem) {
+                            newPagesData = [
+                                ...newPagesData,
+                                {
+                                    pageNum: pageIndex,
+                                    maxItem: page.maxItem,
+                                    items: filteredList,
+                                },
+                            ];
+                            pageIndex++;
+                            filteredList = [];
+                        }
+                    });
+                });
+
+                // Số item filter còn sót lại vì số lượng không bằng max page item nên không được thêm ở trước đó
+                if (filteredList.length > 0) {
+                    newPagesData = [
+                        ...newPagesData,
+                        {
+                            pageNum: pageIndex,
+                            maxItem: maxPageItem,
+                            items: filteredList,
+                        },
+                    ];
+                }
+
+                return newPagesData;
+        }
+    }, [searchTopic]);
+
     const maxPage = useMemo(() => pagesData.length, [pagesData]);
-    const brandArray = useMemo(() => getSearchPageBrands(searchPageData), []);
+    const brandArray = useMemo(() => getSearchPageBrands(searchTopicData), [searchTopicData]);
 
     useEffect(() => {
         document.body.scrollTop = 0;
@@ -38,14 +120,13 @@ function Search() {
             let pageIndex = 1;
             let maxPageItem = 0;
 
-            searchPageData.forEach((page) => {
+            searchTopicData.forEach((page) => {
                 maxPageItem = page.maxItem;
 
                 page.items.forEach((item) => {
                     if (checkedValueList.includes(item.brand)) {
                         filteredList.push(item);
                     }
-
                     // Nếu số item filter được vượt quá max page item
                     if (filteredList.length === page.maxItem) {
                         newPagesData = [
@@ -56,13 +137,11 @@ function Search() {
                                 items: filteredList,
                             },
                         ];
-
                         pageIndex++;
                         filteredList = [];
                     }
                 });
             });
-
             // Số item filter còn sót lại vì số lượng không bằng max page item nên không được thêm ở trước đó
             if (filteredList.length > 0) {
                 newPagesData = [
@@ -82,9 +161,9 @@ function Search() {
             // Vì nếu không đưa current page về đúng với số lượng page được filter,
             // thì khi ở đang số page lớn hơn số lượng page do filter thay đổi sẽ xảy ra lỗi
         } else {
-            setPagesData(searchPageData);
+            setPagesData(searchTopicData);
         }
-    }, [checkedValueList, currentPage]);
+    }, [checkedValueList, currentPage, searchTopicData]);
 
     const handleCheckboxChange = (e) => {
         if (e.target.checked === true) {
@@ -198,7 +277,7 @@ function Search() {
                                                 rating={item.rating}
                                                 bought={item.bought}
                                                 price={item.price}
-                                                originalPrice={item.originalPrice}
+                                                typicalPrice={item.typicalPrice}
                                                 deliveryDay={item.deliveryDay}
                                             />
                                         </div>

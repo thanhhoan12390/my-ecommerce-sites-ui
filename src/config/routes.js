@@ -3,7 +3,7 @@ const routes = {
     cartPage: '/cart',
     todayDeal: '/todaydeal',
     userInfo: '/userinfo',
-    search: '/search',
+    search: '/search/:searchTopic',
 };
 
 export default routes;

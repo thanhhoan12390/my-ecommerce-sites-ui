@@ -9,7 +9,7 @@ const virtualProductItem = (data) => {
                     rating: '',
                     saleOff: 0,
                     price: '',
-                    originalPrice: '',
+                    typicalPrice: '',
                     ship: '',
                 },
             ];

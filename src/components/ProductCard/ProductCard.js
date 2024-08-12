@@ -10,7 +10,7 @@ import styles from './ProductCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ProductCard({ img, description, rating, saleOff = 0, price, originalPrice, ship }) {
+function ProductCard({ img, description, rating, saleOff = 0, price, typicalPrice, ship }) {
     const ratingRef = useRef();
 
     useEffect(() => {
@@ -71,7 +71,7 @@ function ProductCard({ img, description, rating, saleOff = 0, price, originalPri
                 {!!saleOff && (
                     <div className={cx('card-original-price')}>
                         <span>List:</span>
-                        <span>${originalPrice}</span>
+                        <span>${typicalPrice}</span>
                     </div>
                 )}
                 {!!ship && <span className={cx('card-ship')}>${ship} shipping</span>}
@@ -86,7 +86,7 @@ ProductCard.propTypes = {
     rating: PropTypes.any,
     saleOff: PropTypes.any,
     price: PropTypes.any,
-    originalPrice: PropTypes.any,
+    typicalPrice: PropTypes.any,
     ship: PropTypes.any,
 };
 

@@ -12,6 +12,7 @@ import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
 import { searchTypeSelector } from '~/redux/selectors';
 import { getSearchType } from '~/layouts/components/Header/headerSlice'; // action creator
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -112,7 +113,7 @@ function NavFill() {
                                             className={cx('search-item')}
                                             onClick={() => {
                                                 setSearchValue('');
-                                                navigate('/search');
+                                                navigate(`/search/${config.constant.ALL_TOPICS}`);
                                             }}
                                         >
                                             <SearchIcon width="1.9rem" height="1.9rem" />
@@ -132,7 +133,10 @@ function NavFill() {
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
                             />
-                            <button className={cx('search-btn')} onClick={() => navigate('/search')}>
+                            <button
+                                className={cx('search-btn')}
+                                onClick={() => navigate(`/search/${config.constant.ALL_TOPICS}`)}
+                            >
                                 <SearchIcon />
                             </button>
                         </div>

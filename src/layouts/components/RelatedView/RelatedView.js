@@ -59,7 +59,7 @@ function RelateView({ data }) {
                                                 description={item.description}
                                                 rating={item.rating}
                                                 saleOff={item.saleOff}
-                                                originalPrice={item.originalPrice}
+                                                typicalPrice={item.typicalPrice}
                                                 price={item.price}
                                                 ship={item.ship}
                                             />
