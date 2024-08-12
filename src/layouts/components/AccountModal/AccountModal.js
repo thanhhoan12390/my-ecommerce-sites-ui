@@ -11,6 +11,7 @@ import {
     faGlobe,
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import styles from './AccountModal.module.scss';
 import Divider from '~/components/Divider/Divider';
@@ -61,9 +62,9 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
             if (isHasNoChild) {
                 return (
                     <li key={index} className={cx('content-list-item')}>
-                        <a className={cx('content-item-link')} href={child.to}>
+                        <Link className={cx('content-item-link')} to={child.to}>
                             {child.title}
-                        </a>
+                        </Link>
                     </li>
                 );
             }
@@ -172,35 +173,35 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
                                 <h4 className={cx('help-settings-heading')}>Help & Settings</h4>
                                 <ul className={cx('help-settings-group')}>
                                     <li>
-                                        <a href="/" className={cx('help-settings-text')}>
+                                        <Link to="/" className={cx('help-settings-text')}>
                                             Your Account
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="/" className={cx('help-settings-globe-text')}>
+                                        <Link to="/" className={cx('help-settings-globe-text')}>
                                             <FontAwesomeIcon icon={faGlobe} className={cx('help-settings-icon')} />
                                             Vietnam
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="/" className={cx('help-settings-flag-text')}>
+                                        <Link to="/" className={cx('help-settings-flag-text')}>
                                             <img
                                                 src={images.vnFlag}
                                                 className={cx('help-settings-flag')}
                                                 alt="flag"
                                             ></img>
                                             Viet Nam
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="/" className={cx('help-settings-text')}>
+                                        <Link to="/" className={cx('help-settings-text')}>
                                             Customer Service
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="/" className={cx('help-settings-text')}>
+                                        <Link to="/" className={cx('help-settings-text')}>
                                             Sign out
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

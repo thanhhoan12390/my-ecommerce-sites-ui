@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { useDispatch, useSelector } from 'react-redux'; // useDispatch để dispatch thunk action creator, useSelector để dùng selector lấy state
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './LanguageMenu.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
@@ -40,7 +41,7 @@ function LanguageMenu({ children }) {
                         <div className={cx('language-menu')} tabIndex="-1" {...attrs}>
                             <MenuWrapper>
                                 <span className={cx('language-menu-text')}>
-                                    Change language <a href="/">Learn more</a>
+                                    Change language <Link to="">Learn more</Link>
                                 </span>
                                 <LanguageItem
                                     checked={checkedLanguageId === 0}
@@ -70,12 +71,12 @@ function LanguageMenu({ children }) {
                                 <Divider className={cx('divider')} />
 
                                 <span className={cx('language-menu-text')}>
-                                    Change currency <a href="/">Learn more</a>
+                                    Change currency <Link to="">Learn more</Link>
                                 </span>
 
                                 <div className={cx('currency-change')}>
                                     <span>$ - USD - US Dollar</span>
-                                    <a href="/">Change</a>
+                                    <Link to="">Change</Link>
                                 </div>
 
                                 <Divider className={cx('divider')} />
@@ -85,9 +86,9 @@ function LanguageMenu({ children }) {
                                     You are shopping on eCommerce site
                                 </span>
 
-                                <a href="/" className={cx('change-country-region')}>
+                                <Link to="" className={cx('change-country-region')}>
                                     Change country/region
-                                </a>
+                                </Link>
                             </MenuWrapper>
                         </div>
                     )}

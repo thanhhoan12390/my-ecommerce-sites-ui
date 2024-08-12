@@ -665,22 +665,27 @@ export const AccountModalData = [
 // carousel data
 export const carouselData = [
     {
+        topic: config.constant.KITCHEN_TOPIC,
         src: images.bannerImage1,
         alt: 'Image 1 for carousel',
     },
     {
+        topic: config.constant.BEAUTY_TOPIC,
         src: images.bannerImage2,
         alt: 'Image 2 for carousel',
     },
     {
+        topic: config.constant.REFRESH_SPACE_TOPIC,
         src: images.bannerImage3,
         alt: 'Image 3 for carousel',
     },
     {
+        topic: config.constant.TOY_TOPIC,
         src: images.bannerImage4,
         alt: 'Image 4 for carousel',
     },
     {
+        topic: config.constant.COMPUTER_TOPIC,
         src: images.bannerImage5,
         alt: 'Image 5 for carousel',
     },

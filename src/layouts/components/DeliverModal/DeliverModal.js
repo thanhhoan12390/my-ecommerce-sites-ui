@@ -5,6 +5,7 @@ import { faChevronDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, useMemo, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './DeliverModal.module.scss';
 import Divider from '~/components/Divider/Divider';
@@ -52,9 +53,9 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
                             <span className={cx('content-text')}>
                                 Delivery options and delivery speeds may vary for different locations
                             </span>
-                            <a className={cx('content-address')} href="/">
+                            <Link className={cx('content-address')} to="">
                                 Manage address book
-                            </a>
+                            </Link>
                             <div className={cx('content-divider')}>
                                 <Divider />
                                 <span>or enter a US zip code</span>

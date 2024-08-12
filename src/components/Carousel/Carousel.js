@@ -34,7 +34,7 @@ function Carousel({ data }) {
                 </button>
             </div>
             {data.map((item, index) => (
-                <Link key={index} className={cx('slide-link')}>
+                <Link to={`/search/${item.topic}`} key={index} className={cx('slide-link')}>
                     <img
                         src={item.src}
                         alt={item.alt}
