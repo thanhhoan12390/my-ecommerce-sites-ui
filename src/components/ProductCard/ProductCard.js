@@ -10,7 +10,7 @@ import styles from './ProductCard.module.scss';
 
 const cx = classNames.bind(styles);
 
-function ProductCard({ img, description, rating, saleOff = 0, price, typicalPrice, ship }) {
+function ProductCard({ id, img, description, rating, saleOff = 0, price, typicalPrice, ship }) {
     const ratingRef = useRef();
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function ProductCard({ img, description, rating, saleOff = 0, price, typicalPric
 
     return (
         <div className={cx('wrapper')}>
-            <Link to="/" className={cx('container')}>
+            <Link to={`/viewProduct/${id}`} className={cx('container')}>
                 {!!img && (
                     <button className={cx('card-img')}>
                         <img src={img} alt="img" />
@@ -43,7 +43,7 @@ function ProductCard({ img, description, rating, saleOff = 0, price, typicalPric
                         }
                         placement="bottom"
                     >
-                        <div className={cx('card-rating')}>
+                        <div className={cx('card-rating')} onClick={(e) => e.preventDefault()}>
                             <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
                             <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
                             <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
@@ -55,7 +55,7 @@ function ProductCard({ img, description, rating, saleOff = 0, price, typicalPric
                 )}
 
                 {!!saleOff && (
-                    <div className={cx('card-sale-off')}>
+                    <div className={cx('card-sale-off')} onClick={(e) => e.preventDefault()}>
                         <span>{saleOff}% off</span>
                         <span>Limited time deal</span>
                     </div>
@@ -74,13 +74,18 @@ function ProductCard({ img, description, rating, saleOff = 0, price, typicalPric
                         <span>${typicalPrice}</span>
                     </div>
                 )}
-                {!!ship && <span className={cx('card-ship')}>${ship} shipping</span>}
+                {!!ship && (
+                    <span className={cx('card-ship')} onClick={(e) => e.preventDefault()}>
+                        ${ship} shipping
+                    </span>
+                )}
             </Link>
         </div>
     );
 }
 
 ProductCard.propTypes = {
+    id: PropTypes.number,
     img: PropTypes.any,
     description: PropTypes.string,
     rating: PropTypes.any,

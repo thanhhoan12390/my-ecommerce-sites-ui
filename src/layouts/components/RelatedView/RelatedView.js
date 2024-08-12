@@ -55,6 +55,7 @@ function RelateView({ data }) {
                                     {page.items.map((item, index) => (
                                         <li key={index}>
                                             <ProductCard
+                                                id={item.id}
                                                 img={item.image}
                                                 description={item.description}
                                                 rating={item.rating}

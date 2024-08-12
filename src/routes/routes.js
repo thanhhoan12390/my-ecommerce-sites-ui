@@ -9,6 +9,7 @@ import CartPage from '~/pages/CartPage';
 import TodayDeal from '~/pages/TodayDeal';
 import UserInfo from '~/pages/UserInfo';
 import Search from '~/pages/Search';
+import ViewProduct from '~/pages/ViewProduct';
 
 // Public Routes
 const publicRoutes = [
@@ -17,6 +18,7 @@ const publicRoutes = [
     { path: config.routes.todayDeal, component: TodayDeal, layout: DefaultLayout },
     { path: config.routes.userInfo, component: UserInfo, layout: DefaultLayout },
     { path: config.routes.search, component: Search, layout: DefaultLayout },
+    { path: config.routes.viewProduct, component: ViewProduct, layout: DefaultLayout },
 ];
 
 // Private Routes

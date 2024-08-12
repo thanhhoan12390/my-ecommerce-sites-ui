@@ -1,18 +1,16 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import { faChevronDown, faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import styles from './StandardCard.module.scss';
-import RatingPopover from './RatingPopover';
 import { deliverNationSelector } from '~/redux/selectors';
+import StarRating from '~/components/StarRating';
 
 const cx = classNames.bind(styles);
 
 function StandardCard({
+    id,
     bestSell = true,
     img,
     description,
@@ -23,21 +21,11 @@ function StandardCard({
     typicalPrice,
     deliveryDay,
 }) {
-    const ratingRef = useRef();
-
     const deliverNation = useSelector(deliverNationSelector);
-
-    useEffect(() => {
-        if (!!rating) {
-            const percentage = Math.round((rating / 5) * 100);
-
-            ratingRef.current.style.width = `${100 - percentage}%`;
-        }
-    }, [rating]);
 
     return (
         <div className={cx('wrapper')}>
-            <Link to="/" className={cx('container')}>
+            <Link to={`/viewProduct/${id}`} className={cx('container')}>
                 {/* Best seller tag */}
                 {bestSell && (
                     <div className={cx('card-tag')}>
@@ -59,19 +47,7 @@ function StandardCard({
                         <span>{brand}</span>
                     </div>
 
-                    <RatingPopover rating={rating}>
-                        <div className={cx('card-rating-wrapper')}>
-                            <span className={cx('card-rating')} onClick={(e) => e.preventDefault()}>
-                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                                <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
-                                <div ref={ratingRef} className={cx('rating-overlay')}></div>
-                                <FontAwesomeIcon icon={faChevronDown} className={cx('card-down-icon')} />
-                            </span>
-                        </div>
-                    </RatingPopover>
+                    <StarRating rating={rating} />
 
                     {!!bought && (
                         <div className={cx('card-bought')} onClick={(e) => e.preventDefault()}>
@@ -118,6 +94,7 @@ function StandardCard({
 }
 
 StandardCard.propTypes = {
+    id: PropTypes.number,
     bestSell: PropTypes.bool,
     img: PropTypes.any,
     description: PropTypes.string,

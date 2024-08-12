@@ -91,46 +91,6 @@
     }
 }
 
-.card-rating-wrapper {
-    margin-top: 14px;
-}
-
-.card-rating {
-    position: relative;
-    white-space: nowrap;
-    cursor: pointer;
-
-    &:hover {
-        background-color: transparent;
-        border-radius: 5px;
-        outline: 3px solid #007185;
-        outline-offset: 2px;
-    }
-}
-
-.card-star-icon {
-    color: #de7921;
-    height: 17px;
-    width: 17px;
-}
-
-.card-down-icon {
-    font-size: 1.5rem;
-    margin-left: 2px;
-    padding-top: 2px;
-    color: var(--black);
-}
-
-.rating-overlay {
-    background: #fff;
-    height: 100%;
-    overflow: hidden;
-    mix-blend-mode: color;
-    position: absolute;
-    top: 0;
-    right: 16px;
-}
-
 .card-bought {
     cursor: text;
 

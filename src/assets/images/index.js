@@ -1,6 +1,8 @@
 const images = {
     noImage: require('~/assets/images/default-avatar.png'),
     vnFlag: require('~/assets/images/Flag_of_Vietnam.svg.webp'),
+    blackColor: require('~/assets/images/black-color-img.jpg'),
+    silverColor: require('~/assets/images/silver-color-img.jpg'),
 
     // banner
     bannerImage1: require('~/assets/images/banner/banner-image-1.jpg'),

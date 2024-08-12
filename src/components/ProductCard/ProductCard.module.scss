@@ -102,7 +102,7 @@
     }
 
     span:first-child {
-        background: #cc0c39;
+        background: var(--red);
         color: var(--white);
         border-radius: 2px;
         line-height: 16px;
@@ -112,7 +112,7 @@
 
     span:last-child {
         background: var(--white);
-        color: #cc0c39;
+        color: var(--red);
         font-weight: 700;
         line-height: 12px;
         flex: 1;

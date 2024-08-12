@@ -270,6 +270,7 @@ function Search() {
                                     <div key={index} className={cx('col', 'l-2-4', 'm-3', 'c-3')}>
                                         <div className={cx('card-item')}>
                                             <StandardCard
+                                                id={item.id}
                                                 bestSell={item.bestSell}
                                                 img={item.image}
                                                 description={item.description}

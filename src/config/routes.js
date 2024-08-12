@@ -1,9 +1,10 @@
 const routes = {
     home: '/',
     cartPage: '/cart',
-    todayDeal: '/todaydeal',
+    todayDeal: '/todayDeal',
     userInfo: '/userinfo',
     search: '/search/:searchTopic',
+    viewProduct: '/viewProduct/:productId',
 };
 
 export default routes;
