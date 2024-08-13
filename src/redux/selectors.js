@@ -9,3 +9,6 @@ export const browserLanguageSelector = (state) =>
 
 // Search Page Selectors
 export const brandFilterSelector = (state) => state.searchPage.brandFilterList;
+
+// Cart Page Selectors
+export const cartSelector = (state) => state.cartPage.cartList;

@@ -3,8 +3,8 @@ import { faChevronDown, faCircleExclamation, faLocationDot } from '@fortawesome/
 import { faComments } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMemo, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 
@@ -14,6 +14,8 @@ import Divider from '~/components/Divider';
 import images from '~/assets/images';
 import { deliverNationSelector } from '~/redux/selectors';
 import MenuWrapper from '~/components/MenuWrapper';
+import { addToCart } from '~/pages/CartPage/cartPageSlice';
+import config from '~/config';
 
 import { productsData } from '~/apiFakeData'; // fake data
 
@@ -21,8 +23,12 @@ const cx = classNames.bind(styles);
 
 function ViewProduct() {
     const [colorChoice, setColorChoice] = useState('Black');
-    const [quantity, setQuantity] = useState(1);
     const [isOpenQuantity, SetIsOpenQuantity] = useState(false);
+    const [quantity, setQuantity] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const deliverNation = useSelector(deliverNationSelector);
 
@@ -45,6 +51,11 @@ function ViewProduct() {
         () => (product.typicalPrice - (product.typicalPrice * product.saleOff) / 100).toFixed(2),
         [product],
     );
+
+    const handleAddToCart = () => {
+        dispatch(addToCart({ id: product.id, quantity: quantity }));
+        navigate(config.routes.cartPage);
+    };
 
     return (
         <div className="col l-12 m-12 c-12">
@@ -487,6 +498,7 @@ function ViewProduct() {
                                         visible={isOpenQuantity}
                                         offset={[0, -32]}
                                         placement="bottom"
+                                        onClickOutside={() => SetIsOpenQuantity(false)}
                                         render={(attrs) => (
                                             <div className={cx('quantity-popover')} tabIndex="-1" {...attrs}>
                                                 <MenuWrapper className={cx('quantity-wrapper')}>
@@ -522,7 +534,9 @@ function ViewProduct() {
                                     </HeadlessTippy>
                                 </div>
 
-                                <button className={cx('right-add-btn')}>Add to Cart</button>
+                                <button className={cx('right-add-btn')} onClick={handleAddToCart}>
+                                    Add to Cart
+                                </button>
 
                                 <button className={cx('right-buy-btn')}>Buy Now</button>
 
