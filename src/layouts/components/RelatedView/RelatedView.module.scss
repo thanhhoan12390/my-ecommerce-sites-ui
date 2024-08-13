@@ -48,6 +48,10 @@
     display: flex;
     list-style-type: none;
     height: 100%;
+
+    li {
+        width: calc(100% / 7);
+    }
 }
 
 .carousel-content-hidden {

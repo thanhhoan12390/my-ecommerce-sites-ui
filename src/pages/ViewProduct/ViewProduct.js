@@ -109,7 +109,7 @@ function ViewProduct() {
                                     <span>by {product.brand}</span>
                                 </div>
 
-                                <span className={cx('main-bought')}>10K+ bought this past month</span>
+                                <span className={cx('main-bought')}>10K+ bought this past week</span>
 
                                 <Divider />
 
