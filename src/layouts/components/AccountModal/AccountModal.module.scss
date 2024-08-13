@@ -4,6 +4,10 @@
     z-index: 99999; // z-index 5 số
 }
 
+.hidden-overlay {
+    display: none;
+}
+
 .modal-close-btn {
     position: fixed;
     left: 378px;
@@ -23,7 +27,15 @@
     top: 0;
     bottom: 0;
     width: 365px;
+}
+
+.visible-modal {
     animation: slideIn linear 0.3s;
+}
+
+.hidden-modal {
+    transform: translateX(calc(-100% - 40px));
+    transition: transform ease-out 0.3s;
 }
 
 // Modal header
@@ -84,7 +96,6 @@
 .content-item-first-cover {
     margin-bottom: 5px;
     overflow: hidden;
-    // max-height: 218px;
 }
 
 .content-more-btn,

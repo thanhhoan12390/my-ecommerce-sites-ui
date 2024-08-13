@@ -47,7 +47,7 @@ function StandardCard({
                         <span>{brand}</span>
                     </div>
 
-                    <StarRating rating={rating} />
+                    <StarRating rating={rating} offsetLeft={-50} />
 
                     {!!bought && (
                         <div className={cx('card-bought')} onClick={(e) => e.preventDefault()}>

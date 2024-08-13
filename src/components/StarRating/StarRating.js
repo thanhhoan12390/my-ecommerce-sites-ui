@@ -9,7 +9,7 @@ import RatingPopover from '~/components/StarRating/RatingPopover';
 
 const cx = classNames.bind(styles);
 
-function StarRating({ rating }) {
+function StarRating({ rating, offsetLeft = 0, offsetRight = 0 }) {
     const ratingRef = useRef();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function StarRating({ rating }) {
     }, [rating]);
 
     return (
-        <RatingPopover rating={rating}>
+        <RatingPopover rating={rating} offsetLeft={offsetLeft} offsetRight={offsetRight}>
             <div className={cx('card-rating-wrapper')}>
                 <span className={cx('card-rating')} onClick={(e) => e.preventDefault()}>
                     <FontAwesomeIcon icon={faStar} className={cx('card-star-icon')} />
@@ -39,6 +39,8 @@ function StarRating({ rating }) {
 
 StarRating.propTypes = {
     rating: PropTypes.number,
+    offsetLeft: PropTypes.number,
+    offsetRight: PropTypes.number,
 };
 
 export default StarRating;

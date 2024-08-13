@@ -10,7 +10,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function RatingPopover({ children, rating }) {
+function RatingPopover({ children, rating, offsetLeft = 0, offsetRight = 0 }) {
     const ratingRef = useRef();
 
     const percentageStar = useMemo(() => Math.round((rating / 5) * 100), [rating]);
@@ -20,7 +20,7 @@ function RatingPopover({ children, rating }) {
             <Tippy
                 interactive
                 delay={[300, 400]}
-                offset={[-50, 0]}
+                offset={[offsetLeft, offsetRight]}
                 placement="bottom"
                 render={(attrs) => (
                     <div className={cx('rating-popover')} tabIndex="-1" {...attrs}>
@@ -108,6 +108,8 @@ function RatingPopover({ children, rating }) {
 
 RatingPopover.propTypes = {
     children: PropTypes.node.isRequired,
+    offsetLeft: PropTypes.number,
+    offsetRight: PropTypes.number,
 };
 
 export default RatingPopover;

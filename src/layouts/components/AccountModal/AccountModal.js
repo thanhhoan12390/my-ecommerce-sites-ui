@@ -137,79 +137,73 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
         });
 
     return (
-        isOpen && (
-            <Fragment>
-                {/* OverLay */}
-                <OverLay className={cx('over-lay')} onClick={onClose} />
+        <Fragment>
+            {/* OverLay */}
+            <OverLay className={isOpen ? cx('over-lay') : cx('hidden-overlay')} onClick={onClose} />
 
-                <div className={cx('wrapper')}>
-                    {/* Close button */}
-                    <FontAwesomeIcon icon={faXmark} className={cx('modal-close-btn')} onClick={onClose} />
+            <div className={isOpen ? cx('wrapper', 'visible-modal') : cx('wrapper', 'hidden-modal')}>
+                {/* Close button */}
+                <FontAwesomeIcon icon={faXmark} className={cx('modal-close-btn')} onClick={onClose} />
 
-                    <header className={cx('modal-header')}>
-                        {/* Avatar */}
-                        <img src={images.noImage} alt="avatar" className={cx('modal-header-avatar')} />
-                        <h3 className={cx('modal-header-text')}>Hello, Hoan</h3>
-                    </header>
+                <header className={cx('modal-header')}>
+                    {/* Avatar */}
+                    <img src={images.noImage} alt="avatar" className={cx('modal-header-avatar')} />
+                    <h3 className={cx('modal-header-text')}>Hello, Hoan</h3>
+                </header>
 
-                    <div className={cx('modal-content')}>
-                        {/* Back button */}
-                        {history.length > 1 && (
-                            <Fragment>
-                                <span className={cx('content-back-btn')} onClick={handleBackBtn}>
-                                    <FontAwesomeIcon icon={faArrowLeft} className={cx('content-back-icon')} />
-                                    MAIN MENU
-                                </span>
-                            </Fragment>
-                        )}
+                <div className={cx('modal-content')}>
+                    {/* Back button */}
+                    {history.length > 1 && (
+                        <Fragment>
+                            <span className={cx('content-back-btn')} onClick={handleBackBtn}>
+                                <FontAwesomeIcon icon={faArrowLeft} className={cx('content-back-icon')} />
+                                MAIN MENU
+                            </span>
+                        </Fragment>
+                    )}
 
-                        {/* Render MenuData */}
-                        {renderItems()}
+                    {/* Render MenuData */}
+                    {renderItems()}
 
-                        {history.length < 2 && (
-                            <div className={cx('modal-help-settings')}>
-                                <Divider className={cx('first-cover-divider')} />
+                    {history.length < 2 && (
+                        <div className={cx('modal-help-settings')}>
+                            <Divider className={cx('first-cover-divider')} />
 
-                                <h4 className={cx('help-settings-heading')}>Help & Settings</h4>
-                                <ul className={cx('help-settings-group')}>
-                                    <li>
-                                        <Link to="/" className={cx('help-settings-text')}>
-                                            Your Account
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" className={cx('help-settings-globe-text')}>
-                                            <FontAwesomeIcon icon={faGlobe} className={cx('help-settings-icon')} />
-                                            Vietnam
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" className={cx('help-settings-flag-text')}>
-                                            <img
-                                                src={images.vnFlag}
-                                                className={cx('help-settings-flag')}
-                                                alt="flag"
-                                            ></img>
-                                            Viet Nam
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" className={cx('help-settings-text')}>
-                                            Customer Service
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/" className={cx('help-settings-text')}>
-                                            Sign out
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
+                            <h4 className={cx('help-settings-heading')}>Help & Settings</h4>
+                            <ul className={cx('help-settings-group')}>
+                                <li>
+                                    <Link to="/" className={cx('help-settings-text')}>
+                                        Your Account
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className={cx('help-settings-globe-text')}>
+                                        <FontAwesomeIcon icon={faGlobe} className={cx('help-settings-icon')} />
+                                        Vietnam
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className={cx('help-settings-flag-text')}>
+                                        <img src={images.vnFlag} className={cx('help-settings-flag')} alt="flag"></img>
+                                        Viet Nam
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className={cx('help-settings-text')}>
+                                        Customer Service
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/" className={cx('help-settings-text')}>
+                                        Sign out
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    )}
                 </div>
-            </Fragment>
-        )
+            </div>
+        </Fragment>
     );
 }
 

@@ -1,16 +1,19 @@
 import classNames from 'classnames/bind';
-import { faChevronDown, faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faCircleExclamation, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMemo, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import styles from './ViewProduct.module.scss';
 import StarRating from '~/components/StarRating';
 import Divider from '~/components/Divider';
 import images from '~/assets/images';
 import { deliverNationSelector } from '~/redux/selectors';
+import MenuWrapper from '~/components/MenuWrapper';
 
 import { productsData } from '~/apiFakeData'; // fake data
 
@@ -18,10 +21,17 @@ const cx = classNames.bind(styles);
 
 function ViewProduct() {
     const [colorChoice, setColorChoice] = useState('Black');
+    const [quantity, setQuantity] = useState(1);
+    const [isOpenQuantity, SetIsOpenQuantity] = useState(false);
 
     const deliverNation = useSelector(deliverNationSelector);
 
     const { productId } = useParams();
+
+    const quantityArray = useMemo(
+        () => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+        [],
+    );
 
     useEffect(() => {
         document.body.scrollTop = 0;
@@ -102,10 +112,27 @@ function ViewProduct() {
                                 </div>
 
                                 <div className={cx('main-choice')}>
-                                    <div className={cx('choice-group')}>
-                                        <span>ECommerce's</span>
-                                        <span>Choice</span>
-                                    </div>
+                                    <Tippy
+                                        delay={[400, 300]}
+                                        offset={[0, 4]}
+                                        content={
+                                            <MenuWrapper className={cx('choice-tooltip-wrapper')}>
+                                                <div className={cx('choice-tooltip')}>
+                                                    <span>
+                                                        ECommerce's Choice highlights highly rated, well-priced products
+                                                        available to ship immediately.
+                                                    </span>
+                                                </div>
+                                            </MenuWrapper>
+                                        }
+                                        placement="top"
+                                    >
+                                        <div className={cx('choice-group')}>
+                                            <span>ECommerce's</span>
+                                            <span>Choice</span>
+                                        </div>
+                                    </Tippy>
+
                                     <span>by {product.brand}</span>
                                 </div>
 
@@ -127,19 +154,100 @@ function ViewProduct() {
                                 <div className={cx('main-typical-price')}>
                                     <span>Typical price: </span>
                                     <span>${product.typicalPrice}</span>
-                                    <FontAwesomeIcon icon={faCircleExclamation} className={cx('typical-price-icon')} />
+                                    <HeadlessTippy
+                                        interactive
+                                        delay={[200, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('typical-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('typical-wrapper')}>
+                                                    <div className={cx('typical-text')}>
+                                                        This is determined using the 90-day median price paid by
+                                                        customers for the product on Amazon. We exclude prices paid by
+                                                        customers for the product during a limited time deal.
+                                                    </div>
+                                                    <div className={cx('typical-learn-more')}>Learn more</div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faCircleExclamation}
+                                            className={cx('typical-price-icon')}
+                                        />
+                                    </HeadlessTippy>
                                 </div>
 
-                                <div className={cx('main-free-return')}>
-                                    <span>FREE Returns</span>
-                                    <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                <div>
+                                    <HeadlessTippy
+                                        interactive
+                                        trigger="click"
+                                        delay={[200, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('return-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('return-wrapper')}>
+                                                    <h4>Return this item for free</h4>
+                                                    <div className={cx('return-text')}>
+                                                        Free returns are available for the shipping address you chose.
+                                                        You can return the item for any reason in new and unused
+                                                        condition: no return shipping charges.
+                                                    </div>
+                                                    <div className={cx('return-learn-more')}>
+                                                        Learn more about free returns
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('main-free-return')}>
+                                            <span>FREE Returns</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                        </div>
+                                    </HeadlessTippy>
                                 </div>
 
                                 <span className={cx('main-ship')}>Shipping & Import Charges to {deliverNation}</span>
 
-                                <div className={cx('main-ship-detail')}>
-                                    <span>Details</span>
-                                    <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                <div className={cx('detail-tippy-wrapper')}>
+                                    <HeadlessTippy
+                                        interactive
+                                        trigger="click"
+                                        delay={[200, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('detail-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('detail-wrapper')}>
+                                                    <h3>Shipping & Fee Details</h3>
+                                                    <Divider />
+                                                    <div className={cx('detail-group')}>
+                                                        <div className={cx('detail-left')}>
+                                                            <span>Price</span>
+                                                            <span>AmazonGlobal Shipping</span>
+                                                            <span>Estimated Import Charges</span>
+                                                        </div>
+                                                        <div className={cx('detail-right')}>
+                                                            <span>$13.59</span>
+                                                            <span>$32.41</span>
+                                                            <span>$18.26</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <Divider />
+
+                                                    <div className={cx('total-group')}>
+                                                        <span className={cx('total-left')}>Total</span>
+                                                        <span className={cx('total-right')}>$64.26</span>
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('main-ship-detail')}>
+                                            <span>Details</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                        </div>
+                                    </HeadlessTippy>
                                 </div>
 
                                 <span className={cx('main-available')}>
@@ -147,13 +255,40 @@ function ViewProduct() {
                                     shipping.
                                 </span>
 
-                                <div className={cx('main-extra-saving')}>
-                                    <span className={cx('extra-first-text')}>Extra Savings</span>
-                                    <span>
-                                        ECommerce store offer with this purchase
-                                        <span className={cx('main-promotion')}>1 Applicable Promotion</span>
-                                        <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
-                                    </span>
+                                <div>
+                                    <HeadlessTippy
+                                        interactive
+                                        delay={[300, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('extra-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('extra-wrapper')}>
+                                                    <ul className={cx('extra-text')}>
+                                                        <li> ECommerce Store offer with this purchase</li>
+                                                    </ul>
+                                                    <div className={cx('extra-learn-more')}>
+                                                        <span>Term</span>
+                                                        <FontAwesomeIcon
+                                                            icon={faChevronDown}
+                                                            className={cx('free-return-icon')}
+                                                        />
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('main-extra-saving')}>
+                                            <span className={cx('extra-first-text')}>Extra Savings</span>
+                                            <span>
+                                                ECommerce store offer with this purchase
+                                                <span className={cx('main-promotion')}>1 Applicable Promotion</span>
+                                                <FontAwesomeIcon
+                                                    icon={faChevronDown}
+                                                    className={cx('free-return-icon')}
+                                                />
+                                            </span>
+                                        </div>
+                                    </HeadlessTippy>
                                 </div>
 
                                 <Divider />
@@ -241,9 +376,185 @@ function ViewProduct() {
                         </div>
 
                         {/* Right side */}
-                        <div className={cx('right-side')}></div>
+                        <div className={cx('right-side')}>
+                            <div className={cx('right-price')}>
+                                <span>$</span>
+                                <span>{price}</span>
+                            </div>
+
+                            <div className={cx('right-content')}>
+                                <div className={cx('right-claim')}>
+                                    <span>27% claimed</span>
+                                    <div className={cx('claim-group')}>
+                                        <div className={cx('claim-percent')}></div>
+                                    </div>
+                                </div>
+
+                                {/* Inherit from main side */}
+                                <div>
+                                    <HeadlessTippy
+                                        interactive
+                                        trigger="click"
+                                        delay={[200, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('return-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('return-wrapper')}>
+                                                    <h4>Return this item for free</h4>
+                                                    <div className={cx('return-text')}>
+                                                        Free returns are available for the shipping address you chose.
+                                                        You can return the item for any reason in new and unused
+                                                        condition: no return shipping charges.
+                                                    </div>
+                                                    <div className={cx('return-learn-more')}>
+                                                        Learn more about free returns
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('main-free-return')}>
+                                            <span>FREE Returns</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                        </div>
+                                    </HeadlessTippy>
+                                </div>
+
+                                {/* Inherit from main side */}
+                                <span className={cx('main-ship')}>Shipping & Import Charges to {deliverNation}</span>
+                                {/* Inherit from main side */}
+                                <div className={cx('detail-tippy-wrapper')}>
+                                    <HeadlessTippy
+                                        interactive
+                                        trigger="click"
+                                        delay={[200, 400]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('detail-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('detail-wrapper')}>
+                                                    <h3>Shipping & Fee Details</h3>
+                                                    <Divider />
+                                                    <div className={cx('detail-group')}>
+                                                        <div className={cx('detail-left')}>
+                                                            <span>Price</span>
+                                                            <span>AmazonGlobal Shipping</span>
+                                                            <span>Estimated Import Charges</span>
+                                                        </div>
+                                                        <div className={cx('detail-right')}>
+                                                            <span>$13.59</span>
+                                                            <span>$32.41</span>
+                                                            <span>$18.26</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <Divider />
+
+                                                    <div className={cx('total-group')}>
+                                                        <span className={cx('total-left')}>Total</span>
+                                                        <span className={cx('total-right')}>$64.26</span>
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('main-ship-detail')}>
+                                            <span>Details</span>
+                                            <FontAwesomeIcon icon={faChevronDown} className={cx('free-return-icon')} />
+                                        </div>
+                                    </HeadlessTippy>
+                                </div>
+
+                                <div className={cx('right-delivery-day')}>
+                                    <span>Delivery</span>
+                                    <span>Tuesday, August 27.</span>
+                                </div>
+
+                                <div className={cx('right-order')}>
+                                    <span>Order within</span>
+                                    <span>7 hrs 46 mins</span>
+                                </div>
+
+                                <div className={cx('right-location')}>
+                                    <FontAwesomeIcon icon={faLocationDot} className={cx('right-location-icon')} />
+                                    <span>Deliver to {deliverNation}</span>
+                                </div>
+
+                                <span className={cx('right-stock')}>In Stock</span>
+
+                                <div className={cx('quantity-tippy-wrapper')}>
+                                    <HeadlessTippy
+                                        interactive
+                                        visible={isOpenQuantity}
+                                        offset={[0, -32]}
+                                        placement="bottom"
+                                        render={(attrs) => (
+                                            <div className={cx('quantity-popover')} tabIndex="-1" {...attrs}>
+                                                <MenuWrapper className={cx('quantity-wrapper')}>
+                                                    <div className={cx('quantity-content')}>
+                                                        {quantityArray.map((num) => (
+                                                            <div
+                                                                key={num}
+                                                                className={
+                                                                    quantity === num
+                                                                        ? cx('quantity-item', 'quantity-active')
+                                                                        : cx('quantity-item')
+                                                                }
+                                                                onClick={() => {
+                                                                    setQuantity(num);
+                                                                    SetIsOpenQuantity(false);
+                                                                }}
+                                                            >
+                                                                <span>{num}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </MenuWrapper>
+                                            </div>
+                                        )}
+                                    >
+                                        <div className={cx('right-quantity')} onClick={() => SetIsOpenQuantity(true)}>
+                                            <span>Quantity: {quantity}</span>
+                                            <FontAwesomeIcon
+                                                icon={faChevronDown}
+                                                className={cx('right-quantity-icon')}
+                                            />
+                                        </div>
+                                    </HeadlessTippy>
+                                </div>
+
+                                <button className={cx('right-add-btn')}>Add to Cart</button>
+
+                                <button className={cx('right-buy-btn')}>Buy Now</button>
+
+                                <div className={cx('right-table-group')}>
+                                    <div className={cx('right-left-col')}>
+                                        <span>Ships from</span>
+                                        <span>Sold by</span>
+                                        <span>Returns</span>
+                                        <span>Customer service</span>
+                                        <span>Gift wrap</span>
+                                        <span>Payment</span>
+                                        <span>Packaging</span>
+                                    </div>
+
+                                    <div className={cx('right-right-col')}>
+                                        <span>ECommerce.com</span>
+                                        <span>ECommerce.com</span>
+                                        <span>30-day refund/replacement</span>
+                                        <span>ECommerce.com</span>
+                                        <span>Available at checkout</span>
+                                        <span>Secure transaction</span>
+                                        <span>Ships in product packaging</span>
+                                    </div>
+                                </div>
+
+                                <Divider />
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                {/* Extra Saving Term Modal */}
             </div>
         </div>
     );

@@ -38,7 +38,7 @@ function ProductCard({ id, img, description, rating, saleOff = 0, price, typical
                         offset={[40, 8]}
                         content={
                             <div className={cx('rating-tooltip')}>
-                                <span>{rating} out of 5 stars</span>{' '}
+                                <span>{rating} out of 5 stars</span>
                             </div>
                         }
                         placement="bottom"
