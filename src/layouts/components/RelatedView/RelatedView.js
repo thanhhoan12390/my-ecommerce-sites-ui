@@ -29,9 +29,7 @@ function RelateView({ data }) {
             <div className={cx('container')}>
                 <div className={cx('content')}>
                     <header className={cx('header')}>
-                        <h2 className={cx('header-text')}>
-                            Customers who viewed items in your browsing history also viewed
-                        </h2>
+                        <h2 className={cx('header-text')}>Recommended based on your shopping trends</h2>
                         <span className={cx('header-pagination')}>
                             Page {currentPage} of {maxPage}
                         </span>

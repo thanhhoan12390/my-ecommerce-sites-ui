@@ -12,6 +12,7 @@ import { getSearchPageBrands } from '~/utils/commonFuncs';
 import { addBrandFilter, deleteBrandFilter, clearBrandFilter } from './searchSlice'; // actions
 import { brandFilterSelector } from '~/redux/selectors';
 import config from '~/config';
+import BannerCard from '~/components/BannerCard/BannerCard';
 
 import {
     computerTopicData,
@@ -21,6 +22,7 @@ import {
     beautyTopicData,
     toyTopicData,
     kitchenTopicData,
+    bannerCardData,
 } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
@@ -249,6 +251,17 @@ function Search() {
                                         <span>Today's Deals</span>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+
+                        <div className={cx('banner-card-group')}>
+                            <div className={cx('banner-card-content')}>
+                                <div className={cx('banner-card-header')}>
+                                    <h3>Pair with your cart</h3>
+                                </div>
+                                {bannerCardData.map((item) => (
+                                    <BannerCard key={item.id} data={item} />
+                                ))}
                             </div>
                         </div>
                     </div>

@@ -153,7 +153,7 @@
     color: var(--black);
 }
 
-.right-checkout {
+.right-checkout-btn {
     margin-top: 14px;
     height: 32px;
     border-radius: 99px;
@@ -166,6 +166,41 @@
         background: #f7ca00;
         border-color: #f7ca00;
     }
+
+    &:focus-within {
+        outline: 3px solid #007185;
+        outline-offset: 2px;
+    }
+}
+
+.checkout-btn-popover {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 17px;
+        right: -5px;
+        height: 10px;
+        width: 10px;
+        rotate: 45deg;
+        border-right: 1px solid #bbb;
+        border-top: 1px solid #bbb;
+        background-color: var(--white);
+        cursor: pointer;
+    }
+}
+
+.checkout-btn-wrapper {
+    padding: 12px 14px;
+    border-radius: 8px;
+}
+
+.checkout-btn-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
 }
 
 .right-banner-container {

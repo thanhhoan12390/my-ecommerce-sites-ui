@@ -50,9 +50,12 @@
 .accessibility-header {
     font-size: 1.6rem;
     margin: 6px 0 14px 0;
-    white-space: nowrap;
     font-weight: 700;
     color: var(--white);
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
 }
 
 .accessibility-list {

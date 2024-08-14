@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import Tippy from '@tippyjs/react/headless';
 
 import styles from './CartPage.module.scss';
 import { cartSelector, checkedListSelector } from '~/redux/selectors';
@@ -8,12 +9,15 @@ import { getCart, getCheckedList, selectAllCheckedList, deselectAllCheckedList }
 import Divider from '~/components/Divider/Divider';
 import CartItem from './CartItem';
 import BannerCard from '~/components/BannerCard';
+import MenuWrapper from '~/components/MenuWrapper';
 
 import { productsData, bannerCardData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
 function CartPage() {
+    const [isCheckoutMessOpen, setIsCheckoutMessOpen] = useState(false);
+
     const cart = useSelector(cartSelector);
     const checkedList = useSelector(checkedListSelector);
 
@@ -86,6 +90,14 @@ function CartPage() {
         dispatch(selectAllCheckedList());
     };
 
+    const handleCheckout = () => {
+        if (!itemsCount) {
+            setIsCheckoutMessOpen(true);
+        } else {
+            // checkout
+        }
+    };
+
     return (
         <div className="col l-12 m-12 c-12">
             <div className={cx('wrapper')}>
@@ -154,7 +166,26 @@ function CartPage() {
                                     )}
                                 </div>
 
-                                <button className={cx('right-checkout')}>Proceed to checkout</button>
+                                <Tippy
+                                    interactive
+                                    visible={isCheckoutMessOpen}
+                                    onClickOutside={() => setIsCheckoutMessOpen(false)}
+                                    offset={[0, 14]}
+                                    placement="left"
+                                    render={(attrs) => (
+                                        <div className={cx('checkout-btn-popover')} tabIndex="-1" {...attrs}>
+                                            <MenuWrapper className={cx('checkout-btn-wrapper')}>
+                                                <span className={cx('checkout-btn-text')}>
+                                                    Please select at least one item to Checkout
+                                                </span>
+                                            </MenuWrapper>
+                                        </div>
+                                    )}
+                                >
+                                    <button className={cx('right-checkout-btn')} onClick={handleCheckout}>
+                                        Proceed to checkout
+                                    </button>
+                                </Tippy>
                             </div>
                         </div>
 
