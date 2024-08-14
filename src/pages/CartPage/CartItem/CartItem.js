@@ -1,20 +1,23 @@
 import classNames from 'classnames/bind';
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 
 import styles from './CartItem.module.scss';
 import MenuWrapper from '~/components/MenuWrapper';
 import Divider from '~/components/Divider';
+import { updateItemQuantity, deleteCartItem, toggleCheckedList } from '~/pages/CartPage/cartPageSlice';
 
 const cx = classNames.bind(styles);
 
-function CartItem({ data, checkedList = [], setChecked = () => {} }) {
+function CartItem({ data, checkedList = [] }) {
     const [isInputQuantityOpen, setIsInputQuantityOpen] = useState(false);
     const [isOpenQuantity, SetIsOpenQuantity] = useState(false);
-    const [quantity, setQuantity] = useState(data.quantity);
     const [cacheQuantity, setCacheQuantity] = useState(1);
+
+    const dispatch = useDispatch();
 
     const quantityArray = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8, 9], []);
 
@@ -22,10 +25,6 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
         () => (data.typicalPrice - (data.typicalPrice * data.saleOff) / 100).toFixed(2),
         [data.typicalPrice, data.saleOff],
     );
-
-    useEffect(() => {
-        setQuantity(data.quantity);
-    }, [data.quantity]);
 
     const handleQuantityChange = (e) => {
         const inputValue = e.target.value;
@@ -35,17 +34,15 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
         }
     };
 
-    const handleCheck = (productId) => {
-        setChecked((pre) => {
-            const isChecked = checkedList.includes(productId);
-            if (isChecked) {
-                //uncheck
-                return checkedList.filter((checkedId) => checkedId !== productId);
-            } else {
-                //check
-                return [...pre, productId];
-            }
-        });
+    const handleToggleCheck = (productId) => {
+        dispatch(toggleCheckedList(productId));
+    };
+
+    const handleDeleteCartItem = (productId) => {
+        dispatch(deleteCartItem(productId));
+        if (checkedList.includes(productId)) {
+            dispatch(toggleCheckedList(productId));
+        }
     };
 
     return (
@@ -57,12 +54,14 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                             <input
                                 type="checkbox"
                                 checked={checkedList.includes(data.id)}
-                                onChange={() => handleCheck(data.id)}
+                                onChange={() => handleToggleCheck(data.id)}
                             />
                         </div>
 
                         <div className={cx('main-img')}>
-                            <img src={data.image} alt="img" />
+                            <span>
+                                <img src={data.image} alt="img" />
+                            </span>
                         </div>
 
                         <div className={cx('main-des-content')}>
@@ -109,12 +108,17 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                                                         <div
                                                             key={num}
                                                             className={
-                                                                quantity === num
+                                                                data.quantity === num
                                                                     ? cx('quantity-item', 'quantity-active')
                                                                     : cx('quantity-item')
                                                             }
                                                             onClick={() => {
-                                                                setQuantity(num);
+                                                                dispatch(
+                                                                    updateItemQuantity({
+                                                                        id: data.id,
+                                                                        quantity: num,
+                                                                    }),
+                                                                );
                                                                 SetIsOpenQuantity(false);
                                                             }}
                                                         >
@@ -126,7 +130,7 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                                                     <div
                                                         className={cx('quantity-item')}
                                                         onClick={() => {
-                                                            setCacheQuantity(quantity);
+                                                            setCacheQuantity(data.quantity);
                                                             setIsInputQuantityOpen(true);
                                                         }}
                                                     >
@@ -138,7 +142,7 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                                     )}
                                 >
                                     <div className={cx('main-quantity')} onClick={() => SetIsOpenQuantity(true)}>
-                                        <span>Quantity: {quantity}</span>
+                                        <span>Quantity: {data.quantity}</span>
                                         <FontAwesomeIcon icon={faChevronDown} className={cx('main-quantity-icon')} />
                                     </div>
                                 </HeadlessTippy>
@@ -154,7 +158,12 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                                     <button
                                         className={cx('quantity-input-btn')}
                                         onClick={() => {
-                                            setQuantity(cacheQuantity);
+                                            dispatch(
+                                                updateItemQuantity({
+                                                    id: data.id,
+                                                    quantity: +cacheQuantity, // thêm dâu + để convert sang kiểu number
+                                                }),
+                                            );
                                             setIsInputQuantityOpen(false);
                                         }}
                                     >
@@ -163,7 +172,9 @@ function CartItem({ data, checkedList = [], setChecked = () => {} }) {
                                 </div>
                             )}
 
-                            <span className={cx('main-delete')}>Delete</span>
+                            <span className={cx('main-delete')} onClick={() => handleDeleteCartItem(data.id)}>
+                                Delete
+                            </span>
 
                             <span className={cx('main-share')}>Share</span>
                         </div>

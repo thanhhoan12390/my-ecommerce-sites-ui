@@ -14,7 +14,7 @@ import Divider from '~/components/Divider';
 import images from '~/assets/images';
 import { deliverNationSelector } from '~/redux/selectors';
 import MenuWrapper from '~/components/MenuWrapper';
-import { addToCart } from '~/pages/CartPage/cartPageSlice';
+import { addToCart, addCheckedList } from '~/pages/CartPage/cartPageSlice';
 import config from '~/config';
 
 import { productsData } from '~/apiFakeData'; // fake data
@@ -54,6 +54,7 @@ function ViewProduct() {
 
     const handleAddToCart = () => {
         dispatch(addToCart({ id: product.id, quantity: quantity }));
+        dispatch(addCheckedList(product.id));
         navigate(config.routes.cartPage);
     };
 

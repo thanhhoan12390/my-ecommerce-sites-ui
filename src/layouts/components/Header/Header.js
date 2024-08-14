@@ -77,13 +77,13 @@ function Header() {
                         </div>
                     </div>
 
-                    <div className={cx('nav-cart')}>
+                    <Link to={config.routes.cartPage} className={cx('nav-cart')}>
                         <div className={cx('nav-cart-group')}>
                             <FontAwesomeIcon icon={faCartShopping} className={cx('nav-cart-icon')} />
                             <span className={cx('nav-cart-count')}>0</span>
                         </div>
                         <span className={cx('nav-cart-text')}>Cart</span>
-                    </div>
+                    </Link>
                 </div>
 
                 {/* Deliver Modal */}
