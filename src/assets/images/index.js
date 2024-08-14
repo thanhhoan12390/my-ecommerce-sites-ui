@@ -266,6 +266,12 @@ const images = {
     standardCardImg145: require('~/assets/images/standardCardImgs/standard-card-img-145.webp'),
     standardCardImg146: require('~/assets/images/standardCardImgs/standard-card-img-146.webp'),
     standardCardImg147: require('~/assets/images/standardCardImgs/standard-card-img-147.webp'),
+
+    //banner card img
+    bannerCardImg1: require('~/assets/images/bannerCardImgs/banner-card-img-1.jpg'),
+    bannerCardImg2: require('~/assets/images/bannerCardImgs/banner-card-img-2.jpg'),
+    bannerCardImg3: require('~/assets/images/bannerCardImgs/banner-card-img-3.jpg'),
+    bannerCardImg4: require('~/assets/images/bannerCardImgs/banner-card-img-4.jpg'),
 };
 
 export default images;

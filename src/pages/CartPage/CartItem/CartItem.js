@@ -29,7 +29,7 @@ function CartItem({ data, checkedList = [] }) {
     const handleQuantityChange = (e) => {
         const inputValue = e.target.value;
 
-        if (!inputValue.startsWith(' ')) {
+        if (!inputValue.startsWith(' ') && inputValue > 0) {
             setCacheQuantity(inputValue);
         }
     };

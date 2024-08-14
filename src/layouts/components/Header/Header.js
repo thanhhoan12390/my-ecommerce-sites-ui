@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faLanguage, faList, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useMemo, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './Header.module.scss';
 import { Logo } from '~/components/Icons';
@@ -13,7 +13,8 @@ import AccountMenu from '~/layouts/components/AccountMenu';
 import LanguageMenu from '~/layouts/components/LanguageMenu';
 import DeliverModal from '~/layouts/components/DeliverModal';
 import AccountModal from '../AccountModal/AccountModal';
-import { browserLanguageSelector, deliverNationSelector } from '~/redux/selectors';
+import { browserLanguageSelector, cartSelector, deliverNationSelector } from '~/redux/selectors';
+import { getCart } from '~/pages/CartPage/cartPageSlice';
 
 const cx = classNames.bind(styles);
 
@@ -21,11 +22,24 @@ function Header() {
     const [isOpenDeliverModal, setIsOpenDeliverModal] = useState(false);
     const [isOpenAccountModal, setIsOpenAccountModal] = useState(false);
 
+    const dispatch = useDispatch();
+
     const browserLanguage = useSelector(browserLanguageSelector);
+    const deliverNation = useSelector(deliverNationSelector);
+    const cart = useSelector(cartSelector);
 
     const languageKey = useMemo(() => browserLanguage.slice(-2), [browserLanguage]);
 
-    const deliverNation = useSelector(deliverNationSelector);
+    const cartCount = useMemo(() => {
+        if (!!cart) {
+            const count = cart.reduce((totalItem, item) => totalItem + item.quantity, 0);
+            return count;
+        } else return 0;
+    }, [cart]);
+
+    useEffect(() => {
+        dispatch(getCart());
+    }, [dispatch]);
 
     return (
         <header className={cx('wrapper')}>
@@ -80,7 +94,7 @@ function Header() {
                     <Link to={config.routes.cartPage} className={cx('nav-cart')}>
                         <div className={cx('nav-cart-group')}>
                             <FontAwesomeIcon icon={faCartShopping} className={cx('nav-cart-icon')} />
-                            <span className={cx('nav-cart-count')}>0</span>
+                            <span className={cx('nav-cart-count')}>{cartCount}</span>
                         </div>
                         <span className={cx('nav-cart-text')}>Cart</span>
                     </Link>

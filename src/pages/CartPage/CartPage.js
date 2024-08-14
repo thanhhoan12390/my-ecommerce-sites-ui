@@ -7,8 +7,9 @@ import { cartSelector, checkedListSelector } from '~/redux/selectors';
 import { getCart, getCheckedList, selectAllCheckedList, deselectAllCheckedList } from './cartPageSlice';
 import Divider from '~/components/Divider/Divider';
 import CartItem from './CartItem';
+import BannerCard from '~/components/BannerCard';
 
-import { productsData } from '~/apiFakeData'; // fake data
+import { productsData, bannerCardData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
@@ -137,7 +138,40 @@ function CartPage() {
                             )}
                         </div>
                     </div>
-                    <div className={cx('right-side')}></div>
+                    <div className={cx('right-side')}>
+                        <div className={cx('right-checkout-container')}>
+                            <div className={cx('right-checkout-content')}>
+                                <div className={cx('right-header')}>
+                                    {!!itemsCount ? (
+                                        <div className={cx('right-total')}>
+                                            <span>Subtotal ({itemsCount} items): </span>
+                                            <span>${total}</span>
+                                        </div>
+                                    ) : (
+                                        <div className={cx('right-no-total')}>
+                                            <span>No items selected</span>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <button className={cx('right-checkout')}>Proceed to checkout</button>
+                            </div>
+                        </div>
+
+                        <div className={cx('right-banner-container')}>
+                            <div className={cx('right-banner-content')}>
+                                <div className={cx('banner-header')}>
+                                    <h3>Pair with your cart</h3>
+                                </div>
+
+                                <div className={cx('banner-group')}>
+                                    {bannerCardData.map((item) => (
+                                        <BannerCard key={item.id} data={item} />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

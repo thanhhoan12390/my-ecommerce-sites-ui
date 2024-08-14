@@ -118,3 +118,76 @@
 .right-side {
     width: 300px;
 }
+
+.right-checkout-container {
+    padding: 20px 0 15px 0;
+    margin-bottom: 20px;
+    background-color: var(--white);
+}
+
+.right-checkout-content {
+    padding: 0 20px 5px;
+}
+
+.right-header {
+    margin-top: 4px;
+}
+
+.right-total {
+    margin-bottom: 4px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: var(--black);
+
+    span:last-child {
+        font-weight: 700;
+    }
+}
+
+.right-no-total {
+    margin-bottom: 4px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: var(--black);
+}
+
+.right-checkout {
+    margin-top: 14px;
+    height: 32px;
+    border-radius: 99px;
+    width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--yellow);
+
+    &:hover {
+        background: #f7ca00;
+        border-color: #f7ca00;
+    }
+}
+
+.right-banner-container {
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px #d5d9d9 solid;
+}
+
+.right-banner-content {
+    padding: 14px 18px;
+}
+
+.banner-header {
+    padding-bottom: 5px;
+
+    h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 2.4rem;
+    }
+}
+
+.banner-group {
+    margin-top: 12px;
+}

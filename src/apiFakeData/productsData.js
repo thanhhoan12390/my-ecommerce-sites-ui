@@ -2146,4 +2146,43 @@ export const productsData = [
         typicalPrice: 255.0,
         brand: 'ECommerce Store',
     },
+    {
+        id: 215,
+        image: images.bannerCardImg1,
+        description:
+            'EMEET 1080P Webcam with Microphone, C960 Web Camera, 2 Mics Streaming Webcam, 90°FOV Computer Camera, Plug and Play USB Webcam for Online Calling/Conferencing, Zoom/Skype/Facetime/YouTube, Laptop/PC',
+        rating: 4.3,
+        saleOff: 20,
+        typicalPrice: 255.56,
+        brand: 'ECommerce Store',
+    },
+    {
+        id: 216,
+        image: images.bannerCardImg2,
+        description:
+            'Amazon Basics DisplayPort (Source) to HDMI (Display) Cable, Uni-Directional, 4k@30Hz, 1920x1200, 1080p, Gold-Plated Plugs, 6 Foot, Black',
+        rating: 4.4,
+        saleOff: 15,
+        typicalPrice: 8.99,
+        brand: 'ECommerce Store',
+    },
+    {
+        id: 217,
+        image: images.bannerCardImg3,
+        description:
+            'Acer KB272 EBI 27" IPS Full HD (1920 x 1080) Zero-Frame Gaming Office Monitor | AMD FreeSync Technology | Up to 100Hz Refresh | 1ms (VRB) | Low Blue Light | Tilt | HDMI & VGA Ports,Black',
+        rating: 4.8,
+        saleOff: 34,
+        typicalPrice: 154.99,
+        brand: 'ECommerce Store',
+    },
+    {
+        id: 218,
+        image: images.bannerCardImg4,
+        description: 'Amazon Basics Stereo 2.0 Speakers for PC or Laptop, 3.5mm Aux input, USB-Powered, 1 Pair, Black',
+        rating: 4.8,
+        saleOff: 15,
+        typicalPrice: 15.99,
+        brand: 'ECommerce Store',
+    },
 ];
