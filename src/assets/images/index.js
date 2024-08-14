@@ -3,6 +3,9 @@ const images = {
     vnFlag: require('~/assets/images/Flag_of_Vietnam.svg.webp'),
     blackColor: require('~/assets/images/black-color-img.jpg'),
     silverColor: require('~/assets/images/silver-color-img.jpg'),
+    checkoutImg: require('~/assets/images/checkout-img.png'),
+    locationIconImg: require('~/assets/images/location-icon.png'),
+    cashOnDeliveryImg: require('~/assets/images/cash-on-delivery.png'),
 
     // banner
     bannerImage1: require('~/assets/images/banner/banner-image-1.jpg'),

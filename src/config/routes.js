@@ -5,6 +5,7 @@ const routes = {
     userInfo: '/userinfo',
     search: '/search/:searchTopic',
     viewProduct: '/viewProduct/:productId',
+    checkout: '/checkout',
 };
 
 export default routes;

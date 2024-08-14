@@ -10,6 +10,7 @@ import TodayDeal from '~/pages/TodayDeal';
 import UserInfo from '~/pages/UserInfo';
 import Search from '~/pages/Search';
 import ViewProduct from '~/pages/ViewProduct';
+import CheckoutPage from '~/pages/CheckoutPage';
 
 // Public Routes
 const publicRoutes = [
@@ -19,6 +20,7 @@ const publicRoutes = [
     { path: config.routes.userInfo, component: UserInfo, layout: DefaultLayout },
     { path: config.routes.search, component: Search, layout: DefaultLayout },
     { path: config.routes.viewProduct, component: ViewProduct, layout: DefaultLayout },
+    { path: config.routes.checkout, component: CheckoutPage },
 ];
 
 // Private Routes

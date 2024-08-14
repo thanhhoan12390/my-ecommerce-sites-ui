@@ -48,7 +48,7 @@ function Header() {
                 {/* Nav left */}
                 <div className={cx('nav-left')}>
                     <Link to={config.routes.home} className={cx('nav-logo-link')}>
-                        <Logo width="4.8rem" height="4.8rem" className={cx('nav-logo')} />
+                        <Logo width="6.4rem" height="6.4rem" className={cx('nav-logo')} />
                     </Link>
                     <div className={cx('nav-deliver-to')} onClick={() => setIsOpenDeliverModal(true)}>
                         <FontAwesomeIcon icon={faLocationDot} className={cx('nav-location')}></FontAwesomeIcon>
