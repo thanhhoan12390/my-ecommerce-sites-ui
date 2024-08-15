@@ -13,3 +13,6 @@ export const brandFilterSelector = (state) => state.searchPage.brandFilterList;
 // Cart Page Selectors
 export const cartSelector = (state) => state.cartPage.cartList;
 export const checkedListSelector = (state) => state.cartPage.checkedList;
+
+// Order Page Selectors
+export const orderSelector = (state) => state.orderPage.orderList;

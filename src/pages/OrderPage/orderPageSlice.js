@@ -1,23 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const checkoutPageSlice = createSlice({
-    name: 'checkoutPage',
+const orderPageSlice = createSlice({
+    name: 'orderPage',
     initialState: {
         status: 'idle', // idle: rảnh rỗi, loading: đợi request
+        orderList: [],
     },
     reducers: {
-        addToOrder: (state) => {
+        getOrder: (state) => {
             state.status = 'loading';
         },
-        addToOrderSuccess: (state) => {
+        getOrderSuccess: (state, action) => {
+            state.orderList = action.payload;
             state.status = 'idle';
         },
-        addToOrderFailed: (state, action) => {
+        getOrderFailed: (state, action) => {
             console.log('Có lỗi xảy ra: : ', action.payload);
             state.status = 'idle';
         },
     },
 });
 
-export const { addToOrder, addToOrderSuccess, addToOrderFailed } = checkoutPageSlice.actions;
-export default checkoutPageSlice;
+export const { getOrder, getOrderSuccess, getOrderFailed } = orderPageSlice.actions;
+export default orderPageSlice;

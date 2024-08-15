@@ -84,12 +84,12 @@ function Header() {
                         </div>
                     </AccountMenu>
 
-                    <div className={cx('nav-orders')}>
+                    <Link to={config.routes.order} className={cx('nav-orders')}>
                         <div className={cx('nav-orders-text')}>
                             <span>Returns</span>
                             <span>& Orders</span>
                         </div>
-                    </div>
+                    </Link>
 
                     <Link to={config.routes.cartPage} className={cx('nav-cart')}>
                         <div className={cx('nav-cart-group')}>

@@ -30,14 +30,12 @@ function DeliverModal({ isOpen = false, onClose = () => {} }) {
             const checkedNation = nationsList.find((nation) => nation.id === isNationCheckedId);
 
             return checkedNation.content;
-        }
+        } else return 'Vietnam';
     }, [nationsList, isNationCheckedId]);
 
     useEffect(() => {
         dispatch(getNations());
-
-        // eslint-disable-next-line
-    }, []);
+    }, [dispatch]);
 
     return (
         isOpen && (

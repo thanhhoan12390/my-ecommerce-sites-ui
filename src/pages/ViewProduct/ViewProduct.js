@@ -58,6 +58,12 @@ function ViewProduct() {
         navigate(config.routes.cartPage);
     };
 
+    const handleBuyNowBtn = () => {
+        dispatch(addToCart({ id: product.id, quantity: quantity }));
+        dispatch(addCheckedList(product.id));
+        navigate(config.routes.checkout);
+    };
+
     return (
         <div className="col l-12 m-12 c-12">
             <div className={cx('wrapper')}>
@@ -539,7 +545,9 @@ function ViewProduct() {
                                     Add to Cart
                                 </button>
 
-                                <button className={cx('right-buy-btn')}>Buy Now</button>
+                                <button className={cx('right-buy-btn')} onClick={handleBuyNowBtn}>
+                                    Buy Now
+                                </button>
 
                                 <div className={cx('right-table-group')}>
                                     <div className={cx('right-left-col')}>

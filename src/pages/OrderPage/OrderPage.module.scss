@@ -1,0 +1,155 @@
+.wrapper {
+    width: 920px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+}
+
+.bread-crumb {
+    margin: 8px 0 16px 0;
+    display: flex;
+    align-items: center;
+}
+
+.bread-account {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--dark-green);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--orange);
+        text-decoration: underline;
+    }
+}
+
+.bread-icon {
+    font-size: 1rem;
+    margin: 0 8px;
+}
+
+.bread-order {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--orange);
+}
+
+.page-title {
+    margin-bottom: 16px;
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 3.6rem;
+    color: var(--black);
+}
+
+.order-tab {
+    margin-left: 18px;
+
+    span {
+        display: inline-block;
+        font-weight: 700;
+        padding: 5px 10px;
+        margin: 0 10px 0 0;
+        border-bottom: 2px solid #e47911;
+    }
+}
+
+.content {
+    margin-top: 18px;
+}
+
+.order-group {
+    padding: 18px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 14px 0 rgba(15, 17, 17, 0.1);
+}
+
+.order-state {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--dark-green);
+}
+
+.card-group-divider {
+    margin-bottom: 18px;
+}
+
+.order-card {
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    max-height: 160px;
+
+    img {
+        max-width: 132px;
+        max-height: 132px;
+    }
+}
+
+.desc-group {
+    flex: 1;
+}
+
+.item-desc {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    letter-spacing: normal;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    color: var(--black);
+}
+
+.item-price {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    color: var(--red);
+}
+
+.item-quantity {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
+}
+
+.order-total {
+    text-align: right;
+    margin-top: 8px;
+    span {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        font-weight: 700;
+        color: var(--red);
+    }
+}
+
+.no-order {
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
+}
