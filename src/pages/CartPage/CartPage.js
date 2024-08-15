@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useMemo, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './CartPage.module.scss';
 import { cartSelector, checkedListSelector } from '~/redux/selectors';
@@ -10,6 +11,7 @@ import Divider from '~/components/Divider/Divider';
 import CartItem from './CartItem';
 import BannerCard from '~/components/BannerCard';
 import MenuWrapper from '~/components/MenuWrapper';
+import config from '~/config';
 
 import { productsData, bannerCardData } from '~/apiFakeData'; // fake data
 
@@ -22,6 +24,8 @@ function CartPage() {
     const checkedList = useSelector(checkedListSelector);
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const products = useMemo(() => {
         if (Array.isArray(cart) && cart.length !== 0) {
@@ -38,7 +42,7 @@ function CartPage() {
     }, [cart]);
 
     const checkedProducts = useMemo(() => {
-        if (Array.isArray(checkedList) && checkedList.length !== 0 && products) {
+        if (Array.isArray(checkedList) && checkedList.length !== 0 && !!products) {
             const data = products.filter((item) => checkedList.includes(item.id));
 
             return data;
@@ -50,10 +54,7 @@ function CartPage() {
             const totalPrice = checkedProducts.reduce((total, currentProduct) => {
                 return (
                     total +
-                    (
-                        currentProduct.typicalPrice -
-                        (currentProduct.typicalPrice * currentProduct.saleOff) / 100
-                    ).toFixed(2) *
+                    (currentProduct.typicalPrice - (currentProduct.typicalPrice * currentProduct.saleOff) / 100) *
                         currentProduct.quantity
                 );
             }, 0);
@@ -95,6 +96,7 @@ function CartPage() {
             setIsCheckoutMessOpen(true);
         } else {
             // checkout
+            navigate(config.routes.checkout);
         }
     };
 

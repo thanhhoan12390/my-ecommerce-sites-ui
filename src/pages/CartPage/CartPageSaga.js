@@ -70,14 +70,16 @@ function* handleUpdateItemQuantity(action) {
     try {
         const items = yield JSON.parse(localStorage.getItem('cart'));
 
-        items.forEach((item) => {
-            if (item.id === action.payload.id) {
-                item.quantity = action.payload.quantity;
-            }
-        });
+        if (!!items && items.length !== 0) {
+            items.forEach((item) => {
+                if (item.id === action.payload.id) {
+                    item.quantity = action.payload.quantity;
+                }
+            });
 
-        yield localStorage.setItem('cart', JSON.stringify(items));
-        yield put(updateItemQuantitySuccess(items));
+            yield localStorage.setItem('cart', JSON.stringify(items));
+            yield put(updateItemQuantitySuccess(items));
+        } else yield put(updateItemQuantityFailed('Cart has no item'));
     } catch (error) {
         yield put(updateItemQuantityFailed(error));
     }
@@ -87,10 +89,12 @@ function* handleDeleteCartItem(action) {
     try {
         const items = yield JSON.parse(localStorage.getItem('cart'));
 
-        const newItems = items.filter((item) => item.id !== action.payload);
+        if (!!items && items.length !== 0) {
+            const newItems = items.filter((item) => item.id !== action.payload);
 
-        yield localStorage.setItem('cart', JSON.stringify(newItems));
-        yield put(deleteCartItemSuccess(newItems));
+            yield localStorage.setItem('cart', JSON.stringify(newItems));
+            yield put(deleteCartItemSuccess(newItems));
+        } else yield put(deleteCartItemFailed('Cart has no item'));
     } catch (error) {
         yield put(deleteCartItemFailed(error));
     }
@@ -132,24 +136,30 @@ function* handleGetCheckedList() {
 function* handleToggleCheckedList(action) {
     try {
         const checkedList = yield JSON.parse(localStorage.getItem('checkedList'));
+        const cart = yield JSON.parse(localStorage.getItem('cart'));
 
-        if (!checkedList || checkedList.length === 0) {
-            yield localStorage.setItem('checkedList', JSON.stringify([action.payload]));
-            yield put(toggleCheckedListSuccess([action.payload]));
-        } else {
-            const existedCheckedId = checkedList.find((id) => id === action.payload);
-
-            if (!!existedCheckedId) {
-                // uncheck
-                const newCheckedList = checkedList.filter((id) => id !== action.payload);
-                yield localStorage.setItem('checkedList', JSON.stringify(newCheckedList));
-                yield put(toggleCheckedListSuccess(newCheckedList));
+        if (!!cart && cart.length !== 0) {
+            if (!checkedList || checkedList.length === 0) {
+                yield localStorage.setItem('checkedList', JSON.stringify([action.payload]));
+                yield put(toggleCheckedListSuccess([action.payload]));
             } else {
-                // check
-                yield localStorage.setItem('checkedList', JSON.stringify([...checkedList, action.payload]));
-                yield put(toggleCheckedListSuccess([...checkedList, action.payload]));
+                const existedCheckedId = checkedList.find((id) => id === action.payload);
+
+                if (!!existedCheckedId) {
+                    // uncheck
+                    const newCheckedList = checkedList.filter((id) => id !== action.payload);
+                    yield localStorage.setItem('checkedList', JSON.stringify(newCheckedList));
+                    yield put(toggleCheckedListSuccess(newCheckedList));
+                } else {
+                    // check
+                    yield localStorage.setItem('checkedList', JSON.stringify([...checkedList, action.payload]));
+                    yield put(toggleCheckedListSuccess([...checkedList, action.payload]));
+                }
             }
-        }
+        } else if (!!checkedList && checkedList.length !== 0) {
+            yield localStorage.setItem('checkedList', JSON.stringify([]));
+            yield put(toggleCheckedListSuccess([]));
+        } else yield put(toggleCheckedListFailed('Cart has no item'));
     } catch (error) {
         yield put(toggleCheckedListFailed(error));
     }

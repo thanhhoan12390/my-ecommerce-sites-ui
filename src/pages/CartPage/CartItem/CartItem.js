@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useMemo, useState, memo } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -187,4 +187,4 @@ function CartItem({ data, checkedList = [] }) {
     );
 }
 
-export default CartItem;
+export default memo(CartItem);

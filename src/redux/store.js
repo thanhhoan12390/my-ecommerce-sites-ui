@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import headerSlice from '~/layouts/components/Header/headerSlice';
 import searchSlice from '~/pages/Search/searchSlice';
 import cartPageSlice from '~/pages/CartPage/cartPageSlice';
+import checkoutPageSlice from '~/pages/CheckoutPage/checkoutPageSlice';
 import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -13,6 +14,7 @@ const store = configureStore({
         header: headerSlice.reducer,
         searchPage: searchSlice.reducer,
         cartPage: cartPageSlice.reducer,
+        checkoutPage: checkoutPageSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware({ serializableCheck: false }).concat(sagaMiddleware);

@@ -5,6 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useRef } from 'react';
 import Tippy from '@tippyjs/react';
+import { memo } from 'react';
 
 import styles from './ProductCard.module.scss';
 
@@ -95,4 +96,4 @@ ProductCard.propTypes = {
     ship: PropTypes.any,
 };
 
-export default ProductCard;
+export default memo(ProductCard);

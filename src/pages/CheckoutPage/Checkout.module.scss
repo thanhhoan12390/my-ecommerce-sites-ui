@@ -165,8 +165,8 @@
 }
 
 .main-payment {
-    width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
+    margin-top: 18px;
 }
 
 .payment-title {
@@ -175,7 +175,6 @@
     line-height: 2.4rem;
     color: var(--orange);
     margin-bottom: 8px;
-    margin-top: 20px;
 
     span {
         margin-right: 8px;
@@ -208,6 +207,173 @@
 
     img {
         height: 32px;
+    }
+}
+
+// Review and shipping
+.main-shipping {
+    margin-top: 18px;
+}
+
+.shipping-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    color: var(--orange);
+    margin-bottom: 8px;
+
+    span {
+        margin-right: 8px;
+    }
+}
+
+.shipping-container {
+    padding-left: 35px;
+}
+
+.shipping-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 8px;
+    border: 1px var(--border-color) solid;
+}
+
+.shipping-review {
+    width: calc(66.666667% - 8px);
+}
+
+.shipping-delivery {
+    flex: 1;
+    margin-left: 16px;
+}
+
+.delivery-title {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: var(--black);
+}
+
+.delivery-input {
+    margin: 8px 0 0 4px;
+}
+
+.delivery-option {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    input[type='radio'] {
+        position: absolute;
+        top: 4px;
+        transform: scale(1.4);
+        cursor: pointer;
+    }
+}
+
+.delivery-option + .delivery-option {
+    margin-top: 8px;
+}
+
+.delivery-day-price {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.6rem;
+    line-height: 2rem;
+
+    .delivery-day {
+        color: #007600;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+
+    .delivery-price {
+        color: var(--red);
+    }
+
+    .delivery-priority {
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 2rem;
+        color: var(--gray);
+    }
+}
+
+.shipping-total {
+    display: flex;
+    align-items: flex-start;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px var(--border-color) solid;
+    background-color: #f0f2f2;
+}
+
+.shipping-order-btn {
+    width: 50%;
+
+    button {
+        padding: 0 24px;
+        height: 40px;
+        border-radius: 24px;
+        font-weight: 600;
+        background-color: var(--yellow);
+        cursor: pointer;
+
+        &:hover {
+            background: #f7ca00;
+            border-color: #f7ca00;
+        }
+    }
+}
+
+.shipping-policy {
+    display: block;
+    text-align: left;
+    margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
+
+    span {
+        color: var(--dark-green);
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--orange);
+        }
+    }
+}
+
+.shipping-payment {
+    flex: 1;
+    padding-left: 24px;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    color: var(--red);
+}
+
+.shipping-more {
+    display: block;
+    text-align: left;
+    margin-top: 4px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black);
+}
+
+.shipping-link {
+    margin-right: 4px;
+    color: var(--dark-green);
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--orange);
     }
 }
 
@@ -275,6 +441,7 @@
 .summary-right {
     display: flex;
     flex-direction: column;
+    text-align: right;
 
     span {
         font-size: 1.2rem;
@@ -325,4 +492,163 @@
             text-decoration: underline;
         }
     }
+}
+
+// Edit address modal
+.address-modal ~ .overlay {
+    display: block;
+}
+
+.address-modal {
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 99; // z-index 2 số
+
+    animation: easeIn linear 0.3s;
+}
+
+.modal-wrapper {
+    padding: 0;
+    border-radius: 8px;
+    max-height: unset;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 14px 0 rgba(15, 17, 17, 0.5);
+}
+
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f0f2f2;
+
+    h3 {
+        padding: 16px 0;
+        min-height: 56px;
+        margin-right: 28px;
+        line-height: 24px;
+        font-size: 16px;
+    }
+}
+
+.modal-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: -12px;
+    padding: 12px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: transparent;
+        outline: 3px solid #007185;
+        outline-offset: 2px;
+        border-radius: 5px;
+    }
+}
+
+.modal-container {
+    padding: 16px 24px;
+}
+
+.modal-content {
+    width: 40vw;
+    max-width: 540px;
+    margin-bottom: 14px;
+}
+
+.modal-heading {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    font-weight: 700;
+}
+
+.modal-text {
+    display: block;
+    padding-top: 4px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6rem;
+}
+
+.modal-group {
+    min-width: 150px;
+    margin-bottom: 8px;
+}
+
+.group-title {
+    padding: 0 0 2px 2px;
+    margin-bottom: 4px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2rem;
+    color: var(--black);
+}
+
+.modal-input {
+    width: 100%;
+    height: 31px;
+    padding: 3px 7px;
+    line-height: normal;
+    outline: 0;
+    border-radius: 4px;
+    border: 1px solid #888c8c;
+    box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+    font-size: 1.4rem;
+    color: #0f1111;
+    background-color: var(--white);
+
+    &:focus {
+        border-color: #007185;
+        outline: 3px solid #007185;
+        outline-offset: 2px;
+        z-index: 1;
+    }
+}
+
+.modal-btn {
+    padding: 4px 18px;
+    margin-top: 12px;
+    height: 29px;
+    border-radius: 99px;
+    font-weight: 600;
+    background-color: var(--yellow);
+    cursor: pointer;
+
+    &:hover {
+        background: #f7ca00;
+        border-color: #f7ca00;
+    }
+}
+
+@keyframes easeIn {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.errorCountry,
+.errorName,
+.errorStreet,
+.errorCity,
+.errorZipCode {
+    border-color: #cc0c39;
+    box-shadow: 0 0 0 1px #cc0c39 inset;
+}
+
+.error-input-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6rem;
+    color: #cc0c39;
+}
+
+.error-input-icon {
+    font-size: 1.4rem;
 }
