@@ -40,7 +40,7 @@ function Card({ data, className }) {
                     <div className={cx('card-grid-content')}>
                         <div className={cx('card-grid-group', 'row')}>
                             {data.products.map((item, index) => (
-                                <div key={index} className={cx('col', 'l-6', 'card-grid-item')}>
+                                <div key={index} className={cx('col', 'l-6', 'm-6', 'c-6', 'card-grid-item')}>
                                     <Link to={`/search/${data.topic}`}>
                                         <img src={item.src} alt={item.footer} className={cx('card-grid-img')} />
                                     </Link>

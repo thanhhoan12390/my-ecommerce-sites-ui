@@ -1,7 +1,9 @@
 import classNames from 'classnames/bind';
 import { useState, useMemo, useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWarning, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Checkout.module.scss';
 import { Logo } from '~/components/Icons';
@@ -12,12 +14,10 @@ import CheckoutItem from './CheckoutItem';
 import { cartSelector, checkedListSelector } from '~/redux/selectors';
 import { getCart, getCheckedList } from '~/pages/CartPage/cartPageSlice';
 import { addToOrder } from './checkoutPageSlice';
-
-import { productsData } from '~/apiFakeData'; // fake data
 import MenuWrapper from '~/components/MenuWrapper/MenuWrapper';
 import OverLay from '~/components/OverLay/OverLay';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWarning, faXmark } from '@fortawesome/free-solid-svg-icons';
+
+import { productsData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
@@ -46,6 +46,8 @@ function CheckoutPage() {
     const checkedList = useSelector(checkedListSelector);
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const importChargeCost = useMemo(() => 26.39, []);
 
@@ -139,6 +141,8 @@ function CheckoutPage() {
                     total: totalPayment,
                 }),
             );
+
+            navigate(config.routes.order);
         }
     };
 

@@ -15,7 +15,7 @@ function Home() {
     const productLength2 = useMemo(() => topicData2.length, []);
 
     return (
-        <div className={cx('col', 'l-12', 'm-12', 'c-6', 'wrapper')}>
+        <div className={cx('col', 'l-12', 'm-12', 'c-12', 'wrapper')}>
             {/* Banner */}
             <div className={cx('banner')}>
                 <Carousel data={carouselData} />
@@ -28,7 +28,7 @@ function Home() {
                         {topicData1.map((product, index) => {
                             return (
                                 <Fragment key={index}>
-                                    <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
+                                    <div className={cx('col', 'l-3', 'm-6', 'c-12')}>
                                         <div className={cx('cart-item')}>
                                             <Card data={product} />
                                         </div>
@@ -59,7 +59,7 @@ function Home() {
                         {topicData2.map((product, index) => {
                             return (
                                 <Fragment key={index}>
-                                    <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
+                                    <div className={cx('col', 'l-3', 'm-6', 'c-12')}>
                                         <div className={cx('cart-item')}>
                                             <Card data={product} />
                                         </div>
@@ -90,7 +90,7 @@ function Home() {
                         {topicData2.map((product, index) => {
                             return (
                                 <Fragment key={index}>
-                                    <div className={cx('col', 'l-3', 'm-6', 'c-6')}>
+                                    <div className={cx('col', 'l-3', 'm-6', 'c-12')}>
                                         <div className={cx('cart-item')}>
                                             <Card data={product} />
                                         </div>

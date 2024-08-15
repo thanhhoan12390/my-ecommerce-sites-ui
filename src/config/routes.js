@@ -6,6 +6,7 @@ const routes = {
     search: '/search/:searchTopic',
     viewProduct: '/viewProduct/:productId',
     checkout: '/checkout',
+    order: '/order',
 };
 
 export default routes;
