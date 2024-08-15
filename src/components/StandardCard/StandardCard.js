@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { memo } from 'react';
 
@@ -8,7 +8,6 @@ import styles from './StandardCard.module.scss';
 import { deliverNationSelector } from '~/redux/selectors';
 import StarRating from '~/components/StarRating';
 import { addToCart, addCheckedList } from '~/pages/CartPage/cartPageSlice';
-import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -23,18 +22,17 @@ function StandardCard({
     price,
     typicalPrice,
     deliveryDay,
+    onOpenToast = () => {},
 }) {
     const deliverNation = useSelector(deliverNationSelector);
 
     const dispatch = useDispatch();
 
-    const navigate = useNavigate();
-
     const handleAddToCart = (e) => {
         e.preventDefault();
         dispatch(addToCart({ id: id, quantity: 1 }));
         dispatch(addCheckedList(id));
-        navigate(config.routes.cartPage);
+        onOpenToast();
     };
 
     return (

@@ -13,6 +13,7 @@ import { addBrandFilter, deleteBrandFilter, clearBrandFilter } from './searchSli
 import { brandFilterSelector } from '~/redux/selectors';
 import config from '~/config';
 import BannerCard from '~/components/BannerCard/BannerCard';
+import ToastMsg from '~/components/ToastMsg';
 
 import {
     computerTopicData,
@@ -30,6 +31,7 @@ const cx = classNames.bind(styles);
 function Search() {
     const [currentPage, setCurrentPage] = useState(1);
     const [pagesData, setPagesData] = useState([]);
+    const [isOpenToast, setIsOpenToast] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -293,6 +295,7 @@ function Search() {
                                                 price={item.price}
                                                 typicalPrice={item.typicalPrice}
                                                 deliveryDay={item.deliveryDay}
+                                                onOpenToast={() => setIsOpenToast(true)}
                                             />
                                         </div>
                                     </div>
@@ -303,6 +306,9 @@ function Search() {
                         <Pagination currPage={currentPage} maxPage={maxPage} onPageChange={setCurrentPage} />
                     </div>
                 </div>
+
+                {/* Toast Message */}
+                <ToastMsg message={'Added to Cart'} isOpen={isOpenToast} onClose={setIsOpenToast} />
             </div>
         </div>
     );
