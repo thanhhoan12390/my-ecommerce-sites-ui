@@ -53,7 +53,7 @@ function CartItem({ data, checkedList = [] }) {
                         <div className={cx('main-checkbox')}>
                             <input
                                 type="checkbox"
-                                checked={checkedList.includes(data.id)}
+                                checked={!!checkedList && checkedList.includes(data.id)}
                                 onChange={() => handleToggleCheck(data.id)}
                             />
                         </div>
