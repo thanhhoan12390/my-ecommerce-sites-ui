@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 import { useDispatch, useSelector } from 'react-redux'; // useDispatch để dispatch thunk action creator, useSelector để dùng selector lấy state
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './LanguageMenu.module.scss';
@@ -10,16 +10,15 @@ import MenuWrapper from '~/components/MenuWrapper';
 import LanguageItem from './LanguageItem';
 import images from '~/assets/images';
 import Divider from '~/components/Divider';
-import { languageSelector } from '~/redux/selectors'; // selector
+import { languageSelector, browserLanguageSelector } from '~/redux/selectors'; // selector
 import { getLanguage, updateLanguage } from '~/layouts/components/Header/headerSlice'; // action creator
 import OverLay from '~/components/OverLay/OverLay';
 
 const cx = classNames.bind(styles);
 
 function LanguageMenu({ children }) {
-    const [checkedLanguageId, setCheckedLanguageId] = useState(0);
-
     const languageList = useSelector(languageSelector);
+    const browserLanguage = useSelector(browserLanguageSelector);
 
     const dispatch = useDispatch();
 
@@ -44,9 +43,8 @@ function LanguageMenu({ children }) {
                                     Change language <Link to="">Learn more</Link>
                                 </span>
                                 <LanguageItem
-                                    checked={checkedLanguageId === 0}
+                                    checked={browserLanguage === 'English - EN'}
                                     onClick={() => {
-                                        setCheckedLanguageId(0);
                                         dispatch(updateLanguage('English - EN'));
                                     }}
                                 >
@@ -58,9 +56,8 @@ function LanguageMenu({ children }) {
                                 {languageList.map((languageItem, index) => (
                                     <LanguageItem
                                         key={index}
-                                        checked={languageItem.id === checkedLanguageId}
+                                        checked={languageItem.content === browserLanguage}
                                         onClick={() => {
-                                            setCheckedLanguageId(languageItem.id);
                                             dispatch(updateLanguage(languageItem.content));
                                         }}
                                     >

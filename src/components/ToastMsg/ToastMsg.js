@@ -11,7 +11,6 @@ function ToastMsg({ message, isOpen = false, onClose = () => {} }) {
     const toastRef = useRef();
 
     useEffect(() => {
-        console.log('fdf');
         const timeoutId = setTimeout(() => {
             onClose(false);
         }, 4000);

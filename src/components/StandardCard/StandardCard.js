@@ -7,7 +7,7 @@ import { memo } from 'react';
 import styles from './StandardCard.module.scss';
 import { deliverNationSelector } from '~/redux/selectors';
 import StarRating from '~/components/StarRating';
-import { addToCart, addCheckedList } from '~/pages/CartPage/cartPageSlice';
+import { addToCart, addCheckedList, getCart } from '~/pages/CartPage/cartPageSlice';
 
 const cx = classNames.bind(styles);
 
@@ -32,6 +32,7 @@ function StandardCard({
         e.preventDefault();
         dispatch(addToCart({ id: id, quantity: 1 }));
         dispatch(addCheckedList(id));
+        dispatch(getCart()); // dispatch để header update cart count
         onOpenToast();
     };
 

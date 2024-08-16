@@ -19,10 +19,6 @@ export const listsAccountMenuData = {
     AccountMenuData: [
         {
             to: '',
-            content: 'Your Account',
-        },
-        {
-            to: '',
             content: 'Account',
         },
         {
@@ -78,135 +74,190 @@ export const listsAccountMenuData = {
 
 export const languageData = [
     {
-        checked: false,
+        id: 1,
         content: 'español - ES',
     },
     {
-        checked: false,
+        id: 2,
         content: 'العربية - AR',
     },
     {
-        checked: false,
+        id: 3,
         content: 'Deutsch - DE',
     },
     {
-        checked: false,
+        id: 4,
         content: 'עברית - HE',
     },
     {
-        checked: false,
+        id: 5,
         content: '한국어 - KO',
     },
     {
-        checked: false,
+        id: 6,
         content: 'português - PT',
     },
     {
-        checked: false,
+        id: 7,
         content: '中文 (简体) - ZH',
     },
     {
-        checked: false,
+        id: 8,
         content: '中文 (繁體) - ZH',
+    },
+    {
+        id: 9,
+        content: 'Vietnam - VN',
     },
 ];
 
-export const NationsZipCode = [
+export const nations = [
     {
-        checked: false,
+        id: 1,
         content: 'Vietnam',
     },
     {
-        checked: false,
-        content: 'Vietnam',
+        id: 2,
+        content: 'Venezuela',
     },
     {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
-        content: 'Vietnam',
-    },
-    {
-        checked: false,
+        id: 3,
         content: 'Korea',
     },
     {
-        checked: false,
-        content: 'Korea',
-    },
-    {
-        checked: true,
-        content: 'Thailan',
-    },
-    {
-        checked: false,
+        id: 4,
         content: 'Japan',
+    },
+    {
+        id: 5,
+        content: 'Philippines',
+    },
+    {
+        id: 6,
+        content: 'Yemen',
+    },
+    {
+        id: 7,
+        content: 'Zambia',
+    },
+    {
+        id: 8,
+        content: 'Zimbabwe',
+    },
+    {
+        id: 9,
+        content: 'Canada',
+    },
+    {
+        id: 10,
+        content: 'United State',
+    },
+    {
+        id: 11,
+        content: 'United Kingdom',
+    },
+    {
+        id: 12,
+        content: 'Spain',
+    },
+    {
+        id: 13,
+        content: 'Sweden',
+    },
+    {
+        id: 14,
+        content: 'Taiwan',
+    },
+    {
+        id: 15,
+        content: 'Sri Lanka',
+    },
+    {
+        id: 16,
+        content: 'Thailand',
+    },
+    {
+        id: 17,
+        content: 'Togo',
+    },
+    {
+        id: 18,
+        content: 'Tonga',
+    },
+    {
+        id: 19,
+        content: 'Turkey',
+    },
+    {
+        id: 20,
+        content: 'South Africa',
+    },
+    {
+        id: 21,
+        content: 'Singapore',
+    },
+    {
+        id: 22,
+        content: 'Serbia',
+    },
+    {
+        id: 23,
+        content: 'Slovakia',
+    },
+    {
+        id: 24,
+        content: 'Mongolia',
+    },
+    {
+        id: 25,
+        content: 'Qatar',
+    },
+    {
+        id: 26,
+        content: 'Paraguay',
+    },
+    {
+        id: 27,
+        content: 'Peru',
+    },
+    {
+        id: 28,
+        content: 'Nigeria',
+    },
+];
+
+export const searchType = [
+    {
+        id: 1,
+        content: 'All Departments',
+    },
+    {
+        id: 2,
+        content: 'Beauty',
+    },
+    {
+        id: 3,
+        content: 'Computer',
+    },
+    {
+        id: 4,
+        content: 'Decor',
+    },
+    {
+        id: 5,
+        content: 'Fashion',
+    },
+    {
+        id: 6,
+        content: 'Kitchen',
+    },
+    {
+        id: 7,
+        content: 'Refresh your space',
+    },
+    {
+        id: 8,
+        content: 'Toy',
     },
 ];
 
