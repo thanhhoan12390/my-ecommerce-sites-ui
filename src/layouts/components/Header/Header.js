@@ -111,7 +111,7 @@ function Header() {
                     <h4 className={cx('nav-main-all-text')}>All Options</h4>
                 </div>
                 <div className={cx('nav-main-item')}>
-                    <Link to="/" className={cx('nav-main-link')}>
+                    <Link to={config.routes.todayDeal} className={cx('nav-main-link')}>
                         Today's Deals
                     </Link>
                 </div>

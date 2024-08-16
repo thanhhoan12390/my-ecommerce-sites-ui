@@ -16,3 +16,7 @@ export const checkedListSelector = (state) => state.cartPage.checkedList;
 
 // Order Page Selectors
 export const orderSelector = (state) => state.orderPage.orderList;
+
+// Order Page Selectors
+export const priceFilterSelector = (state) => state.todayDeal.priceFilter;
+export const discountFilterSelector = (state) => state.todayDeal.discountFilter;

@@ -1,0 +1,67 @@
+.wrapper {
+    padding: 4px;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.container {
+    color: var(--black);
+}
+
+.card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    padding: 8px;
+    max-width: 226px;
+    aspect-ratio: 1 / 1;
+
+    img {
+        width: 226px;
+        aspect-ratio: auto 226 / 226;
+        height: 226px;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+.card-sale-off {
+    margin-bottom: 6px;
+}
+
+.sale-off-text {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6rem;
+    color: var(--red);
+
+    span {
+        padding: 4px 6px;
+        line-height: 1.2rem;
+        border-radius: 2px;
+        margin-right: 4px;
+        color: var(--white);
+        background-color: var(--red);
+    }
+}
+
+.card-desc {
+    margin-bottom: 4px;
+}
+
+.desc-text {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    &:hover {
+        color: var(--orange);
+    }
+}

@@ -2,16 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
 }
 
 .container {
     max-width: 100%;
     display: flex;
     width: var(--default-layout-width);
+    overflow: hidden;
 }
 
 .content {
     flex: 1;
-    overflow: hidden;
 }
