@@ -8,6 +8,7 @@ const routes = {
     checkout: '/checkout',
     order: '/order',
     recommend: '/recommend',
+    viewHistory: '/viewHistory',
 };
 
 export default routes;

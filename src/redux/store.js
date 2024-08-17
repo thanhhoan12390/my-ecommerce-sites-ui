@@ -7,6 +7,7 @@ import cartPageSlice from '~/pages/CartPage/cartPageSlice';
 import checkoutPageSlice from '~/pages/CheckoutPage/checkoutPageSlice';
 import orderPageSlice from '~/pages/OrderPage/orderPageSlice';
 import todayDealSlice from '~/pages/TodayDeal/todayDealSlice';
+import viewHistorySlice from '~/pages/ViewHistory/viewHistorySlice';
 import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -19,6 +20,7 @@ const store = configureStore({
         checkoutPage: checkoutPageSlice.reducer,
         orderPage: orderPageSlice.reducer,
         todayDeal: todayDealSlice.reducer,
+        viewHistory: viewHistorySlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware({ serializableCheck: false }).concat(sagaMiddleware);

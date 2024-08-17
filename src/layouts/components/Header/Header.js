@@ -141,7 +141,7 @@ function Header() {
                     </Link>
                 </div> */}
                 <div className={cx('nav-main-item')}>
-                    <Link to="/" className={cx('nav-main-link')}>
+                    <Link to={config.routes.viewHistory} className={cx('nav-main-link')}>
                         Browsing History
                     </Link>
                 </div>

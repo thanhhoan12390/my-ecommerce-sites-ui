@@ -15,6 +15,7 @@ import images from '~/assets/images';
 import { deliverNationSelector } from '~/redux/selectors';
 import MenuWrapper from '~/components/MenuWrapper';
 import { addToCart, addCheckedList } from '~/pages/CartPage/cartPageSlice';
+import { addToViewHistory } from '~/pages/ViewHistory/viewHistorySlice';
 import config from '~/config';
 
 import { productsData } from '~/apiFakeData'; // fake data
@@ -42,7 +43,8 @@ function ViewProduct() {
     useEffect(() => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }, [productId]);
+        dispatch(addToViewHistory(+productId));
+    }, [productId, dispatch]);
 
     // Vì productId lấy trả về kiểu string nên dùng mẹo thêm dấu cộng phía trước để convert về number
     const product = useMemo(() => productsData.find((item) => item.id === +productId), [productId]);

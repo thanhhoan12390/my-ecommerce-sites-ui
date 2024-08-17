@@ -20,3 +20,6 @@ export const orderSelector = (state) => state.orderPage.orderList;
 // Order Page Selectors
 export const priceFilterSelector = (state) => state.todayDeal.priceFilter;
 export const discountFilterSelector = (state) => state.todayDeal.discountFilter;
+
+// ViewHistory Selectors
+export const viewHistorySelector = (state) => state.viewHistory.viewHistory;

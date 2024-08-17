@@ -146,6 +146,15 @@ function CheckoutPage() {
         }
     };
 
+    const handleEditAddressBtn = () => {
+        setErrorCountry('');
+        setErrorName('');
+        setErrorStreet('');
+        setErrorCity('');
+        setErrorZipCode('');
+        setIsOpenModal(true);
+    };
+
     const handleUpdateAddress = () => {
         if (country === '') {
             setErrorCountry('errorCountry');
@@ -219,7 +228,7 @@ function CheckoutPage() {
                             </div>
 
                             <div className={cx('address-edit')}>
-                                <button className={cx('edit-address-btn')} onClick={() => setIsOpenModal(true)}>
+                                <button className={cx('edit-address-btn')} onClick={handleEditAddressBtn}>
                                     Edit your address
                                 </button>
                             </div>
