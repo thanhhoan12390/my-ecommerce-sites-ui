@@ -21,6 +21,8 @@ const cx = classNames.bind(styles);
 function Header() {
     const [isOpenDeliverModal, setIsOpenDeliverModal] = useState(false);
     const [isOpenAccountModal, setIsOpenAccountModal] = useState(false);
+    const [isOpenAccountMenu, setIsOpenAccountMenu] = useState(false);
+    const [isOpenLanguageMenu, setIsOpenLanguageMenu] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -63,8 +65,8 @@ function Header() {
 
                 {/* Nav Right */}
                 <div className={cx('nav-right')}>
-                    <LanguageMenu>
-                        <div className={cx('nav-language')}>
+                    <LanguageMenu isOpen={isOpenLanguageMenu} onClose={() => setIsOpenLanguageMenu(false)}>
+                        <div className={cx('nav-language')} onMouseEnter={() => setIsOpenLanguageMenu(true)}>
                             <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
                             <div className={cx('nav-language-text')}>
                                 <span>{languageKey}</span>
@@ -73,8 +75,8 @@ function Header() {
                         </div>
                     </LanguageMenu>
 
-                    <AccountMenu>
-                        <div className={cx('nav-lists-account')}>
+                    <AccountMenu isOpen={isOpenAccountMenu} onClose={() => setIsOpenAccountMenu(false)}>
+                        <div className={cx('nav-lists-account')} onMouseEnter={() => setIsOpenAccountMenu(true)}>
                             <div className={cx('nav-lists-account-text')}>
                                 <span>Hello, Hoan</span>
                                 <span>

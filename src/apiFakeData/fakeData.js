@@ -5,68 +5,84 @@ export const listsAccountMenuData = {
     ListsData: [
         {
             to: '',
+            active: false,
             content: 'Create a List',
         },
         {
             to: '',
+            active: false,
             content: 'Find a List or Registry',
         },
         {
             to: '',
+            active: false,
             content: 'Your Saved Books',
         },
     ],
     AccountMenuData: [
         {
             to: '',
+            active: false,
             content: 'Account',
         },
         {
-            to: '',
+            to: config.routes.order,
+            active: true,
             content: 'Orders',
         },
         {
-            to: '',
+            to: config.routes.recommend,
+            active: true,
             content: 'Recommendations',
         },
         {
-            to: '',
+            to: config.routes.viewHistory,
+            active: true,
             content: 'Browsing History',
         },
         {
             to: '',
+            active: false,
             content: 'Watchlist',
         },
         {
             to: '',
+            active: false,
             content: 'Video Purchases & Rentals',
         },
         {
             to: '',
+            active: false,
             content: 'Kindle Unlimited',
         },
         {
             to: '',
+            active: false,
             content: 'Content & Devices',
         },
         {
             to: '',
+            active: false,
             content: 'Subscribe & Save Items',
         },
         {
             to: '',
+            active: false,
             content: 'Memberships & Subscriptions',
         },
         {
             to: '',
+            active: false,
             content: 'Music Library',
         },
         {
             to: '',
+            active: false,
             content: 'Switch Accounts',
         },
         {
             to: '',
+            active: false,
             content: 'Sign Out',
         },
     ],

@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { useEffect } from 'react';
 
 import styles from './Recommend.module.scss';
 import RecommendItem from './RecommendItem';
@@ -8,6 +9,11 @@ import { productsData } from '~/apiFakeData';
 const cx = classNames.bind(styles);
 
 function Recommend() {
+    useEffect(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }, []);
+
     return (
         <div className="col l-12 m-12 c-12">
             <div className={cx('wrapper')}>

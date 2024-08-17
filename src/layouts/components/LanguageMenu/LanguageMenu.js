@@ -16,7 +16,7 @@ import OverLay from '~/components/OverLay/OverLay';
 
 const cx = classNames.bind(styles);
 
-function LanguageMenu({ children }) {
+function LanguageMenu({ children, isOpen = false, onClose = () => {} }) {
     const languageList = useSelector(languageSelector);
     const browserLanguage = useSelector(browserLanguageSelector);
 
@@ -34,10 +34,11 @@ function LanguageMenu({ children }) {
             <div className={cx('tippy-wrapper')}>
                 <Tippy
                     interactive
+                    visible={isOpen}
                     offset={[72, -2]}
                     placement="bottom"
                     render={(attrs) => (
-                        <div className={cx('language-menu')} tabIndex="-1" {...attrs}>
+                        <div className={cx('language-menu')} tabIndex="-1" {...attrs} onMouseLeave={onClose}>
                             <MenuWrapper>
                                 <span className={cx('language-menu-text')}>
                                     Change language <Link to="">Learn more</Link>
@@ -46,6 +47,7 @@ function LanguageMenu({ children }) {
                                     checked={browserLanguage === 'English - EN'}
                                     onClick={() => {
                                         dispatch(updateLanguage('English - EN'));
+                                        onClose();
                                     }}
                                 >
                                     English - EN
@@ -59,6 +61,7 @@ function LanguageMenu({ children }) {
                                         checked={languageItem.content === browserLanguage}
                                         onClick={() => {
                                             dispatch(updateLanguage(languageItem.content));
+                                            onClose();
                                         }}
                                     >
                                         {languageItem.content}

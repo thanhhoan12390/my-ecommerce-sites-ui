@@ -26,6 +26,11 @@ function ViewHistory() {
         dispatch(getViewHistory());
     }, [dispatch]);
 
+    useEffect(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }, []);
+
     return (
         <div className="col l-12 m-12 c-12">
             <div className={cx('wrapper')}>
@@ -38,7 +43,7 @@ function ViewHistory() {
                         <div className="row no-gutters">
                             {!!viewHistoryItems &&
                                 viewHistoryItems.map((item) => (
-                                    <div key={item.id} className="col l-2 m-3 c-4">
+                                    <div key={item.id} className="col l-2 m-4 c-6">
                                         <div className={cx('card-item')}>
                                             <ViewHistoryItem data={item} />
                                         </div>

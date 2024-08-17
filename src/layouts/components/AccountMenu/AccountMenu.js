@@ -14,7 +14,7 @@ import { listsAccountMenuData } from '~/apiFakeData'; // fake Data
 
 const cx = classNames.bind(styles);
 
-function AccountMenu({ children }) {
+function AccountMenu({ children, isOpen = false, onClose = () => {} }) {
     return (
         <div>
             <OverLay className={cx('overlay')} />
@@ -22,9 +22,10 @@ function AccountMenu({ children }) {
             <div className={cx('tippy-wrapper')}>
                 <Tippy
                     interactive
+                    visible={isOpen}
                     offset={[-78, -2]}
                     render={(attrs) => (
-                        <div className={cx('account-menu')} tabIndex="-1" {...attrs}>
+                        <div className={cx('account-menu')} tabIndex="-1" {...attrs} onMouseLeave={onClose}>
                             <MenuWrapper>
                                 <header className={cx('account-header')}>
                                     <div className={cx('avatar-group')}>
@@ -46,7 +47,11 @@ function AccountMenu({ children }) {
                                         <ul className={cx('your-list-lists')}>
                                             {listsAccountMenuData.ListsData.map((dataItem, index) => (
                                                 <li key={index}>
-                                                    <Link className={cx('your-list-item')} to={dataItem.to}>
+                                                    <Link
+                                                        className={cx('your-list-item')}
+                                                        to={dataItem.to}
+                                                        onClick={onClose}
+                                                    >
                                                         {dataItem.content}
                                                     </Link>
                                                 </li>
@@ -59,8 +64,11 @@ function AccountMenu({ children }) {
 
                                         <ul className={cx('your-account-lists')}>
                                             {listsAccountMenuData.AccountMenuData.map((dataItem, index) => (
-                                                <li key={index}>
-                                                    <Link className={cx('your-account-item')} to={dataItem.to}>
+                                                <li key={index} onClick={onClose}>
+                                                    <Link
+                                                        className={cx('your-account-item', { active: dataItem.active })}
+                                                        to={dataItem.to}
+                                                    >
                                                         {dataItem.content}
                                                     </Link>
                                                 </li>

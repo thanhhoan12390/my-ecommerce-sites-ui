@@ -114,6 +114,11 @@ function TodayDeal() {
         });
     }, [discountFilter, priceFilter, dealData]);
 
+    useEffect(() => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }, []);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>

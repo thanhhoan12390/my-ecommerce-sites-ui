@@ -13,7 +13,7 @@ function ToastMsg({ message, isOpen = false, onClose = () => {} }) {
     useEffect(() => {
         const timeoutId = setTimeout(() => {
             onClose(false);
-        }, 4000);
+        }, 2000);
 
         return () => {
             clearTimeout(timeoutId);
