@@ -115,31 +115,31 @@ function Header() {
                         Today's Deals
                     </Link>
                 </div>
-                <div className={cx('nav-main-item')}>
+                {/* <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
                         Buy Again
                     </Link>
-                </div>
-                <div className={cx('nav-main-item')}>
+                </div> */}
+                {/* <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
                         Gift Cards
                     </Link>
-                </div>
-                <div className={cx('nav-main-item')}>
+                </div> */}
+                {/* <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
                         Registry
                     </Link>
-                </div>
+                </div> */}
                 <div className={cx('nav-main-item')}>
-                    <Link to="/" className={cx('nav-main-link')}>
+                    <Link to={config.routes.recommend} className={cx('nav-main-link')}>
                         Hoan's eCommerce site
                     </Link>
                 </div>
-                <div className={cx('nav-main-item')}>
+                {/* <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
                         Customer Service
                     </Link>
-                </div>
+                </div> */}
                 <div className={cx('nav-main-item')}>
                     <Link to="/" className={cx('nav-main-link')}>
                         Browsing History

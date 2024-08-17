@@ -12,6 +12,7 @@ import Search from '~/pages/Search';
 import ViewProduct from '~/pages/ViewProduct';
 import CheckoutPage from '~/pages/CheckoutPage';
 import OrderPage from '~/pages/OrderPage';
+import Recommend from '~/pages/Recommend';
 
 // Public Routes
 const publicRoutes = [
@@ -23,6 +24,7 @@ const publicRoutes = [
     { path: config.routes.viewProduct, component: ViewProduct, layout: DefaultLayout },
     { path: config.routes.checkout, component: CheckoutPage },
     { path: config.routes.order, component: OrderPage, layout: DefaultLayout },
+    { path: config.routes.recommend, component: Recommend, layout: DefaultLayout },
 ];
 
 // Private Routes

@@ -7,6 +7,7 @@ const routes = {
     viewProduct: '/viewProduct/:productId',
     checkout: '/checkout',
     order: '/order',
+    recommend: '/recommend',
 };
 
 export default routes;

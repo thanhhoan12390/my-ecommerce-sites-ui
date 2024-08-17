@@ -1,0 +1,31 @@
+.wrapper {
+    margin-top: 12px;
+}
+
+.header {
+    margin-left: 25px;
+    margin-top: 20px;
+
+    h2 {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        color: var(--black);
+    }
+}
+
+.container {
+    padding: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.content {
+    margin: 0 25px 22px;
+}
+
+.card-item {
+    border: 1px solid #d5dbdb;
+
+    height: 300px;
+}

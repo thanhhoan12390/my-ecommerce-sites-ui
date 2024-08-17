@@ -19,7 +19,7 @@ function RatingPopover({ children, rating, offsetLeft = 0, offsetRight = 0 }) {
         <div className={cx('wrapper')}>
             <Tippy
                 interactive
-                delay={[300, 400]}
+                delay={[200, 200]}
                 offset={[offsetLeft, offsetRight]}
                 placement="bottom"
                 render={(attrs) => (

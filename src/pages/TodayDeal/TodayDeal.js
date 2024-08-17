@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './TodayDeal.module.scss';
@@ -13,7 +13,9 @@ import { productsData, bannerCardData } from '~/apiFakeData'; // fake data
 const cx = classNames.bind(styles);
 
 function TodayDeal() {
-    const [todayDealData, setTodayDealData] = useState(productsData);
+    const dealData = useMemo(() => productsData.filter((item) => item.saleOff > 5), []);
+
+    const [todayDealData, setTodayDealData] = useState(dealData);
 
     const dispatch = useDispatch();
 
@@ -102,7 +104,7 @@ function TodayDeal() {
 
     useEffect(() => {
         setTodayDealData(() => {
-            const newData = productsData.filter((item) => {
+            const newData = dealData.filter((item) => {
                 const price = (item.typicalPrice - (item.typicalPrice * item.saleOff) / 100).toFixed(2);
 
                 return price >= priceFilter.from && price < priceFilter.to && item.saleOff >= discountFilter;
@@ -110,7 +112,7 @@ function TodayDeal() {
 
             return newData;
         });
-    }, [discountFilter, priceFilter]);
+    }, [discountFilter, priceFilter, dealData]);
 
     return (
         <div className={cx('wrapper')}>
