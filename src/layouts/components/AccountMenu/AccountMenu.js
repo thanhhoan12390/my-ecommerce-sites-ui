@@ -14,7 +14,7 @@ import { listsAccountMenuData } from '~/apiFakeData'; // fake Data
 
 const cx = classNames.bind(styles);
 
-function AccountMenu({ children, isOpen = false, onClose = () => {} }) {
+function AccountMenu({ children, isOpen = false, onOpen = () => {} }) {
     return (
         <div>
             <OverLay className={cx('overlay')} />
@@ -25,7 +25,13 @@ function AccountMenu({ children, isOpen = false, onClose = () => {} }) {
                     visible={isOpen}
                     offset={[-78, -2]}
                     render={(attrs) => (
-                        <div className={cx('account-menu')} tabIndex="-1" {...attrs} onMouseLeave={onClose}>
+                        <div
+                            className={cx('account-menu')}
+                            tabIndex="-1"
+                            {...attrs}
+                            onMouseLeave={() => onOpen(false)}
+                            onMouseEnter={() => onOpen(true)}
+                        >
                             <MenuWrapper>
                                 <header className={cx('account-header')}>
                                     <div className={cx('avatar-group')}>
@@ -50,7 +56,7 @@ function AccountMenu({ children, isOpen = false, onClose = () => {} }) {
                                                     <Link
                                                         className={cx('your-list-item')}
                                                         to={dataItem.to}
-                                                        onClick={onClose}
+                                                        onClick={() => onOpen(false)}
                                                     >
                                                         {dataItem.content}
                                                     </Link>
@@ -64,10 +70,11 @@ function AccountMenu({ children, isOpen = false, onClose = () => {} }) {
 
                                         <ul className={cx('your-account-lists')}>
                                             {listsAccountMenuData.AccountMenuData.map((dataItem, index) => (
-                                                <li key={index} onClick={onClose}>
+                                                <li key={index}>
                                                     <Link
                                                         className={cx('your-account-item', { active: dataItem.active })}
                                                         to={dataItem.to}
+                                                        onClick={() => onOpen(false)}
                                                     >
                                                         {dataItem.content}
                                                     </Link>

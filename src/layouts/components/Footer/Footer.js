@@ -3,17 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsUpDown, faGamepad, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import styles from './Footer.module.scss';
 import RelateView from '~/layouts/components/RelatedView';
 import images from '~/assets/images';
 import { Logo } from '~/components/Icons';
 import { browserLanguageSelector } from '~/redux/selectors';
-import LanguageMenu from '../LanguageMenu/LanguageMenu';
+import LanguageMenu from '~/layouts/components/LanguageMenu';
 
 const cx = classNames.bind(styles);
 
 function Footer() {
+    const [isOpenLanguageMenu, setIsOpenLanguageMenu] = useState(false);
+
     const browserLanguage = useSelector(browserLanguageSelector);
 
     const handleBackToTop = () => {
@@ -201,8 +204,12 @@ function Footer() {
                 </div>
 
                 <div className={cx('pad-line-group')}>
-                    <LanguageMenu>
-                        <div className={cx('pad-line-language')}>
+                    <LanguageMenu isOpen={isOpenLanguageMenu} onOpen={setIsOpenLanguageMenu}>
+                        <div
+                            className={cx('pad-line-language')}
+                            onMouseEnter={() => setIsOpenLanguageMenu(true)}
+                            onMouseLeave={() => setIsOpenLanguageMenu(false)}
+                        >
                             <FontAwesomeIcon icon={faGlobe} className={cx('pad-line-icon')} />
                             <span>{browserLanguage}</span>
                             <FontAwesomeIcon icon={faArrowsUpDown} className={cx('pad-line-arrow')} />

@@ -65,8 +65,12 @@ function Header() {
 
                 {/* Nav Right */}
                 <div className={cx('nav-right')}>
-                    <LanguageMenu isOpen={isOpenLanguageMenu} onClose={() => setIsOpenLanguageMenu(false)}>
-                        <div className={cx('nav-language')} onMouseEnter={() => setIsOpenLanguageMenu(true)}>
+                    <LanguageMenu isOpen={isOpenLanguageMenu} onOpen={setIsOpenLanguageMenu}>
+                        <div
+                            className={cx('nav-language')}
+                            onMouseEnter={() => setIsOpenLanguageMenu(true)}
+                            onMouseLeave={() => setIsOpenLanguageMenu(false)}
+                        >
                             <FontAwesomeIcon icon={faLanguage} className={cx('nav-language-icon')}></FontAwesomeIcon>
                             <div className={cx('nav-language-text')}>
                                 <span>{languageKey}</span>
@@ -75,8 +79,12 @@ function Header() {
                         </div>
                     </LanguageMenu>
 
-                    <AccountMenu isOpen={isOpenAccountMenu} onClose={() => setIsOpenAccountMenu(false)}>
-                        <div className={cx('nav-lists-account')} onMouseEnter={() => setIsOpenAccountMenu(true)}>
+                    <AccountMenu isOpen={isOpenAccountMenu} onOpen={setIsOpenAccountMenu}>
+                        <div
+                            className={cx('nav-lists-account')}
+                            onMouseEnter={() => setIsOpenAccountMenu(true)}
+                            onMouseLeave={() => setIsOpenAccountMenu(false)}
+                        >
                             <div className={cx('nav-lists-account-text')}>
                                 <span>Hello, Hoan</span>
                                 <span>

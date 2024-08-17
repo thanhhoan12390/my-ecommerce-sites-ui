@@ -16,7 +16,7 @@ import OverLay from '~/components/OverLay/OverLay';
 
 const cx = classNames.bind(styles);
 
-function LanguageMenu({ children, isOpen = false, onClose = () => {} }) {
+function LanguageMenu({ children, isOpen = false, onOpen = () => {} }) {
     const languageList = useSelector(languageSelector);
     const browserLanguage = useSelector(browserLanguageSelector);
 
@@ -38,7 +38,13 @@ function LanguageMenu({ children, isOpen = false, onClose = () => {} }) {
                     offset={[72, -2]}
                     placement="bottom"
                     render={(attrs) => (
-                        <div className={cx('language-menu')} tabIndex="-1" {...attrs} onMouseLeave={onClose}>
+                        <div
+                            className={cx('language-menu')}
+                            tabIndex="-1"
+                            {...attrs}
+                            onMouseLeave={() => onOpen(false)}
+                            onMouseEnter={() => onOpen(true)}
+                        >
                             <MenuWrapper>
                                 <span className={cx('language-menu-text')}>
                                     Change language <Link to="">Learn more</Link>
@@ -47,7 +53,7 @@ function LanguageMenu({ children, isOpen = false, onClose = () => {} }) {
                                     checked={browserLanguage === 'English - EN'}
                                     onClick={() => {
                                         dispatch(updateLanguage('English - EN'));
-                                        onClose();
+                                        onOpen(false);
                                     }}
                                 >
                                     English - EN
@@ -61,7 +67,7 @@ function LanguageMenu({ children, isOpen = false, onClose = () => {} }) {
                                         checked={languageItem.content === browserLanguage}
                                         onClick={() => {
                                             dispatch(updateLanguage(languageItem.content));
-                                            onClose();
+                                            onOpen(false);
                                         }}
                                     >
                                         {languageItem.content}

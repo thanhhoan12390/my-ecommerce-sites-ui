@@ -57,6 +57,38 @@ function NavFill() {
         }
     };
 
+    const handleSearchBtn = () => {
+        switch (searchTypeValue) {
+            case 'All Departments':
+                navigate(`/search/${config.constant.ALL_TOPICS}`);
+                break;
+            case 'Beauty':
+                navigate(`/search/${config.constant.BEAUTY_TOPIC}`);
+                break;
+            case 'Computer':
+                navigate(`/search/${config.constant.COMPUTER_TOPIC}`);
+                break;
+            case 'Decor':
+                navigate(`/search/${config.constant.DECOR_TOPIC}`);
+                break;
+            case 'Fashion':
+                navigate(`/search/${config.constant.FASHION_TOPIC}`);
+                break;
+            case 'Kitchen':
+                navigate(`/search/${config.constant.KITCHEN_TOPIC}`);
+                break;
+            case 'Refresh your space':
+                navigate(`/search/${config.constant.REFRESH_SPACE_TOPIC}`);
+                break;
+            case 'Toy':
+                navigate(`/search/${config.constant.TOY_TOPIC}`);
+                break;
+            default:
+                navigate(`/search/${config.constant.ALL_TOPICS}`);
+                break;
+        }
+    };
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
@@ -133,10 +165,7 @@ function NavFill() {
                                 onChange={handleChange}
                                 onFocus={() => setShowResult(true)}
                             />
-                            <button
-                                className={cx('search-btn')}
-                                onClick={() => navigate(`/search/${config.constant.ALL_TOPICS}`)}
-                            >
+                            <button className={cx('search-btn')} onClick={handleSearchBtn}>
                                 <SearchIcon />
                             </button>
                         </div>
