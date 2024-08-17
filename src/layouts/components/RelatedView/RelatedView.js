@@ -4,15 +4,17 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { useMemo, useState } from 'react';
 
 import styles from './RelatedView.module.scss';
-import ProductCard from '~/components/ProductCard/ProductCard';
+import ProductCard from '~/components/ProductCard';
+
+import { relatedViewData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
-function RelateView({ data }) {
+function RelateView() {
     const [currentPage, setCurrentPage] = useState(1);
     const [slideDirection, setSlideDirection] = useState('');
 
-    const maxPage = useMemo(() => data.length, [data.length]);
+    const maxPage = useMemo(() => relatedViewData.length, []);
 
     const handleLeftBtn = () => {
         setCurrentPage((curr) => (curr === 1 ? maxPage : curr - 1));
@@ -41,7 +43,7 @@ function RelateView({ data }) {
                         </button>
 
                         <div className={cx('carousel-group')}>
-                            {data.map((page, index) => (
+                            {relatedViewData.map((page, index) => (
                                 <ul
                                     key={index}
                                     className={

@@ -33,14 +33,11 @@
 }
 
 .carousel-wrapper {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .carousel-group {
-    max-width: 1372px;
+    margin: 0 42px;
     overflow: hidden;
 }
 
@@ -50,7 +47,9 @@
     height: 100%;
 
     li {
-        width: calc(100% / 7);
+        width: 165px;
+        margin-left: 28px;
+        padding: 5px 0;
     }
 }
 
@@ -67,8 +66,8 @@
 }
 
 .arrow-btn {
-    position: relative;
-    top: -18px;
+    position: absolute;
+    top: calc(50% - 42px);
     height: 42px;
     width: 42px;
     overflow: visible;
@@ -88,9 +87,11 @@
 
 .arrow-left-btn {
     margin-left: 5px;
+    left: 0;
 }
 
 .arrow-right-btn {
+    right: 0;
     margin-right: 5px;
 }
 .arrow-left-icon,

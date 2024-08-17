@@ -122,6 +122,7 @@ function CartPage() {
                                         </span>
                                     )}
 
+                                    {/* Optional chaining (?.) */}
                                     {!!products && (checkedList?.length === 0 || !!checkedList === false) && (
                                         <span className={cx('main-header-no-items')}>
                                             No items selected.<span onClick={handleSelectAll}> Select all items</span>

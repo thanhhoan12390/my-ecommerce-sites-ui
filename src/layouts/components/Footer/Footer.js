@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom';
 
 import styles from './Footer.module.scss';
 import RelateView from '~/layouts/components/RelatedView';
-import { virtualProductItem } from '~/utils/commonFuncs';
 import images from '~/assets/images';
 import { Logo } from '~/components/Icons';
 import { browserLanguageSelector } from '~/redux/selectors';
 import LanguageMenu from '../LanguageMenu/LanguageMenu';
-
-import { relatedViewData } from '~/apiFakeData'; // fake data
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +24,7 @@ function Footer() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('relate-item-view')}>
-                <RelateView data={virtualProductItem(relatedViewData)} />
+                <RelateView />
                 <div className={cx('relate-view-line')}></div>
                 <br />
             </div>
