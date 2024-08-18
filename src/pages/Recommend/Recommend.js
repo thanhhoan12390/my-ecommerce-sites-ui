@@ -24,7 +24,7 @@ function Recommend() {
                     <div className={cx('content')}>
                         <div className="row no-gutters">
                             {productsData.map((item) => (
-                                <div key={item.id} className="col l-2 m-3 c-4">
+                                <div key={item.id} className="col l-2 m-4 c-6">
                                     <div className={cx('card-item')}>
                                         <RecommendItem data={item} />
                                     </div>

@@ -145,7 +145,7 @@ function NavFill() {
                                             className={cx('search-item')}
                                             onClick={() => {
                                                 setSearchValue('');
-                                                navigate(`/search/${config.constant.ALL_TOPICS}`);
+                                                handleSearchBtn();
                                             }}
                                         >
                                             <SearchIcon width="1.9rem" height="1.9rem" />
