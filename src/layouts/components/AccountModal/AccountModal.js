@@ -17,6 +17,7 @@ import styles from './AccountModal.module.scss';
 import Divider from '~/components/Divider/Divider';
 import images from '~/assets/images';
 import OverLay from '~/components/OverLay/OverLay';
+import config from '~/config';
 
 import { AccountModalData } from '~/apiFakeData'; // Fake Data
 
@@ -62,7 +63,14 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
             if (isHasNoChild) {
                 return (
                     <li key={index} className={cx('content-list-item')}>
-                        <Link className={cx('content-item-link')} to={child.to}>
+                        <Link
+                            className={cx('content-item-link')}
+                            to={`/search/${config.constant.ALL_TOPICS}`}
+                            onClick={() => {
+                                onClose();
+                                setHistory((prev) => [prev[0]]);
+                            }}
+                        >
                             {child.title}
                         </Link>
                     </li>
@@ -172,29 +180,29 @@ function AccountModal({ isOpen = false, onClose = () => {} }) {
                             <h4 className={cx('help-settings-heading')}>Help & Settings</h4>
                             <ul className={cx('help-settings-group')}>
                                 <li>
-                                    <Link to="/" className={cx('help-settings-text')}>
+                                    <Link to="" className={cx('help-settings-text')}>
                                         Your Account
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className={cx('help-settings-globe-text')}>
+                                    <Link to="" className={cx('help-settings-globe-text')}>
                                         <FontAwesomeIcon icon={faGlobe} className={cx('help-settings-icon')} />
                                         Vietnam
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className={cx('help-settings-flag-text')}>
+                                    <Link to="" className={cx('help-settings-flag-text')}>
                                         <img src={images.vnFlag} className={cx('help-settings-flag')} alt="flag"></img>
                                         Viet Nam
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className={cx('help-settings-text')}>
+                                    <Link to="" className={cx('help-settings-text')}>
                                         Customer Service
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/" className={cx('help-settings-text')}>
+                                    <Link to="" className={cx('help-settings-text')}>
                                         Sign out
                                     </Link>
                                 </li>
