@@ -23,7 +23,6 @@ function* handleAddToViewHistory(action) {
 
             if (!existedId) {
                 yield localStorage.setItem('viewHistory', JSON.stringify([action.payload, ...viewHistory]));
-            } else {
             }
         }
 

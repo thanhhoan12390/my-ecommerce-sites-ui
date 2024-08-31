@@ -1,5 +1,3 @@
-const { override, useBabelRc } = require("customize-cra"); // Cú pháp import của CommonJS
+const { override, useBabelRc } = require('customize-cra'); // Cú pháp import của CommonJS
 
-module.exports = override(
-    useBabelRc()
-);
+module.exports = override(useBabelRc());
