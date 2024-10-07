@@ -50,7 +50,7 @@ function ViewProduct() {
     const product = useMemo(() => productsData.find((item) => item.id === +productId), [productId]);
 
     const price = useMemo(
-        () => (product.typicalPrice - (product.typicalPrice * product.saleOff) / 100).toFixed(2),
+        () => (product ? (product.typicalPrice - (product.typicalPrice * product.saleOff) / 100).toFixed(2) : null),
         [product],
     );
 
@@ -66,7 +66,9 @@ function ViewProduct() {
         navigate(config.routes.checkout);
     };
 
-    return (
+    return !product ? (
+        <h2 className={cx('no-product')}>Invalid product code !!!</h2>
+    ) : (
         <div className="col l-12 m-12 c-12">
             <div className={cx('wrapper')}>
                 <div className={cx('container')}>

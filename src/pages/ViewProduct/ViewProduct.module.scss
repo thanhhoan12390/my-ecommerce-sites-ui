@@ -9,6 +9,13 @@
     background-color: var(--white);
 }
 
+.no-product {
+    flex-grow: 1;
+    text-align: center;
+    margin-top: 24px;
+    user-select: none;
+}
+
 .container {
     margin-top: 28px;
     min-width: 996px;
