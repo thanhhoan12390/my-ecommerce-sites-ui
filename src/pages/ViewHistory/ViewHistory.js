@@ -18,7 +18,9 @@ function ViewHistory() {
 
     const viewHistoryItems = useMemo(() => {
         if (!!viewHistoryData && viewHistoryData.length !== 0) {
-            return viewHistoryData.map((id) => productsData.find((item) => item.id === id));
+            const productItems = viewHistoryData.map((id) => productsData.find((item) => item.id === id));
+
+            return productItems.filter((item) => item !== undefined);
         }
     }, [viewHistoryData]);
 
